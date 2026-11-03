@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Prozentrechnung
+summary: >-
+  Prozentrechnung aus Klasse 7 und 8, Schritt für Schritt: Grundwert, Prozentwert und Prozentsatz erkennen und
+  berechnen, Zu- und Abnahme, Vergleiche und Sachaufgaben. Jede Seite hat eine Erklärung, ein Beispiel, ein Bild und
+  so viele Aufgaben, wie du willst; jede Aufgabe sagt dir sofort, ob dein Ergebnis stimmt, und zeigt dir auf Wunsch
+  den Rechenweg.
+pages: [grundbegriffe, prozentsatz, prozentwert, grundwert, veraenderung, vergleich, sachaufgaben]
+selfAssessment:
+  pages:
+    - exercises:
+        - /prozent/prozentsatz/#prozentsatz-aufgabe
+        - /prozent/prozentsatz/#prozentsatz-rechnen
+        - /prozent/prozentwert/#prozentwert-aufgabe
+    - exercises:
+        - /prozent/prozentwert/#prozentwert-rechnen
+        - /prozent/grundwert/#grundwert-aufgabe
+        - /prozent/grundwert/#grundwert-rechnen
+    - exercises:
+        - /prozent/veraenderung/#veraenderung-aufgabe
+        - /prozent/veraenderung/#veraenderung-rueckwaerts
+        - /prozent/vergleich/#vergleich-aufgabe
+    - exercises:
+        - /prozent/vergleich/#vergleich-rechnen
+        - /prozent/sachaufgaben/#sachaufgaben-aufgabe
+        - /prozent/sachaufgaben/#sachaufgaben-aufgabe
