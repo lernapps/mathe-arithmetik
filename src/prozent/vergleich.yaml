@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
-title: Zwei Werte vergleichen
+title: Zwei Werte am Prozentstreifen vergleichen
 description: >-
-  Um wie viel Prozent ist A größer als B – und warum ist B nicht um denselben Prozentsatz kleiner? Bezugsgröße,
+  Um wie viel Prozent ist A größer oder kleiner als B? Die Bezugsgröße steht nach „als“. Mit zwei Prozentstreifen, einem
   Beispiel und Übungen.
 competencies: [prozent-vergleich]
 blocks:
@@ -11,9 +11,25 @@ blocks:
     blocks:
       - type: text
         text: >-
-          „Laden A ist 25 % teurer als Laden B“ und „Laden B ist 20 % billiger als Laden A“ – beides stimmt, mit
-          denselben Preisen. Wenn du den Trick kennst, fällst du auf keine Werbung und auf keine Fangfrage in der
-          Klassenarbeit herein: Es kommt darauf an, welcher Wert 100 % ist.
+          Ein Rucksack kostet in Laden A 150 €, in Laden B 120 €. Der Unterschied ist 30 €. Um wie viel Prozent ist A
+          teurer als B? Der Streifen zeigt: Der Teil ist bekannt, der Prozentsatz fehlt.
+      - type: vue-component
+        id: streifen-frage
+        component: ProzentStreifen
+        props:
+          prozent: 25
+          prozentText: "? %"
+          grundwert: "120 €"
+          wert: "30 €"
+          verdeckt: true
+        nojs: |
+          Prozentstreifen: Der ganze Streifen ist der Preis in Laden B, 120 €, das sind 100 %. Der Unterschied von 30 € ist ein
+          Teil davon. Wie viel Prozent das sind, ist gesucht.
+      - type: text
+        text: >-
+          Der ganze Streifen ist der **Grundwert**. Hier ist es der Preis von B, denn A ist teurer *als B*. Das Wort
+          nach „als“ nennt die **Bezugsgröße**. Wechselt die Bezugsgröße, ändert sich der Prozentsatz, obwohl der
+          Unterschied gleich bleibt.
   - type: section
     id: regel
     title: Regel
@@ -23,17 +39,13 @@ blocks:
       - type: definition
         term: Bezugsgröße
         explanation: >-
-          Der Wert, mit dem verglichen wird: Er ist 100 %. Im Satz steht er nach dem Wort **„als“**.
-      - type: text
-        text: >-
-          Der Unterschied ist immer derselbe, aber er wird durch einen anderen Wert geteilt – deshalb kommen zwei
-          verschiedene Prozentsätze heraus.
+          Der Wert, mit dem verglichen wird: Er ist 100 %. Im Satz steht er nach dem Wort **„als“**.
       - type: note
         title: Merkhilfe
         blocks:
           - type: text
             text: >-
-              Nach „als“ steht die 100 %. „A ist größer als B“ → B ist 100 %. „B ist kleiner als A“ → A ist 100 %.
+              Nach „als“ steht die 100 %. „A ist größer als B“: B ist 100 %. „B ist kleiner als A“: A ist 100 %.
   - type: section
     id: beispiel
     title: Beispiel
@@ -41,50 +53,105 @@ blocks:
       - type: example
         title: Ein Rucksack in zwei Läden
         blocks:
-          - type: text
-            text: Ein Rucksack kostet in Laden A 150 €, in Laden B 120 €.
+          - type: vue-component
+            id: streifen-laden-b
+            component: ProzentStreifen
+            props:
+              prozent: 25
+              prozentText: "25 %"
+              grundwert: "120 €"
+              wert: "30 €"
+            nojs: |
+              Prozentstreifen: Der ganze Streifen ist Laden B mit 120 €. Der Unterschied von 30 € ist 25 % davon.
+          - type: vue-component
+            id: streifen-laden-a
+            component: ProzentStreifen
+            props:
+              prozent: 20
+              prozentText: "20 %"
+              grundwert: "150 €"
+              wert: "30 €"
+            nojs: |
+              Prozentstreifen: Der ganze Streifen ist Laden A mit 150 €. Derselbe Unterschied von 30 € ist nur 20 % davon.
           - type: table
             caption: Zwei Fragen, zwei Bezugsgrößen
-            header: [Frage, Bezugsgröße (100 %), Rechnung]
+            header: [Frage, Bezugsgröße, Rechnung]
             rows:
-              - [
-                  "Um wie viel Prozent ist A teurer als B?",
-                  "B = 120 €",
-                  "$p = \\frac{30}{120} \\cdot 100 = 25$, also **25 %**",
-                ]
-              - [
-                  "Um wie viel Prozent ist B billiger als A?",
-                  "A = 150 €",
-                  "$p = \\frac{30}{150} \\cdot 100 = 20$, also **20 %**",
-                ]
+              - ["A teurer als B", "B: 120 €", "$p = \\frac{30}{120} \\cdot 100 = 25$, also **25 %**"]
+              - ["B billiger als A", "A: 150 €", "$p = \\frac{30}{150} \\cdot 100 = 20$, also **20 %**"]
+      - type: example
+        title: Mehr Schüler, kleinerer Anteil
+        blocks:
           - type: text
             text: >-
-              Der Unterschied ist beide Male 30 €. Weil 30 € von 120 € ein größerer Anteil ist als 30 € von 150 €, ist
-              die erste Zahl größer.
-  - type: section
-    id: bild
-    title: Bild
-    blocks:
-      - type: figure
-        draw: { kind: bar, part: 30, whole: 120 }
-        alt: Ein Balken für 120 €; der Unterschied von 30 € ist blau, das sind 25 %.
-        caption: "Bezugsgröße Laden B: 120 € sind 100 %. Der Unterschied von 30 € ist davon 25 %: A ist 25 % teurer als B."
-      - type: figure
-        draw: { kind: bar, part: 30, whole: 150 }
-        alt: Ein Balken für 150 €; der Unterschied von 30 € ist blau, das sind 20 %.
-        caption: "Bezugsgröße Laden A: 150 € sind 100 %. Derselbe Unterschied von 30 € ist davon nur 20 %: B ist 20 % billiger als A."
-  - type: section
-    id: video
-    title: Video dazu
-    blocks:
-      - type: text
-        text: >-
-          Wie man einen Prozentsatz ausrechnet, zeigt das Video auf der Seite [Prozentsatz
-          berechnen](/prozent/prozentsatz/#video).
+              In der 7a sind 18 von 24 Schülern im Sportverein, in der 7b 21 von 30. Die 7b hat mehr Schüler im Verein.
+              Hat sie auch den größeren Anteil?
+          - type: text
+            text: >-
+              7a: 18 : 24 = 75 %. 7b: 21 : 30 = 70 %. Der Anteil der 7a ist größer, obwohl es weniger Schüler sind. Bei
+              Prozenten zählt der Anteil, nicht die Stückzahl.
   - type: section
     id: uebung
     title: Übung
     blocks:
+      - type: single-choice
+        id: bezugsgroesse-waehlen
+        text: "Laden A: 150 €, Laden B: 120 €. „B ist billiger als A.“ Welcher Wert ist die Bezugsgröße (100 %)?"
+        options:
+          - text: "A, also 150 €"
+            correct: true
+            info: "Das Wort nach „als“ ist A. Darum ist der Preis von A das Ganze."
+          - text: "B, also 120 €"
+            correct: false
+            info: "B steht vor „als“. Es ist der Wert, der verglichen wird, nicht die Bezugsgröße."
+          - text: "der Unterschied, also 30 €"
+            correct: false
+            info: "Der Unterschied ist ein Teil des Ganzen, nicht das Ganze."
+        explanation: "Die Bezugsgröße steht nach „als“. Hier ist das A mit 150 €."
+        links:
+          - title: Zwei Werte vergleichen (Lernlandkarte)
+            url: "https://lernapps.net/apps/map/mathematik/c/prozent-vergleich/"
+      - type: vue-component
+        id: streifen-8a
+        component: ProzentStreifen
+        props:
+          prozent: 75
+          prozentText: "? %"
+          grundwert: "20 Schüler"
+          wert: "15 Schüler"
+          verdeckt: true
+        nojs: |
+          Prozentstreifen für die 8a: Der ganze Streifen sind 20 Schüler, davon haben 15 ein Fahrrad. Der Prozentsatz ist
+          gesucht.
+      - type: vue-component
+        id: streifen-8b
+        component: ProzentStreifen
+        props:
+          prozent: 64
+          prozentText: "? %"
+          grundwert: "25 Schüler"
+          wert: "16 Schüler"
+          verdeckt: true
+        nojs: |
+          Prozentstreifen für die 8b: Der ganze Streifen sind 25 Schüler, davon haben 16 ein Fahrrad. Der Prozentsatz ist
+          gesucht.
+      - type: single-choice
+        id: anteil-vergleichen
+        text: "In der 8a haben 15 von 20 Schülern ein Fahrrad, in der 8b 16 von 25. Welche Klasse hat den größeren Anteil?"
+        options:
+          - text: die 8a
+            correct: true
+            info: "15 : 20 = 75 %, und 16 : 25 = 64 %. Die 8a hat den größeren Anteil."
+          - text: die 8b
+            correct: false
+            info: "In der 8b sind es zwar mehr Schüler (16 statt 15), aber der Anteil ist nur 64 %. Die 8a hat 75 %."
+          - text: Beide haben denselben Anteil.
+            correct: false
+            info: "Die Anteile sind 75 % und 64 %. Sie sind nicht gleich."
+        explanation: "Rechne beide Anteile aus: 75 % in der 8a, 64 % in der 8b. Mehr Schüler heißt nicht mehr Prozent."
+        links:
+          - title: Zwei Werte vergleichen (Lernlandkarte)
+            url: "https://lernapps.net/apps/map/mathematik/c/prozent-vergleich/"
       - type: vue-component
         id: vergleich-aufgabe
         component: ProzentVergleich
@@ -110,7 +177,7 @@ blocks:
         mistakes:
           - {
               value: "(a - b) * 100 / a",
-              message: "Das ist die Antwort auf die andere Frage. Die Bezugsgröße (100 %) ist die Zahl nach „als“: B = {{b}}.",
+              message: "Das ist die Antwort auf die andere Frage. Die Bezugsgröße (100 %) ist die Zahl nach „als“: B = {{b}}.",
             }
           - {
               value: "a - b",
@@ -118,9 +185,36 @@ blocks:
             }
           - {
               value: "a * 100 / b",
-              message: "Das ist das Verhältnis der beiden Werte in Prozent. Gefragt ist, um wie viel Prozent mehr – also die 100 % abziehen.",
+              message: "Das ist das Verhältnis der beiden Werte in Prozent. Gefragt ist, um wie viel Prozent mehr, also ziehst du die 100 % noch ab.",
             }
-        hint: "Die Bezugsgröße steht nach „als“: B = {{b}} ist 100 %. Teile den Unterschied durch {{b}}."
+        hint: "Die Bezugsgröße steht nach „als“: B = {{b}} ist 100 %. Teile den Unterschied durch {{b}}."
         steps:
           - '$p = \frac{\text{Unterschied}}{\text{Bezugsgröße}} \cdot 100$'
-          - '$p = \frac{{{a}} - {{b}}}{{{b}}} \cdot 100 = {{answer}}$, also {{answer}} %.'
+          - '$p = \frac{{{a}} - {{b}}}{{{b}}} \cdot 100 = {{answer}}$, also {{answer}} %.'
+      - type: generated
+        id: vergleich-kleiner
+        practice: Jetzt andersherum, mit einer anderen Bezugsgröße.
+        given:
+          a: { oneOf: [20, 25, 40, 50, 80, 120, 125, 150, 200, 250] }
+          b: { int: [11, 249] }
+        where: ["b < a", "a < 2 * b", "decimals((a - b) * 100 / a) <= 1"]
+        task:
+          text: "A ist {{a}}, B ist {{b}}. Um wie viel Prozent ist B kleiner als A?"
+        answer: { value: "(a - b) * 100 / a", compare: { number: { format: percent, decimals: 1 } } }
+        mistakes:
+          - {
+              value: "(a - b) * 100 / b",
+              message: "Du hast durch B geteilt. Nach „als“ steht A: A = {{a}} ist hier die Bezugsgröße (100 %).",
+            }
+          - {
+              value: "a - b",
+              message: "Das ist nur der Unterschied. Gefragt ist der Unterschied in Prozent der Bezugsgröße {{a}}.",
+            }
+          - {
+              value: "b * 100 / a",
+              message: "Das ist der Anteil von B an A. Gefragt ist, um wie viel Prozent B kleiner ist, also ziehst du das von 100 % ab.",
+            }
+        hint: "Die Bezugsgröße steht nach „als“: A = {{a}} ist 100 %. Teile den Unterschied durch {{a}}."
+        steps:
+          - '$p = \frac{\text{Unterschied}}{\text{Bezugsgröße}} \cdot 100$'
+          - '$p = \frac{{{a}} - {{b}}}{{{a}}} \cdot 100 = {{answer}}$, also {{answer}} %.'

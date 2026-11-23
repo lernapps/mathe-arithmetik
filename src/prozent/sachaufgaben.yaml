@@ -1,8 +1,8 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
-title: Sachaufgaben übersetzen
+title: Sachaufgaben mit Prozentstreifen lösen
 description: >-
-  Sachaufgaben zur Prozentrechnung in eine Gleichung oder einen Dreisatz übersetzen: Gleichung wählen, Dreisatz
-  ausfüllen, mit Hunderterfeld.
+  Sachaufgaben aus Zeitung und Werbung lösen: lesen, Streifen skizzieren, Gleichung oder Dreisatz wählen, rechnen und
+  prüfen.
 competencies: [prozent-sachaufgaben]
 blocks:
   - type: section
@@ -11,29 +11,52 @@ blocks:
     blocks:
       - type: text
         text: >-
-          In der Klassenarbeit und im Alltag steht nie „Berechne W“, sondern eine Geschichte mit Zahlen. Die
-          eigentliche Kunst ist die Übersetzung: aus dem Text eine Gleichung oder einen Dreisatz machen. Danach ist es
-          nur noch Rechnen. Beide Wege führen zum Ziel – der Dreisatz ist sicher, die Gleichung ist schnell.
+          In der Zeitung steht: „Bei der Wahl gaben 800 Menschen ihre Stimme ab. 36 % wählten Liste Grün.“ Wie viele
+          Stimmen sind das? Im Text steht nie „berechne W“. Du musst selbst sehen, welche Stelle am Streifen fehlt.
+      - type: vue-component
+        id: streifen-wahl
+        component: ProzentStreifen
+        props:
+          prozent: 36
+          prozentText: "36 %"
+          grundwert: "800 Stimmen"
+          wert: "? Stimmen"
+        nojs: |
+          Prozentstreifen: Der ganze Streifen sind 800 Stimmen, das sind 100 %. Der blaue Teil reicht bis 36 %. Wie viele
+          Stimmen das sind, ist gesucht.
+      - type: text
+        text: >-
+          Hier fehlt der **Prozentwert**. Fehlt der **Grundwert** oder der **Prozentsatz**, rechnest du anders. Wenn
+          du die fehlende Stelle kennst, ist der Rest einfach.
   - type: section
     id: regel
     title: Regel
     blocks:
+      - type: text
+        text: >-
+          Gehe in fünf Schritten vor:
+
+
+          1. Lies die Aufgabe und schreibe die drei Stellen auf.
+
+          2. Skizziere den Streifen. Welche Stelle fehlt?
+
+          3. Wähle den Weg: Gleichung oder Dreisatz.
+
+          4. Rechne.
+
+          5. Prüfe mit einem Überschlag.
       - type: section
         id: gleichung
         title: "Weg 1: Gleichung"
         blocks:
-          - type: text
-            text: "Bestimme, was gesucht ist, und wähle die passende Formel. Teil gesucht:"
-          - type: formula
-            formula: 'W = \frac{G \cdot p}{100}'
-          - type: text
-            text: "Ganzes gesucht:"
-          - type: formula
-            formula: 'G = \frac{W \cdot 100}{p}'
-          - type: text
-            text: "Prozentsatz gesucht:"
-          - type: formula
-            formula: 'p = \frac{W}{G} \cdot 100'
+          - type: table
+            caption: Welche Stelle fehlt, welche Gleichung passt
+            header: [Gesucht, Gleichung]
+            rows:
+              - ["Prozentwert", "$W = \\frac{G \\cdot p}{100}$"]
+              - ["Grundwert", "$G = \\frac{W \\cdot 100}{p}$"]
+              - ["Prozentsatz", "$p = \\frac{W}{G} \\cdot 100$"]
       - type: section
         id: dreisatz
         title: "Weg 2: Dreisatz"
@@ -41,76 +64,91 @@ blocks:
           - type: definition
             term: Dreisatz
             explanation: >-
-              Ein Rechenweg in drei Zeilen über eine Zwischengröße. In der Prozentrechnung immer über 1 %: von 100 %
-              zu 1 % teilst du durch 100, von 1 % zu $p\,\%$ nimmst du mal $p$.
-          - type: table
-            caption: Dreisatz für 12 % von 250 €
-            rowHeaders: true
-            rows:
-              - ["100 %", "250 €"]
-              - ["1 %", "250 € : 100 = 2,50 €"]
-              - ["12 %", "2,50 € · 12 = 30 €"]
-          - type: note
-            title: Merkhilfe
-            blocks:
-              - type: text
-                text: >-
-                  Erst durch 100, dann mal $p$. Das funktioniert auch rückwärts: von $p\,\%$ zu 1 % teilst du durch
-                  $p$, von 1 % zu 100 % nimmst du mal 100.
+              Ein Rechenweg in drei Zeilen über eine Zwischengröße. In der Prozentrechnung immer über 1 %: Von 100 % zu
+              1 % teilst du durch 100, von 1 % zu $p\,\%$ nimmst du mal $p$.
+          - type: text
+            text: >-
+              Ist der Grundwert gesucht, rechnest du rückwärts: erst durch $p$ auf 1 %, dann mal 100.
   - type: section
     id: beispiel
     title: Beispiel
     blocks:
       - type: example
-        title: Welche Gleichung passt?
+        title: Preis vor dem Rabatt
         blocks:
           - type: text
-            text: "„Ein Skateboard kostet 250 €. Es gibt 12 % Rabatt. Wie viel Euro Rabatt sind das?“"
+            text: "Ein Tablet ist 20 % billiger und kostet jetzt 240 €. Was kostete es vorher?"
+          - type: vue-component
+            id: streifen-tablet
+            component: ProzentStreifen
+            props:
+              prozent: 80
+              prozentText: "80 %"
+              grundwert: "? €"
+              wert: "240 €"
+            nojs: |
+              Prozentstreifen: Der ganze Streifen ist der alte Preis, gesucht. Der blaue Teil reicht bis 80 % und ist 240 € lang.
           - type: table
-            caption: Drei Gleichungen, eine passt
-            header: [Gleichung, Passt sie?]
+            caption: Dreisatz-Tabelle und Gleichung nebeneinander
+            header: [Dreisatz, Gleichung]
             rows:
-              - [
-                  "$W = \\frac{250 \\cdot 12}{100}$",
-                  "**Ja.** Gesucht ist der Teil (Rabatt in €), also $W = \\frac{G \\cdot p}{100}$.",
-                ]
-              - [
-                  "$W = \\frac{250 \\cdot 100}{12}$",
-                  "Nein – das ist die Grundwert-Formel. Sie ergibt rund 2083 €, mehr als der ganze Preis.",
-                ]
-              - [
-                  "$W = \\frac{12}{250} \\cdot 100$",
-                  "Nein – das wäre ein Prozentsatz. Sie ergibt 4,8 und hat keine Einheit.",
-                ]
+              - ["80 % sind 240 €", "$G = \\frac{W \\cdot 100}{p}$"]
+              - ["1 % ist 240 € : 80 = 3 €", "$G = \\frac{240 \\cdot 100}{80}$"]
+              - ["100 % sind 3 € · 100 = **300 €**", "$G = 300$"]
           - type: text
-            text: "Ergebnis: $W = 30$, also 30 €. Probe mit dem Dreisatz: 1 % = 2,50 €, 12 % = 30 €. Passt."
-  - type: section
-    id: bild
-    title: Bild
-    blocks:
-      - type: figure
-        draw: { kind: hundred-grid, filled: 12 }
-        alt: Ein Hunderterfeld aus 100 Kästchen; 12 Kästchen sind blau.
-        caption: >-
-          Hunderterfeld: 100 Kästchen sind der Grundwert 250 €, ein Kästchen ist 1 % = 2,50 €. Die 12 blauen Kästchen
-          sind 12 % = 30 €.
-  - type: section
-    id: video
-    title: Video dazu
-    blocks:
-      - type: video
-        youtube: fvzgrNy9S0Q
-        title: "Prozentrechnung - Prozentsatz berechnen mit Formel / mit Dreisatz | Lehrerschmidt"
-        channel: Lehrerschmidt
-      - type: text
-        text: >-
-          Noch eine Erklärung in anderen Worten: [Mehrschrittige Anwendungsaufgaben zur
-          Prozentrechnung](https://de.serlo.org/mathe/174159/mehrschrittige-anwendungsaufgaben-zur-prozentrechnung) bei
-          serlo.org.
+            text: >-
+              Warum 80 %? Nach dem Rabatt zahlst du noch 100 % − 20 % = 80 %. Probe: 20 % von 300 € sind 60 €, und 300 €
+              − 60 € = 240 €. Das passt. Überschlag: 80 % ist knapp das Ganze, also muss das Ganze etwas größer sein als
+              240 €.
   - type: section
     id: uebung
     title: Übung
     blocks:
+      - type: vue-component
+        id: streifen-umfrage
+        component: ProzentStreifen
+        props:
+          prozent: 30
+          prozentText: "30 %"
+          grundwert: "? Personen"
+          wert: "90 Personen"
+        nojs: |
+          Prozentstreifen: Der ganze Streifen sind die Befragten, das ist die gesuchte Zahl. Der blaue Teil reicht bis 30 %
+          und sind 90 Personen.
+      - type: single-choice
+        id: stelle-erkennen
+        text: "Bei einer Umfrage hören 90 Befragte täglich einen Podcast. Das sind 30 % aller Befragten. Welche Stelle fehlt?"
+        options:
+          - text: der Grundwert
+            correct: true
+            info: "Gesucht ist die Zahl aller Befragten. Das ist das Ganze, also der Grundwert."
+          - text: der Prozentwert
+            correct: false
+            info: "Der Prozentwert ist bekannt: Es sind 90 Personen, ein Teil der Befragten."
+          - text: der Prozentsatz
+            correct: false
+            info: "Der Prozentsatz ist bekannt: Es sind 30 %."
+        explanation: "Gegeben sind der Teil (90 Personen) und der Prozentsatz (30 %). Gesucht ist das Ganze."
+        links:
+          - title: Sachaufgaben lösen (Lernlandkarte)
+            url: "https://lernapps.net/apps/map/mathematik/c/prozent-sachaufgaben/"
+      - type: single-choice
+        id: gleichung-waehlen
+        text: "Gesucht ist das Ganze $G$. Welche Rechnung passt, wenn 90 Personen 30 % sind?"
+        options:
+          - text: '$\frac{90 \cdot 100}{30}$'
+            correct: true
+            info: "Das Ganze ist gesucht, also $G = \\frac{W \\cdot 100}{p}$ mit $W = 90$ und $p = 30$. Es kommen 300 Personen heraus."
+          - text: '$\frac{90 \cdot 30}{100}$'
+            correct: false
+            info: "Das ist die Formel für den Prozentwert. Sie ergibt 27, also weniger als die 90 Personen, die schon ein Teil sind."
+          - text: '$\frac{90}{30} \cdot 100$'
+            correct: false
+            info: "Das ist die Formel für den Prozentsatz. Das Ergebnis wäre 300 ohne Einheit, außerdem ist hier das Ganze gesucht."
+        explanation: "Gesucht ist das Ganze. Dann passt $G = \\frac{W \\cdot 100}{p}$. Probe: 30 % von 300 sind 90."
+        links:
+          - title: Sachaufgaben lösen (Lernlandkarte)
+            url: "https://lernapps.net/apps/map/mathematik/c/prozent-sachaufgaben/"
       - type: vue-component
         id: sachaufgaben-aufgabe
         component: ProzentSachaufgaben
@@ -131,16 +169,61 @@ blocks:
           p: { oneOf: [2, 4, 5, 8, 12, 15, 20, 25, 30, 40, 60, 75] }
         where: ["decimals(G * p / 100) <= 2"]
         task:
-          text: "100 % sind {{G}} €. Wie viel Euro sind {{p}} %? Rechne über 1 %."
+          text: "100 % sind {{G}} €. Wie viel Euro sind {{p}} %? Rechne über 1 %."
         answer: { value: "G / 100 * p", compare: { number: { format: money } } }
         mistakes:
           - {
               value: "G * 100 / p",
-              message: "Das ist die Grundwert-Formel. Hier ist der Grundwert {{G}} € schon bekannt; gesucht ist ein Teil davon.",
+              message: "Das ist die Grundwert-Formel. Hier ist der Grundwert {{G}} € schon bekannt, gesucht ist ein Teil davon.",
             }
-          - { value: "G / 100", message: "Das ist erst 1 %. Jetzt noch mal {{p}} nehmen." }
-        hint: "Von 100 % auf 1 %: {{G}} € durch 100 teilen. Von 1 % auf {{p}} %: mal {{p}}."
+          - { value: "G / 100", message: "Das ist erst 1 %. Jetzt noch mal {{p}} nehmen." }
+        hint: "Von 100 % auf 1 %: {{G}} € durch 100 teilen. Von 1 % auf {{p}} %: mal {{p}}."
         steps:
-          - "100 % sind {{G}} €."
-          - '1 % sind $\frac{{{G}}}{100}$ €.'
-          - '{{p}} % sind $\frac{{{G}}}{100} \cdot {{p}} = {{answer}}$, also {{answer}} €.'
+          - "100 % sind {{G}} €."
+          - '1 % sind $\frac{{{G}}}{100}$ €.'
+          - '{{p}} % sind $\frac{{{G}}}{100} \cdot {{p}} = {{answer}}$, also {{answer}} €.'
+      - type: generated
+        id: sachaufgaben-mwst
+        practice: Mehrwertsteuer rückwärts. Der Preis im Schaufenster enthält die Steuer schon.
+        given:
+          B: { int: [119, 1190], step: 119 }
+        task:
+          text: "Ein Fernseher kostet mit 19 % Mehrwertsteuer {{B}} €. Wie viel Euro kostet er ohne Steuer?"
+        answer: { value: "B * 100 / 119", compare: { number: { format: money } } }
+        mistakes:
+          - {
+              value: "B - B * 19 / 100",
+              message: "Du hast 19 % vom Preis mit Steuer abgezogen. Die 19 % gehören aber zum Preis ohne Steuer. Der Preis mit Steuer sind 119 %.",
+            }
+          - {
+              value: "B * 19 / 100",
+              message: "Das ist 19 % vom Preis mit Steuer, nicht der Preis ohne Steuer. Gesucht ist das Ganze, das sind 100 %.",
+            }
+        hint: "Der Preis ohne Steuer ist 100 %, der Preis mit Steuer 119 %. Teile {{B}} € durch 119, dann mal 100."
+        steps:
+          - "Der Preis mit Steuer sind 119 % des Preises ohne Steuer."
+          - '$G = \frac{{{B}} \cdot 100}{119} = {{answer}}$, also {{answer}} € ohne Steuer.'
+      - type: generated
+        id: sachaufgaben-wahl
+        practice: Zwei Schritte nacheinander. Zeichne dir zwei Streifen.
+        given:
+          E: { oneOf: [2000, 2500, 4000, 5000, 8000] }
+          p: { oneOf: [50, 60, 70, 75, 80] }
+          q: { oneOf: [10, 20, 25, 30, 40] }
+        where: ["decimals(E * p * q / 10000) <= 0"]
+        task:
+          text: "In einer Stadt sind {{E}} Menschen wahlberechtigt. {{p}} % gehen zur Wahl. Davon wählen {{q}} % die Liste Blau. Wie viele Stimmen bekommt die Liste Blau?"
+        answer: { value: "E * p * q / 10000", compare: { number: { format: integer } } }
+        mistakes:
+          - {
+              value: "E * p / 100",
+              message: "Das sind alle, die zur Wahl gehen. Davon wählen nur {{q}} % die Liste Blau: noch ein Schritt.",
+            }
+          - {
+              value: "E * q / 100",
+              message: "Die {{q}} % beziehen sich nur auf die, die zur Wahl gehen, nicht auf alle Wahlberechtigten. Rechne erst {{p}} % von {{E}}.",
+            }
+        hint: "Erster Streifen: {{p}} % von {{E}} sind die Wählenden. Zweiter Streifen: {{q}} % von diesen Wählenden."
+        steps:
+          - 'Wählende: $\frac{{{E}} \cdot {{p}}}{100}$.'
+          - 'Stimmen für Liste Blau: $\frac{{{E}} \cdot {{p}}}{100} \cdot \frac{{{q}}}{100} = {{answer}}$.'
