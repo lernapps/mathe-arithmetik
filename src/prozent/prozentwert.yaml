@@ -34,7 +34,7 @@ blocks:
       - type: text
         text: >-
           Der Prozentwert $W$ ist der Teil des Grundwerts $G$, der zum Prozentsatz $p\,\%$ gehört. Er hat dieselbe Einheit
-          wie der Grundwert. Rechnen kannst du auf zwei Wegen. Beide rechnen dasselbe. Der **Dreisatz** ist ein Rechenweg über 1 %: Du rechnest aus, was 1 % ist, und dann, was $p\,\%$ sind. Er geht in drei Zeilen
+          wie der Grundwert. Rechnen kannst du auf zwei Wegen. Beide rechnen dasselbe. Der **Dreisatz** ist ein Rechenweg über 1 %: Du rechnest aus, was 1 % ist, und dann, was $p\,\%$ sind. Er geht in drei Zeilen
           von 100 % auf 1 % und dann auf $p\,\%$.
       - type: table
         caption: Dreisatz-Tabelle und Formel nebeneinander, für 12 % von 250 €
@@ -134,25 +134,25 @@ blocks:
           p: { oneOf: [2, 3, 4, 5, 6, 8, 10, 12, 12.5, 15, 18, 20, 24, 25, 30, 35, 40, 45, 60, 65, 70, 75, 80, 85, 90] }
         where: ["decimals(G * p / 100) <= 2"]
         task:
-          text: "Berechne {{p}} % von {{G}} €."
+          text: "Berechne {{p}} % von {{G}} €."
         answer: { value: "G * p / 100", compare: { number: { format: money } } }
         mistakes:
-          - { value: "G * p", message: "Du hast vergessen, durch 100 zu teilen: {{p}} % sind {{p}} Hundertstel." }
+          - { value: "G * p", message: "Du hast vergessen, durch 100 zu teilen: {{p}} % sind {{p}} Hundertstel." }
           - {
               value: "G - G * p / 100",
               message: "Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.",
             }
-        hint: "Rechne erst 1 % aus: {{G}} € geteilt durch 100. Dann mal {{p}}."
+        hint: "Rechne erst 1 % aus: {{G}} € geteilt durch 100. Dann mal {{p}}."
         steps:
           - '$W = \frac{G \cdot p}{100}$'
-          - '$W = \frac{{{G}} \cdot {{p}}}{100} = {{answer}}$, also {{answer}} €.'
+          - '$W = \frac{{{G}} \cdot {{p}}}{100} = {{answer}}$, also {{answer}} €.'
       - type: generated
         id: prozentwert-mwst
         practice: Eine Aufgabe aus dem Alltag. Die Mehrwertsteuer ist eine Steuer, die zum Preis dazukommt.
         given:
           G: { int: [20, 400], step: 10 }
         task:
-          text: "Eine Jacke kostet ohne Steuer {{G}} €. Die Mehrwertsteuer beträgt 19 %. Wie viel Euro Mehrwertsteuer sind das?"
+          text: "Eine Jacke kostet ohne Steuer {{G}} €. Die Mehrwertsteuer beträgt 19 %. Wie viel Euro Mehrwertsteuer sind das?"
         answer: { value: "G * 19 / 100", compare: { number: { format: money } } }
         mistakes:
           - { value: "G * 19", message: "Du hast vergessen, durch 100 zu teilen: 19 % sind 19 Hundertstel." }
@@ -160,7 +160,7 @@ blocks:
               value: "G + G * 19 / 100",
               message: "Das ist der Preis mit Steuer. Gefragt ist nur die Mehrwertsteuer, also der Prozentwert.",
             }
-        hint: "Rechne erst 1 % aus: {{G}} € geteilt durch 100. Dann mal 19."
+        hint: "Rechne erst 1 % aus: {{G}} € geteilt durch 100. Dann mal 19."
         steps:
           - '$W = \frac{G \cdot p}{100}$'
-          - '$W = \frac{{{G}} \cdot 19}{100} = {{answer}}$, also {{answer}} €.'
+          - '$W = \frac{{{G}} \cdot 19}{100} = {{answer}}$, also {{answer}} €.'

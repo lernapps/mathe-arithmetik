@@ -232,12 +232,25 @@ Rechenprobe. Nichts übernommen. Ungeprüft: Lehrplanzuordnung Hessen (Annahme),
   Tipp vor dem ersten Versuch offen, 4.312,5 € gegenüber 4312,50 €, rohe Kennungen im Kopf der Recap-Seite,
   Auswertung der Einschätzung ohne Angabe der falschen Aufgaben, Seite `grundbegriffe` (Tabelle bei 360 px, Auswahlfelder).
 
+### Fachlicher Prüfer, zweiter Lauf (nur die Änderungen nach dem ersten Lauf)
+
+- Gerechnet: Gleichungs-Auswahl und Dreisatz über 5000 Seeds (0 zahlengleiche Fallen, 0 halbe Personen), `gleichung-waehlen`
+  (genau eine richtige Option), Überschlag, `grundwert-rechnen` (keine fünfstelligen Antworten), `vergleich-rechnen` und
+  `vergleich-kleiner` (kein Fehlerwert gleich der Antwort, keine Duplikate), `alter-preis-falsch`, Streifenwerte (27 Blöcke),
+  neue Diagnosen von `ProzentProzentwert` über 3000 Seeds, Zinsmethode 30/360, Recap- und Zinsentexte.
+- Muss korrigiert: geschützte Leerzeichen in den `generated`-Texten von `prozentwert`, in `prozentsatz` („50 Fragen“) und in
+  einem Satz des Recaps; umgesetzt (rein typografisch, per Skript über alle Seiten, Scan danach ohne Rest).
+- Offen aus dem ersten Lauf: Fachwortbenennung der Seitentitel, Glossar (Fund fürs Epic), `vermehrter/verminderter Grundwert`
+  ohne weitere Verwendung. Nicht geprüft: gerenderte Seiten im Browser.
+
 ### Nach dem letzten Prüferlauf geändert
 
 - Fachlicher Prüfer: nach seinem Lauf nur seine Befunde umgesetzt (Commit `fc4d9f8`). Die Änderungen sind inhaltlich
   (Aufgaben, Merkhilfe) und nicht erneut geprüft.
-- Lernenden-Prüfer: nach seinem Lauf Streifen, Erklärungen und eine Wahr/falsch-Aufgabe geändert (Commit `8385ab6`, danach
-  Leitfaden und README). Nicht erneut geprüft.
+- Lernenden-Prüfer: nach seinem Lauf Streifen, Erklärungen und eine Wahr/falsch-Aufgabe geändert (Commit `8385ab6`), danach
+  Tabellen schmaler (`grundbegriffe`, `vergleich`), Leitfaden und README. Nicht erneut vom Lernenden-Prüfer geprüft; die
+  Tabellenbreite habe ich mit Playwright bei 360 px gemessen (kein Scrollkasten mehr).
+- Nach dem zweiten fachlichen Lauf nur die geschützten Leerzeichen (typografisch, kein Inhalt).
 
 ## Retrospective
 

@@ -123,11 +123,11 @@ blocks:
           wert: "40 Fragen"
           verdeckt: true
         nojs: |
-          Prozentstreifen: Oben die Skala von 0 % bis 100 %, unten der Grundwert 50 Fragen. Der Teil von 40 Fragen ist
+          Prozentstreifen: Oben die Skala von 0 % bis 100 %, unten der Grundwert 50 Fragen. Der Teil von 40 Fragen ist
           bekannt. Der Prozentsatz dazu oben ist gesucht.
       - type: number
         id: prozentsatz-quiz
-        text: "Ein Quiz hat 50 Fragen. Du hast 40 richtig beantwortet. Wie viel Prozent sind das?"
+        text: "Ein Quiz hat 50 Fragen. Du hast 40 richtig beantwortet. Wie viel Prozent sind das?"
         answer: 80
         tolerance: 0
         unit: "%"
@@ -139,7 +139,7 @@ blocks:
           - answer: 20
             message: "Das sind die Prozent der falschen Antworten. Gefragt sind die richtigen."
         hint: "Teile den Teil, 40, durch das Ganze, 50. Das Ergebnis nimmst du mal 100."
-        explanation: "Teil durch Ganzes: 40 : 50 = 0,8. Mal 100 sind das 80 %. Der Dreisatz sagt dasselbe: 1 % sind 0,50 Fragen, und 40 : 0,5 = 80."
+        explanation: "Teil durch Ganzes: 40 : 50 = 0,8. Mal 100 sind das 80 %. Der Dreisatz sagt dasselbe: 1 % sind 0,50 Fragen, und 40 : 0,5 = 80."
         links:
           - title: Prozentsatz berechnen (Lernlandkarte)
             url: "https://lernapps.net/apps/map/mathematik/c/prozent-prozentsatz/"
