@@ -38,6 +38,7 @@ import {
   minus,
   mitEinheit,
   passtZu,
+  plus,
   zahl,
 } from "./ProzentKern.ts";
 
@@ -90,7 +91,13 @@ export function generate(seed: number): ProzentwertAufgabe {
 export const MELDUNGEN = {
   prozentStattDezimal: "Du hast vergessen, durch 100 zu teilen: 12 % sind 12/100 = 0,12.",
   restStattAnteil: "Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.",
-  falsch: "Das stimmt noch nicht. Rechne noch einmal: erst 1 %, dann den Prozentsatz mal nehmen.",
+  durchProzentsatz: "Du hast durch den Prozentsatz geteilt. Geteilt wird durch 100: Das ist der Weg von 100 % auf 1 %.",
+  grundwertPlus:
+    "Du hast den Prozentwert zum Grundwert dazugerechnet. Gefragt ist nur der Teil selbst, nicht Grundwert plus Teil.",
+  grundwertSelbst:
+    "Das ist der Grundwert, der ganze Streifen. Gesucht ist der Teil davon, der zu den Prozenten gehört.",
+  falsch:
+    "Das stimmt noch nicht. Schau auf den Streifen: Der Grundwert ist 100 %. Rechne erst 1 %, dann mal den Prozentsatz.",
 };
 
 /** Was an einer falschen Antwort falsch ist. */
@@ -107,6 +114,10 @@ export function grund(aufgabe: ProzentwertAufgabe, antwort: unknown): string {
         return `Du hast vergessen, durch 100 zu teilen: ${formatZahl(p)} % sind ${formatZahl(p)}/100 = ${formatGenau(p / 100)}.`;
       }
       if (passtZu(eingabe, minus(alsBruch(aufgabe.grundwert), feld.exakt), feld.art)) return MELDUNGEN.restStattAnteil;
+      if (passtZu(eingabe, durch(mal(alsBruch(aufgabe.grundwert), bruch(1)), alsBruch(aufgabe.prozentsatz)), feld.art))
+        return MELDUNGEN.durchProzentsatz;
+      if (passtZu(eingabe, plus(alsBruch(aufgabe.grundwert), feld.exakt), feld.art)) return MELDUNGEN.grundwertPlus;
+      if (passtZu(eingabe, alsBruch(aufgabe.grundwert), feld.art)) return MELDUNGEN.grundwertSelbst;
       return undefined;
     },
     MELDUNGEN.falsch,

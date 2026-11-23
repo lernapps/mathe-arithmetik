@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Prozentpunkte und mehrfache Änderungen
+description: Platzhalter, wird ersetzt.
+competencies: [prozent-von-prozenten]
+blocks:
+  - type: text
+    text: Platzhalter.
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: true-false
+        id: platzhalter
+        text: Platzhalter.
+        answer: true
+        explanation: Platzhalter.
+        links:
+          - title: Platzhalter
+            url: "https://lernapps.net/apps/map/mathematik/c/zinsrechnung/"

@@ -5,7 +5,19 @@ summary: >-
   berechnen, Zu- und Abnahme, Vergleiche und Sachaufgaben. Jede Seite hat eine Erklärung, ein Beispiel, ein Bild und
   so viele Aufgaben, wie du willst; jede Aufgabe sagt dir sofort, ob dein Ergebnis stimmt, und zeigt dir auf Wunsch
   den Rechenweg.
-pages: [recap, grundbegriffe, prozentwert, prozentsatz, grundwert, veraenderung, vergleich, sachaufgaben]
+pages:
+  [
+    recap,
+    grundbegriffe,
+    prozentwert,
+    prozentsatz,
+    grundwert,
+    vergleich,
+    sachaufgaben,
+    veraenderung,
+    prozentpunkte,
+    zinsen,
+  ]
 selfAssessment:
   pages:
     - exercises:
