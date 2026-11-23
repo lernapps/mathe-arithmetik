@@ -59,6 +59,7 @@ const hoehe = computed(() => (props.faktor ? 128 : 100));
       rx="4"
       class="ueber"
     />
+    <line :x1="lage.teilEnde" :y1="OBEN - 4" :x2="lage.teilEnde" :y2="OBEN + STREIFEN_HOEHE + 4" class="marke" />
     <line :x1="lage.grundEnde" :y1="OBEN - 4" :x2="lage.grundEnde" :y2="OBEN + STREIFEN_HOEHE + 4" class="grenze" />
     <!-- Grundwert unten -->
     <text :x="lage.x(0)" :y="OBEN + STREIFEN_HOEHE + 18" font-size="12" text-anchor="start" class="schrift">0</text>
@@ -139,6 +140,10 @@ const hoehe = computed(() => (props.faktor ? 128 : 100));
 .grenze {
   stroke: var(--page-text, #1a1a1a);
   stroke-width: 1.5;
+}
+.marke {
+  stroke: var(--page-accent, #1d4ed8);
+  stroke-width: 2;
 }
 .pfeil {
   stroke: var(--page-text, #1a1a1a);
