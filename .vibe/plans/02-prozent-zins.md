@@ -36,8 +36,9 @@ einfache Zinsen. Alle acht Bausteine des Issues lernapps/apps#391 werden geübt.
 - Auftrag und Rahmen: Issue 391, `docs/mathe-epic/regeln.md`, Anweisung; die Antworten des Orchestrators (in Vertretung
   des Menschen) stehen unter „Answers“.
 - Die veröffentlichte Version bleibt unberührt; Arbeit nur auf `increment/01-prozent-zins`, Vorschau-PR, nie mergen.
-- Drei Kapitel wie im Issue. Seiten-ids der bestehenden Seiten bleiben; die Kapitel-ids ändern sich, damit die
-  Adressen sich ändern (guess). Frage dazu im Planbericht.
+- Ein Kapitel `prozent` bleibt (Abweichung vom ersten Plan, dem Orchestrator zu melden): alle Seiten-Adressen bleiben stabil
+  (`explainer-stable-ids`), die drei Kapitel des Issues sind Abschnitte der Reihenfolge (Grundaufgaben, Vergleichen und
+  Sachaufgaben, Zu- und Abnahme und Zinsen). Seiten-ids bleiben; die Musterseite ist die umgebaute Seite `prozentwert`.
 - Videos (Lehrerschmidt), serlo.org-Quellen/-Links und `links:` an Aufgaben entfallen ersatzlos (Regeln §4);
   `links:` zeigen, wo das Werkzeug sie verlangt, auf die Kartenseite des Bausteins.
 - Der Prozentstreifen wird eine eigene Komponente (SVG, Vue), in allen Seiten gleich benannt: „Prozentstreifen“.
@@ -63,7 +64,8 @@ einfache Zinsen. Alle acht Bausteine des Issues lernapps/apps#391 werden geübt.
 
 **Kapitel und Seiten** (Baustein → Seite):
 1. `grundaufgaben` · Drei Grundaufgaben am Prozentstreifen: Recap (`recap:` stellenwertsystem, bruchbegriff,
-   dezimalbrueche, prozent-grundbegriffe; ids vor dem Bauen gegen die Karte prüfen) · Kurztest · `streifen`
+   dezimalbrueche; ids der Karte: `natuerliche-zahlen`, `brueche-begriff`, `dezimalbrueche`; prozent-grundbegriffe bleibt als
+   Seite `grundbegriffe` im Repo, kein Recap-Abschnitt) · Kurztest · `streifen`
    (Musterseite, neu: führt den Streifen ein, Baustein prozent-prozentwert; die Aufgaben der alten Seite `prozentwert`
    gehen darin auf) · `prozentsatz` · `grundwert`.
 2. `vergleich` · Vergleichen und Sachaufgaben: `vergleich` · `sachaufgaben`.
