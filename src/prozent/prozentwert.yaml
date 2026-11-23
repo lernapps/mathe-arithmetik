@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
-title: Prozentwert berechnen
-description: "Den Prozentwert berechnen mit W = G · p : 100. Erklärung, Beispiel, Hunderterfeld und Übungsaufgaben."
+title: Drei Grundaufgaben am Prozentstreifen – Prozentwert berechnen
+description: "Der Prozentstreifen zeigt Prozentsatz, Prozentwert und Grundwert. Erste Grundaufgabe: den Prozentwert berechnen, mit Dreisatz-Tabelle und Formel."
 competencies: [prozent-prozentwert]
 blocks:
   - type: section
@@ -9,25 +9,48 @@ blocks:
     blocks:
       - type: text
         text: >-
-          „20 % Rabatt auf 80 €“ – wie viel sparst du wirklich? Der Prozentwert ist der Teil des Ganzen, den die
-          Prozente beschreiben. Wenn du ihn schnell ausrechnen kannst, weißt du beim Einkaufen, beim Handy-Akku und in
-          jeder Statistik sofort, worum es geht.
+          Ein Fahrrad kostet 250 €. Im Angebot gibt es 12 % Rabatt. Wie viel Euro sparst du? Der Prozentstreifen zeigt, was
+          du weißt und was du suchst.
+      - type: vue-component
+        id: streifen-fahrrad
+        component: ProzentStreifen
+        props:
+          prozent: 12
+          prozentText: "12 %"
+          grundwert: "250 €"
+          wert: "? €"
+        nojs: |
+          Prozentstreifen: Oben die Skala von 0 % bis 100 %, unten der Grundwert 250 €. Die Marke bei 12 % ist gesetzt, der
+          Wert dazu unten ist gesucht.
+      - type: text
+        text: >-
+          Oben steht die Skala in Prozent, unten der Grundwert, hier 250 €. Jede der drei Grundaufgaben der
+          Prozentrechnung ist eine andere fehlende Stelle am Streifen. Hier fehlt der **Prozentwert**: der Teil in Euro, der
+          zu 12 % gehört.
   - type: section
     id: regel
     title: Regel
     blocks:
-      - type: formula
-        formula: 'W = \frac{G \cdot p}{100}'
       - type: text
         text: >-
-          Der **Grundwert** $G$ ist das Ganze (100 %). Der **Prozentsatz** $p\,\%$ sagt, welcher Anteil gemeint ist.
-          Der **Prozentwert** $W$ ist dieser Anteil in der Einheit des Grundwerts (€, Schüler, mAh …). mAh
-          (Milliamperestunden) gibt an, wie viel Ladung ein Akku speichert.
+          Der **Prozentwert** $W$ ist der Teil des Grundwerts $G$, der zum Prozentsatz $p\,\%$ gehört. Er hat die Einheit
+          des Grundwerts.
+      - type: text
+        text: >-
+          Du kannst die Aufgabe auf zwei Wegen lösen. Beide rechnen dasselbe: Erst geht es von 100 % auf 1 %, dann von 1 %
+          auf $p\,\%$.
+      - type: table
+        caption: Dreisatz-Tabelle und Formel nebeneinander, für 12 % von 250 €
+        header: [Dreisatz-Tabelle, Formel]
+        rows:
+          - ["100 % sind 250 €", "$W = \\frac{G \\cdot p}{100}$"]
+          - ["1 % sind 250 € : 100 = 2,50 €", "$W = \\frac{250 \\cdot 12}{100}$"]
+          - ["12 % sind 2,50 € · 12 = 30 €", "$W = 30$"]
       - type: note
         title: Merkhilfe
         blocks:
           - type: text
-            text: Erst 1 % ausrechnen ($G$ geteilt durch 100), dann mal $p$ nehmen.
+            text: Erst 1 % ausrechnen ($G$ geteilt durch 100), dann mal $p$ nehmen.
   - type: section
     id: beispiel
     title: Beispiel
@@ -36,43 +59,54 @@ blocks:
         title: Rabatt auf ein Skateboard
         blocks:
           - type: text
-            text: Ein Skateboard kostet 250 €. Es gibt 12 % Rabatt. Wie viel Euro sparst du?
+            text: Ein Skateboard kostet 250 €. Es gibt 12 % Rabatt. Wie viel Euro sparst du?
           - type: table
             caption: Die Größen im Beispiel und die Rechnung
             rowHeaders: true
             rows:
-              - ["Grundwert $G$", "250 € (der volle Preis)"]
-              - ["Prozentsatz $p$", "12 %"]
+              - ["Grundwert $G$", "250 € (der volle Preis)"]
+              - ["Prozentsatz $p$", "12 %"]
               - ["Rechnung", "$W = \\frac{250 \\cdot 12}{100} = 30$"]
-              - ["Prozentwert $W$", "**30 €** Rabatt"]
-          - type: text
-            text: "Über 1 %: 250 € : 100 = 2,50 € sind 1 %. Dann 2,50 € · 12 = 30 €."
+              - ["Prozentwert $W$", "**30 €** Rabatt"]
   - type: section
     id: bild
     title: Bild
     blocks:
-      - type: figure
-        draw: { kind: hundred-grid, filled: 12 }
-        alt: Ein Hunderterfeld aus 100 Kästchen; 12 Kästchen sind blau.
-        caption: >-
-          Das Hunderterfeld ist der Grundwert: 100 Kästchen = 100 % = 250 €. Jedes Kästchen ist 1 % = 2,50 €. Die 12
-          blauen Kästchen sind der Prozentwert: 12 · 2,50 € = 30 €.
-  - type: section
-    id: video
-    title: Video dazu
-    blocks:
-      - type: video
-        youtube: XDvDfzdP_Fc
-        title: "Prozentwert berechnen - Prozentrechnung mit Formel - Mathematik einfach erklärt | Lehrerschmidt"
-        channel: Lehrerschmidt
+      - type: vue-component
+        id: streifen-skateboard
+        component: ProzentStreifen
+        props:
+          prozent: 12
+          prozentText: "12 %"
+          grundwert: "250 €"
+          wert: "30 €"
+        nojs: |
+          Prozentstreifen: Oben die Skala von 0 % bis 100 %, unten der Grundwert 250 €. Die Marke bei 12 % gehört zu 30 €.
       - type: text
         text: >-
-          Noch eine Erklärung in anderen Worten: [Prozentrechnung mittels
-          Formeln](https://de.serlo.org/mathe/2193/prozentrechnung-mittels-formeln) bei serlo.org.
+          Der ganze Streifen ist der Grundwert: 100 % sind 250 €. Die Marke bei 12 % liegt bei 30 €. Das ist der
+          Prozentwert.
   - type: section
     id: uebung
     title: Übung
     blocks:
+      - type: single-choice
+        id: prozentwert-streifen
+        text: "Ein Streifen zeigt den Grundwert 80 € und eine Marke bei 25 %. Unten bei der Marke steht ein Fragezeichen. Was wird gesucht?"
+        options:
+          - text: der Prozentwert
+            correct: true
+            info: Gesucht ist der Wert in Euro, der zu 25 % gehört. Das ist ein Teil des Grundwerts, also der Prozentwert.
+          - text: der Prozentsatz
+            correct: false
+            info: Der Prozentsatz steht schon oben an der Marke (25 %). Er ist bekannt.
+          - text: der Grundwert
+            correct: false
+            info: Der Grundwert steht schon am Ende des Streifens (80 €). Er ist bekannt.
+        explanation: Das Fragezeichen steht bei dem Wert in Euro unter der Marke. Dieser Teil des Grundwerts ist der Prozentwert.
+        links:
+          - title: Prozentwert berechnen (Lernlandkarte)
+            url: "https://lernapps.net/apps/map/mathematik/c/prozent-prozentwert/"
       - type: vue-component
         id: prozentwert-aufgabe
         component: ProzentProzentwert
@@ -109,3 +143,21 @@ blocks:
         steps:
           - '$W = \frac{G \cdot p}{100}$'
           - '$W = \frac{{{G}} \cdot {{p}}}{100} = {{answer}}$, also {{answer}} €.'
+      - type: generated
+        id: prozentwert-mwst
+        practice: Ein Sachfall mit Prozentsatz und Grundwert.
+        given:
+          G: { int: [20, 400], step: 10 }
+        task:
+          text: "Eine Jacke kostet ohne Steuer {{G}} €. Die Mehrwertsteuer beträgt 19 %. Wie viel Euro Mehrwertsteuer sind das?"
+        answer: { value: "G * 19 / 100", compare: { number: { format: money } } }
+        mistakes:
+          - { value: "G * 19", message: "Du hast vergessen, durch 100 zu teilen: 19 % sind 19 Hundertstel." }
+          - {
+              value: "G + G * 19 / 100",
+              message: "Das ist der Preis mit Steuer. Gefragt ist nur die Mehrwertsteuer, also der Prozentwert.",
+            }
+        hint: "Rechne erst 1 % aus: {{G}} € geteilt durch 100. Dann mal 19."
+        steps:
+          - '$W = \frac{G \cdot p}{100}$'
+          - '$W = \frac{{{G}} \cdot 19}{100} = {{answer}}$, also {{answer}} €.'
