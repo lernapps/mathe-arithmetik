@@ -204,7 +204,7 @@ export const MELDUNGEN = {
   differenzStattProzent:
     "Das ist nur der Unterschied in der Einheit. Gefragt ist der Unterschied in Prozent der Bezugsgröße.",
   verhaeltnisStattUnterschied:
-    "Das ist das Verhältnis der beiden Werte in Prozent. Gefragt ist, um wie viel Prozent mehr oder weniger – also die 100 % abziehen.",
+    "Das ist das Verhältnis der beiden Werte in Prozent. Vergleiche es mit 100 %: Bei „größer“ ziehst du 100 % ab, bei „kleiner“ ziehst du es von 100 % ab.",
   falsch: "Das stimmt noch nicht. Rechne: Unterschied geteilt durch die Bezugsgröße, dann mal 100.",
 };
 

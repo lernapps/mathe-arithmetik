@@ -75,10 +75,10 @@ blocks:
               Prozentstreifen: Der ganze Streifen ist Laden A mit 150 €. Derselbe Unterschied von 30 € ist nur 20 % davon.
           - type: table
             caption: Zwei Fragen, zwei Bezugsgrößen
-            header: [Frage, Bezugsgröße, Rechnung]
+            header: [Frage mit Bezugsgröße, Rechnung]
             rows:
-              - ["A teurer als B", "B: 120 €", "$p = \\frac{30}{120} \\cdot 100 = 25$, also **25 %**"]
-              - ["B billiger als A", "A: 150 €", "$p = \\frac{30}{150} \\cdot 100 = 20$, also **20 %**"]
+              - ["A teurer als B. Bezugsgröße: B = 120 €", "$p = \\frac{30}{120} \\cdot 100 = 25$, also **25 %**"]
+              - ["B billiger als A. Bezugsgröße: A = 150 €", "$p = \\frac{30}{150} \\cdot 100 = 20$, also **20 %**"]
       - type: example
         title: Mehr Schüler, kleinerer Anteil
         blocks:
@@ -170,7 +170,14 @@ blocks:
         given:
           b: { oneOf: [20, 25, 40, 50, 80, 120, 125, 150, 200, 250] }
           a: { int: [21, 400] }
-        where: ["a > b", "a < 2 * b", "decimals((a - b) * 100 / b) <= 1"]
+        where:
+          [
+            "a > b",
+            "a < 2 * b",
+            "decimals((a - b) * 100 / b) <= 1",
+            "a != 100",
+            "round((a - b) * 100 / a, 1) != round((a - b) * 100 / b, 1)",
+          ]
         task:
           text: "A ist {{a}}, B ist {{b}}. Um wie viel Prozent ist A größer als B?"
         answer: { value: "(a - b) * 100 / b", compare: { number: { format: percent, decimals: 1 } } }
@@ -197,7 +204,15 @@ blocks:
         given:
           a: { oneOf: [20, 25, 40, 50, 80, 120, 125, 150, 200, 250] }
           b: { int: [11, 249] }
-        where: ["b < a", "a < 2 * b", "decimals((a - b) * 100 / a) <= 1"]
+        where:
+          [
+            "b < a",
+            "a < 2 * b",
+            "decimals((a - b) * 100 / a) <= 1",
+            "b != 100",
+            "a - b != b * 100 / a",
+            "round((a - b) * 100 / a, 1) != round((a - b) * 100 / b, 1)",
+          ]
         task:
           text: "A ist {{a}}, B ist {{b}}. Um wie viel Prozent ist B kleiner als A?"
         answer: { value: "(a - b) * 100 / a", compare: { number: { format: percent, decimals: 1 } } }
