@@ -1,0 +1,144 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Das brauchst du hier
+description: >-
+  Wiederholung für das Kapitel Prozentrechnung: Stellenwert, Bruch, Dezimalzahl. Je Baustein Begriffe, ein Beispiel und
+  ein Kurztest.
+recap: [mathematik/natuerliche-zahlen, mathematik/brueche-begriff, mathematik/dezimalbrueche]
+blocks:
+  - type: text
+    text: >-
+      Das brauchst du für dieses Kapitel: Zahlen nach Stellen lesen, Brüche deuten und Brüche als Dezimalzahlen
+      schreiben. Lies jeden Abschnitt und mach den Kurztest. Er zählt nichts und wird nicht gespeichert.
+  - type: section
+    id: stellenwert
+    title: Natürliche Zahlen im Stellenwertsystem
+    blocks:
+      - type: text
+        text: >-
+          Der **Stellenwert** einer Ziffer hängt von ihrer Stelle ab: ganz rechts stehen die Einer, dann Zehner, Hunderter,
+          Tausender. Jede Stelle ist zehnmal so viel wert wie die rechts neben ihr.
+      - type: example
+        title: Die Zahl 3456
+        blocks:
+          - type: text
+            text: "In 3456 steht die 4 an der Hunderterstelle. Sie bedeutet 4 · 100 = 400. Die Zahl heißt 3 · 1000 + 4 · 100 + 5 · 10 + 6 · 1."
+      - type: vue-component
+        id: test-stellenwert
+        component: Kurztest
+        props:
+          question: "Welchen Wert hat die Ziffer 4 in der Zahl 3456?"
+          options:
+            - {
+                text: "4",
+                correct: false,
+                info: "Das wäre die 4 an der Einerstelle. Die 4 steht aber an der Hunderterstelle.",
+              }
+            - { text: "40", correct: false, info: "40 wäre die Zehnerstelle. In 3456 steht die 5 an der Zehnerstelle." }
+            - {
+                text: "400",
+                correct: true,
+                info: "Von rechts: Einer 6, Zehner 5, Hunderter 4. Die 4 steht für 4 Hunderter, also 400.",
+              }
+            - { text: "4000", correct: false, info: "4000 wäre die Tausenderstelle. Dort steht die 3." }
+          right: Richtig.
+          wrong: Nicht richtig.
+        nojs: |
+          Kurztest: Welchen Wert hat die Ziffer 4 in der Zahl 3456? Antworten: 4, 40, 400 oder 4000. Richtig ist 400: Von
+          rechts stehen Einer 6, Zehner 5, Hunderter 4.
+      - type: text
+        text: >-
+          Wenn du dich vertan hast: Übe den Baustein „Natürliche Zahlen im Stellenwertsystem“, siehe seine
+          [Kartenseite](https://lernapps.net/apps/map/mathematik/c/natuerliche-zahlen/).
+  - type: section
+    id: bruchbegriff
+    title: Bruchbegriff
+    blocks:
+      - type: text
+        text: >-
+          Ein **Bruch** beschreibt einen Teil eines Ganzen. Der **Nenner** unten sagt, in wie viele gleiche Teile das Ganze
+          geteilt ist. Der **Zähler** oben sagt, wie viele dieser Teile gemeint sind.
+      - type: example
+        title: Drei Achtel einer Pizza
+        blocks:
+          - type: text
+            text: "Eine Pizza ist in 8 gleiche Stücke geschnitten. Du isst 3 Stücke. Das sind $\\frac{3}{8}$ der Pizza: Nenner 8, Zähler 3."
+      - type: vue-component
+        id: test-bruchbegriff
+        component: Kurztest
+        props:
+          question: "Eine Tafel Schokolade hat 10 gleiche Riegel. Du isst 4 Riegel. Welcher Bruch der Tafel ist das?"
+          options:
+            - {
+                text: "Vier Zehntel",
+                correct: true,
+                info: "Die Tafel ist in 10 gleiche Teile geteilt (Nenner 10), du isst 4 davon (Zähler 4).",
+              }
+            - {
+                text: "Zehn Viertel",
+                correct: false,
+                info: "Du hast Zähler und Nenner vertauscht. Der Nenner ist die Zahl aller gleichen Teile, hier 10.",
+              }
+            - {
+                text: "Vier Sechstel",
+                correct: false,
+                info: "Sechs Riegel sind übrig, aber der Nenner zählt alle Teile des Ganzen, also 10.",
+              }
+            - {
+                text: "Sechs Zehntel",
+                correct: false,
+                info: "Das sind die 6 Riegel, die übrig sind. Gefragt ist, was du gegessen hast: 4 Riegel.",
+              }
+          right: Richtig.
+          wrong: Nicht richtig.
+        nojs: |
+          Kurztest: Eine Tafel Schokolade hat 10 gleiche Riegel, du isst 4. Welcher Bruch ist das? Richtig ist vier Zehntel:
+          Nenner 10 (alle Teile), Zähler 4 (gegessene Teile).
+      - type: text
+        text: >-
+          Wenn du dich vertan hast: Übe den Baustein „Bruchbegriff“, siehe seine
+          [Kartenseite](https://lernapps.net/apps/map/mathematik/c/brueche-begriff/).
+  - type: section
+    id: dezimalbrueche
+    title: Dezimalbrüche und Periode
+    blocks:
+      - type: text
+        text: >-
+          Einen Bruch wandelst du in eine **Dezimalzahl** um, indem du Zähler durch Nenner teilst. Hinter dem Komma stehen
+          Zehntel, Hundertstel, Tausendstel. Manche Dezimalzahlen brechen ab, andere wiederholen sich (**Periode**).
+      - type: example
+        title: Drei Viertel und ein Drittel
+        blocks:
+          - type: text
+            text: "$\\frac{3}{4} = 3 : 4 = 0{,}75$. Die Rechnung bricht ab. $\\frac{1}{3} = 1 : 3 = 0{,}3333$ und so weiter. Die 3 wiederholt sich immer weiter."
+      - type: vue-component
+        id: test-dezimalbrueche
+        component: Kurztest
+        props:
+          question: "Welche Dezimalzahl ist drei Viertel?"
+          options:
+            - {
+                text: "0,34",
+                correct: false,
+                info: "Das ist nur die 3 und die 4 hinter dem Komma. Teile 3 durch 4: Das ergibt 0,75.",
+              }
+            - { text: "0,75", correct: true, info: "3 : 4 = 0,75. Probe: 0,75 sind 75 Hundertstel, also drei Viertel." }
+            - { text: "0,25", correct: false, info: "0,25 ist ein Viertel. Drei Viertel sind das Dreifache." }
+            - { text: "3,4", correct: false, info: "3,4 ist größer als 1. Drei Viertel sind weniger als ein Ganzes." }
+          right: Richtig.
+          wrong: Nicht richtig.
+        nojs: |
+          Kurztest: Welche Dezimalzahl ist drei Viertel? Antworten: 0,34, 0,75, 0,25 oder 3,4. Richtig ist 0,75, denn
+          3 : 4 = 0,75.
+      - type: text
+        text: >-
+          Wenn du dich vertan hast: Übe den Baustein „Dezimalbrüche und Periode“, siehe seine
+          [Kartenseite](https://lernapps.net/apps/map/mathematik/c/dezimalbrueche/).
+  - type: section
+    id: checkliste
+    title: Du bist bereit, wenn du …
+    blocks:
+      - type: text
+        text: |-
+          - natürliche Zahlen im Stellenwertsystem lesen, schreiben und darstellen kannst.
+          - Brüche als Teil eines Ganzen deuten und darstellen kannst.
+          - Brüche in Dezimalbrüche umwandeln und erklären kannst, ob sie abbrechen oder sich wiederholen.
