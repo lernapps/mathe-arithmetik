@@ -206,18 +206,55 @@ Rechenprobe. Nichts übernommen. Ungeprüft: Lehrplanzuordnung Hessen (Annahme),
       entry did not change: tell the creator that the catalog updates the app by itself.
 - [ ] If the plan changed since its last push, commit it on `main` and push again.
 
+## Review
+
+### Fachlicher Prüfer (Unteragent, hat nicht geschrieben)
+
+- Gerechnet: alle 28 Streifenwerte, alle festen Zahlen, alle 15 `generated`-Aufgaben über den ganzen Zufallsbereich,
+  alle sieben Komponenten für 3000 Seeds, alle 36 `accepted`/`rejected`-Beispiele; Zinsmethode 30/360 bestätigt
+  (Quelle per Websuche); Stichprobe auf wörtliche Übernahme (zwei Websuchen): kein Treffer.
+- Muss korrigiert (alle umgesetzt): zahlengleiche Fallen in der Gleichungs-Auswahl; zwei richtige Optionen in
+  `gleichung-waehlen`; halbe Personen im Dreisatz; falsche Merkhilfe in `grundwert`; fünfstellige Ergebnisse ohne
+  Gruppierung; normale statt geschützte Leerzeichen; „10 %“ statt „10 Prozentpunkte“.
+- Hinweise offen gelassen: Überschlag „80 % ist knapp das Ganze“; 13 Belegungen in `vergleich-rechnen` und
+  `vergleich-kleiner`, bei denen die Fehlerformel nach Rundung wie die Antwort aussieht; Meldung
+  `verhaeltnisStattUnterschied` passt nur zu „größer“; kein Glossar nach Regeln §7.2 (Fund fürs Epic).
+- Nicht geprüft: Volltext auf wörtliche Übernahme, gerenderte Seiten, Browserverhalten, Klasse 7/8 der Karte zu Hessen.
+
+### Lernenden-Prüfer (Unteragent, Klasse 7)
+
+- Musterseite `prozentwert` einzeln (vor den übrigen Seiten), danach alle zehn Seiten und die Einschätzung.
+- Umgesetzt: Streifen vor dem Begriff erklärt, Dreisatz und Zinsen beim ersten Gebrauch erklärt, Faktor-Beschriftung und
+  Pfeilspitze sichtbar, Beschriftung bei kleinen Prozentsätzen in zweiter Zeile, kein „brutto/netto“, neues Beispiel in der
+  Wahr/falsch-Aufgabe, Hundertstel im Recap.
+- Nicht umgesetzt (Laufzeit oder Seite von #389): feste Rückmeldetexte („Lies dazu noch einmal den Text“, „Antworte zuerst:
+  Wähle, tippe oder ordne alles zu“, „Leider nicht richtig“ bei unlesbarer Eingabe), „Lösung zeigen“ nach dem ersten Fehler,
+  Tipp vor dem ersten Versuch offen, 4.312,5 € gegenüber 4312,50 €, rohe Kennungen im Kopf der Recap-Seite,
+  Auswertung der Einschätzung ohne Angabe der falschen Aufgaben, Seite `grundbegriffe` (Tabelle bei 360 px, Auswahlfelder).
+
+### Nach dem letzten Prüferlauf geändert
+
+- Fachlicher Prüfer: nach seinem Lauf nur seine Befunde umgesetzt (Commit `fc4d9f8`). Die Änderungen sind inhaltlich
+  (Aufgaben, Merkhilfe) und nicht erneut geprüft.
+- Lernenden-Prüfer: nach seinem Lauf Streifen, Erklärungen und eine Wahr/falsch-Aufgabe geändert (Commit `8385ab6`, danach
+  Leitfaden und README). Nicht erneut geprüft.
+
 ## Retrospective
 
 <!-- At the end of Commit. Facts, short, no names. Read by review and evals. -->
 
 ### Phases reached
 
-<!-- Last phase completed, checkpoints passed. E.g. "commit; confirmed, published". -->
+code; Recherche, Plan und Musterseite vom Orchestrator bestätigt. Veröffentlichen noch nicht gemeldet.
 
 ### Creator turns after the plan
 
-<!-- Number of creator messages after the confirmation, topic of each. Target: at most 3. -->
+Antworten des Orchestrators nach dem Plan: Kurztest-Vorlage (gemeinsame Dateien), Musterseite angenommen. Ein Freigabe-Hinweis
+vom Menschen (npx update). Keine Rückfrage, die die Richtung geändert hätte.
 
 ### Where I had to guess
 
-<!-- Each gap in plan, skills, content guide, messages or answers, and your choice. "None" if none. -->
+- Ein Kapitel statt dreien (stabile Adressen); die Musterseite ist die umgebaute Seite `prozentwert`, keine neue Seite.
+- Zinsen: 360-Tage-Methode, Tageszinsen nennen sie immer; Prüfer hat sie bestätigt.
+- Wie `grundbegriffe` (praktiziert in #389 und hier) bleibt: unverändert bis auf die Regeln.
+- Die Worktrees der Unteragenten standen zuerst auf `main`; ich habe sie selbst auf den Branch gesetzt.
