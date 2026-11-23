@@ -65,7 +65,7 @@ Der **Stellenwert** einer Ziffer hängt von ihrer Stelle ab: ganz rechts stehen 
 
 In 3456 steht die 4 an der Hunderterstelle. Sie bedeutet 4 · 100 = 400. Die Zahl ist die Summe 3 · 1000 + 4 · 100 + 5 · 10 + 6 · 1.
 
-Interaktiv: Kurztest: Welchen Wert hat die Ziffer 4 in der Zahl 3456? Antworten: 4, 40, 400 oder 4000. Richtig ist 400: Von rechts stehen Einer 6, Zehner 5, Hunderter 4.
+Interaktiv: Kurztest: Welchen Wert hat die Ziffer 7 in der Zahl 40 782? Antworten: 7, 70, 700 oder 7000. Richtig ist 700: Von rechts stehen Einer 2, Zehner 8, Hunderter 7.
 
 Wenn du dich vertan hast: Übe den Baustein „Natürliche Zahlen im Stellenwertsystem“, siehe seine [Kartenseite](https://lernapps.net/apps/map/mathematik/c/natuerliche-zahlen/).
 
@@ -77,7 +77,7 @@ Ein **Bruch** beschreibt einen Teil eines Ganzen. Der **Nenner** unten sagt, in 
 
 Eine Pizza ist in 8 gleiche Stücke geschnitten. Du isst 3 Stücke. Das sind $\frac{3}{8}$ der Pizza: Nenner 8, Zähler 3.
 
-Interaktiv: Kurztest: Eine Tafel Schokolade hat 10 gleiche Riegel, du isst 4. Welcher Bruch ist das? Richtig ist vier Zehntel: Nenner 10 (alle Teile), Zähler 4 (gegessene Teile).
+Interaktiv: Kurztest: Eine Schachtel hat 12 gleiche Pralinen, du isst 9. Welchen Bruch hast du gegessen, so weit wie möglich gekürzt? Richtig ist drei Viertel: neun Zwölftel, durch 3 gekürzt.
 
 Wenn du dich vertan hast: Übe den Baustein „Bruchbegriff“, siehe seine [Kartenseite](https://lernapps.net/apps/map/mathematik/c/brueche-begriff/).
 
@@ -89,7 +89,7 @@ Einen Bruch wandelst du in eine **Dezimalzahl** um, indem du Zähler durch Nenne
 
 $\frac{3}{4} = 3 : 4 = 0{,}75$. Die Rechnung bricht ab. $\frac{1}{3} = 1 : 3$ ergibt 0,333… Die 3 wiederholt sich immer weiter: Das ist die **Periode**. Ein **Hundertstel** ist $\frac{1}{100}$ = 0,01. Prozent heißt Hundertstel: 12 % sind $\frac{12}{100}$ = 0,12.
 
-Interaktiv: Kurztest: Welche Dezimalzahl ist drei Viertel? Antworten: 0,34, 0,75, 0,25 oder 3,4. Richtig ist 0,75, denn 3 : 4 = 0,75.
+Interaktiv: Kurztest: Welche Dezimalzahl ist sieben Achtel? Antworten: 0,78, 0,875, 0,125 oder 8,7. Richtig ist 0,875, denn 7 : 8 = 0,875.
 
 Wenn du dich vertan hast: Übe den Baustein „Dezimalbrüche und Periode“, siehe seine [Kartenseite](https://lernapps.net/apps/map/mathematik/c/dezimalbrueche/).
 

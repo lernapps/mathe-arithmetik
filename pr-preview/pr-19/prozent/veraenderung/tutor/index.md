@@ -57,7 +57,7 @@ Den neuen Wert nach einer Erhöhung oder Senkung um p % berechnen, und rückwär
 
 ### Warum?
 
-Eine Hose kostet 80 €. Der Preis steigt um 25 %. Was kostet sie danach? Am **Prozentstreifen** siehst du: Bei einer Zunahme wird der Streifen länger als 100 %.
+Eine Hose kostet 80 €. Der Preis steigt um 25 %. Was kostet sie danach? Am **Prozentstreifen** siehst du: Bei einer Zunahme wird der Streifen länger als 100 %: Das gestrichelte Stück ist die Zunahme. Der Pfeil darunter führt vom alten zum neuen Wert.
 
 Interaktiv: Prozentstreifen: Der Streifen reicht über 100 % hinaus bis 125 %. Unten steht der alte Preis 80 € bei 100 %, der neue Preis ist gesucht. Ein Pfeil zeigt den Faktor 1,25.
 
@@ -94,7 +94,7 @@ Eine Hose kostet 80 €. Im Ausverkauf gibt es 25 % Rabatt. Was kostet sie jet
 
 Interaktiv: Prozentstreifen: Der Streifen reicht nur bis 75 %. Unten steht der alte Preis 80 € bei 100 %, der neue Preis ist 60 €. Ein Pfeil zeigt den Faktor 0,75.
 
-Abnahme um 25 % mit dem Faktor:
+Abnahme um 25 %. Der Streifen endet bei 75 %, der Rest bis 100 % ist der Rabatt. Der Pfeil zeigt den Faktor.:
 - Alter Wert | 80 € = 100 %
 - Faktor | $1 - \frac{25}{100} = 0{,}75$
 - Neuer Wert | $80 \cdot 0{,}75 = 60$, also **60 €**
