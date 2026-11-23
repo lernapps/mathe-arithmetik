@@ -65,19 +65,19 @@ Der **Stellenwert** einer Ziffer hängt von ihrer Stelle ab: ganz rechts stehen 
 
 In 3456 steht die 4 an der Hunderterstelle. Sie bedeutet 4 · 100 = 400. Die Zahl ist die Summe 3 · 1000 + 4 · 100 + 5 · 10 + 6 · 1.
 
-Interaktiv: Kurztest: Welchen Wert hat die Ziffer 7 in der Zahl 40 782? Antworten: 7, 70, 700 oder 7000. Richtig ist 700: Von rechts stehen Einer 2, Zehner 8, Hunderter 7.
+Interaktiv: Kurztest: Wie viele Hunderter hat die Zahl 40 782 insgesamt? Antworten: 7, 40, 407 oder 4078. Richtig ist 407, denn 40 782 = 407 · 100 + 82.
 
 Wenn du dich vertan hast: Übe den Baustein „Natürliche Zahlen im Stellenwertsystem“, siehe seine [Kartenseite](https://lernapps.net/apps/map/mathematik/c/natuerliche-zahlen/).
 
 ### Bruchbegriff
 
-Ein **Bruch** beschreibt einen Teil eines Ganzen. Der **Nenner** unten sagt, in wie viele gleiche Teile das Ganze geteilt ist. Der **Zähler** oben sagt, wie viele dieser Teile gemeint sind.
+Ein **Bruch** beschreibt einen Teil eines Ganzen. Der **Nenner** unten sagt, in wie viele gleiche Teile das Ganze geteilt ist. Der **Zähler** oben sagt, wie viele dieser Teile gemeint sind. **Kürzen** heißt, Zähler und Nenner durch dieselbe Zahl zu teilen: $\frac{6}{8} = \frac{3}{4}$.
 
 **Beispiel: Drei Achtel einer Pizza**
 
 Eine Pizza ist in 8 gleiche Stücke geschnitten. Du isst 3 Stücke. Das sind $\frac{3}{8}$ der Pizza: Nenner 8, Zähler 3.
 
-Interaktiv: Kurztest: Eine Schachtel hat 12 gleiche Pralinen, du isst 9. Welchen Bruch hast du gegessen, so weit wie möglich gekürzt? Richtig ist drei Viertel: neun Zwölftel, durch 3 gekürzt.
+Interaktiv: Kurztest: Eine Schachtel hat 12 gleiche Pralinen, du isst 9. Welchen Bruch hast du gegessen, gekürzt? Richtig ist drei Viertel: neun Zwölftel, durch 3 gekürzt.
 
 Wenn du dich vertan hast: Übe den Baustein „Bruchbegriff“, siehe seine [Kartenseite](https://lernapps.net/apps/map/mathematik/c/brueche-begriff/).
 

@@ -61,7 +61,7 @@ Eine Hose kostet 80 €. Der Preis steigt um 25 %. Was kostet sie danach? Am *
 
 Interaktiv: Prozentstreifen: Der Streifen reicht über 100 % hinaus bis 125 %. Unten steht der alte Preis 80 € bei 100 %, der neue Preis ist gesucht. Ein Pfeil zeigt den Faktor 1,25.
 
-Die 80 € sind 100 %. Der neue Preis ist 125 % davon. Der Pfeil zeigt den **Faktor** 1,25. Mit ihm rechnest du in einem Schritt: 80 € · 1,25 = 100 €. Ohne Faktor wären es zwei Schritte: erst 25 % von 80 € ausrechnen (20 €), dann addieren.
+Die 80 € sind 100 %. Der neue Preis ist 125 % davon. 125 % sind 125 Hundertstel, also 1,25. Der **Faktor** ist die Zahl, mit der du malnimmst. Der Pfeil zeigt ihn: Er führt vom alten zum neuen Wert. Mit ihm rechnest du in einem Schritt: 80 € · 1,25 = 100 €. Ohne Faktor wären es zwei Schritte: erst 25 % von 80 € ausrechnen (20 €), dann addieren.
 
 ### Regel
 
@@ -114,7 +114,7 @@ Falsch wäre: 150 € − 25 % von 150 € = 112,50 €. Die 25 % gehören 
 
 ### Übung
 
-Interaktiv: Prozentstreifen: Der Streifen reicht über 100 % hinaus bis 125 %. Unten steht 80 € bei 100 % und 100 € am Ende des Streifens.
+Interaktiv: Prozentstreifen: Der Streifen reicht über 100 % hinaus bis 120 %. Unten steht 50 € bei 100 % und 60 € am Ende des Streifens.
 
 - Aufgabe `streifen-lesen` (unten)
 
@@ -130,13 +130,13 @@ Interaktiv: Prozentstreifen: Der Streifen reicht über 100 % hinaus bis 125 %. U
 
 ### Aufgabe streifen-lesen
 
-- Aufgabe: Eine Hose kostete 80 €. Der Streifen zeigt den neuen Preis von 100 €. Was ist passiert?
+- Aufgabe: Ein Pullover kostete 50 €. Der Streifen zeigt den neuen Preis von 60 €. Was ist passiert?
 - Antwortformat: eine Antwort wählen
 - Antworten zur Wahl (✓ richtig, ✗ falsch, mit der Meldung der App):
-  - ✓ Der Preis ist um 25 % gestiegen. – Der Streifen ragt 25 % über die 100 % hinaus. Das sind 20 € mehr als vorher.
-  - ✗ Der Preis ist um 125 % gestiegen. – 125 % ist der neue Preis, gemessen am alten. Gestiegen ist er nur um den Teil über 100 %, also um 25 %.
-  - ✗ Der Preis ist um 25 % gesunken. – Der Streifen ist länger als 100 %. Bei einer Abnahme wäre er kürzer.
-- Lösung: Der Preis ist um 25 % gestiegen.
+  - ✓ Der Preis ist um 20 % gestiegen – Der Streifen ragt 20 % über die 100 % hinaus. Das sind 10 € mehr als vorher.
+  - ✗ Der Preis ist um 120 % gestiegen – 120 % ist der neue Preis, gemessen am alten. Gestiegen ist er nur um den Teil über 100 %, also um 20 %.
+  - ✗ Der Preis ist um 20 % gesunken – Der Streifen ist länger als 100 %. Bei einer Abnahme wäre er kürzer.
+- Lösung: Der Preis ist um 20 % gestiegen
 - Erklärung: Reicht der Streifen über 100 % hinaus, ist der Wert gestiegen, und zwar um den Teil über 100 %.
 - Link: [../?via=tutor#streifen-lesen](../?via=tutor#streifen-lesen)
 
