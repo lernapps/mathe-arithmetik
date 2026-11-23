@@ -26,29 +26,29 @@ blocks:
         id: test-stellenwert
         component: Kurztest
         props:
-          question: "Welchen Wert hat die Ziffer 7 in der Zahl 40 782?"
+          question: "Wie viele Hunderter hat die Zahl 40 782 insgesamt?"
           options:
             - {
                 text: "7",
                 correct: false,
-                info: "Das wäre die Einerstelle. Die 2 steht dort. Die 7 steht eine Stelle weiter links.",
+                info: "Das ist nur die Ziffer an der Hunderterstelle. Gefragt ist, wie viele Hunderter die ganze Zahl enthält.",
               }
             - {
-                text: "70",
+                text: "40",
                 correct: false,
-                info: "70 wäre die Zehnerstelle. Dort steht die 8. Die 7 steht an der Hunderterstelle.",
+                info: "40 sind die Tausender der Zahl 40 782 geteilt durch 1000 gerundet. Du hast die Hunderter noch nicht gezählt.",
               }
             - {
-                text: "700",
+                text: "407",
                 correct: true,
-                info: "Von rechts: Einer 2, Zehner 8, Hunderter 7. Die 7 steht für 7 Hunderter, also 700.",
+                info: "40 782 = 407 · 100 + 82. Die Ziffern 4, 0, 7 vor den letzten zwei Stellen sagen, wie viele Hunderter es sind.",
               }
-            - { text: "7000", correct: false, info: "7000 wäre die Tausenderstelle. Dort steht die 0." }
+            - { text: "4078", correct: false, info: "4078 wären die Zehner: 40 782 = 4078 · 10 + 2." }
           right: Richtig.
           wrong: Nicht richtig.
         nojs: |
-          Kurztest: Welchen Wert hat die Ziffer 7 in der Zahl 40 782? Antworten: 7, 70, 700 oder 7000. Richtig ist 700: Von
-          rechts stehen Einer 2, Zehner 8, Hunderter 7.
+          Kurztest: Wie viele Hunderter hat die Zahl 40 782 insgesamt? Antworten: 7, 40, 407 oder 4078. Richtig ist 407,
+          denn 40 782 = 407 · 100 + 82.
       - type: text
         text: >-
           Wenn du dich vertan hast: Übe den Baustein „Natürliche Zahlen im Stellenwertsystem“, siehe seine
@@ -60,7 +60,7 @@ blocks:
       - type: text
         text: >-
           Ein **Bruch** beschreibt einen Teil eines Ganzen. Der **Nenner** unten sagt, in wie viele gleiche Teile das Ganze
-          geteilt ist. Der **Zähler** oben sagt, wie viele dieser Teile gemeint sind.
+          geteilt ist. Der **Zähler** oben sagt, wie viele dieser Teile gemeint sind. **Kürzen** heißt, Zähler und Nenner durch dieselbe Zahl zu teilen: $\frac{6}{8} = \frac{3}{4}$.
       - type: example
         title: Drei Achtel einer Pizza
         blocks:
@@ -70,7 +70,7 @@ blocks:
         id: test-bruchbegriff
         component: Kurztest
         props:
-          question: "Eine Schachtel hat 12 gleiche Pralinen. Du isst 9. Welchen Bruch der Schachtel hast du gegessen, so weit wie möglich gekürzt?"
+          question: "Eine Schachtel hat 12 gleiche Pralinen. Du isst 9. Welchen Bruch der Schachtel hast du gegessen, gekürzt?"
           options:
             - {
                 text: "Drei Viertel",
@@ -80,7 +80,7 @@ blocks:
             - {
                 text: "Neun Zwölftel",
                 correct: false,
-                info: "Das stimmt, ist aber noch nicht gekürzt. Zähler und Nenner lassen sich durch 3 teilen.",
+                info: "Das ist der Bruch vor dem Kürzen. Gefragt ist die gekürzte Form: Zähler und Nenner lassen sich durch 3 teilen.",
               }
             - {
                 text: "Drei Zwölftel",
@@ -95,8 +95,7 @@ blocks:
           right: Richtig.
           wrong: Nicht richtig.
         nojs: |
-          Kurztest: Eine Schachtel hat 12 gleiche Pralinen, du isst 9. Welchen Bruch hast du gegessen, so weit wie möglich
-          gekürzt? Richtig ist drei Viertel: neun Zwölftel, durch 3 gekürzt.
+          Kurztest: Eine Schachtel hat 12 gleiche Pralinen, du isst 9. Welchen Bruch hast du gegessen, gekürzt? Richtig ist drei Viertel: neun Zwölftel, durch 3 gekürzt.
       - type: text
         text: >-
           Wenn du dich vertan hast: Übe den Baustein „Bruchbegriff“, siehe seine

@@ -8,7 +8,7 @@ phase: explore
 # prePushFailures: failed pre-push runs of this increment, written by the hook.
 prePushFailures: 1
 # failedChecks: failed rules and runs, written by lernapps check and the hooks.
-failedChecks: { checks-pass: 7 }
+failedChecks: { checks-pass: 8 }
 ---
 
 # Increment: prozent-zins
@@ -242,6 +242,18 @@ Rechenprobe. Nichts übernommen. Ungeprüft: Lehrplanzuordnung Hessen (Annahme),
   einem Satz des Recaps; umgesetzt (rein typografisch, per Skript über alle Seiten, Scan danach ohne Rest).
 - Offen aus dem ersten Lauf: Fachwortbenennung der Seitentitel, Glossar (Fund fürs Epic), `vermehrter/verminderter Grundwert`
   ohne weitere Verwendung. Nicht geprüft: gerenderte Seiten im Browser.
+
+### Lernenden-Prüfer, dritter Lauf (nur `recap` und `veraenderung`, nach Abschnitt 9 der gemeinsamen Regeln)
+
+- Befunde, umgesetzt: Kurztest 1 war zu leicht (jetzt „Wie viele Hunderter hat 40 782?“), „Kürzen“ steht jetzt im Recap,
+  widersprüchliche Rückmeldung bei „Neun Zwölftel“ und „eine Stelle weiter links“ entfernt; in `veraenderung` fehlte die
+  Verbindung „125 % sind 125 Hundertstel, also 1,25“ und was ein Faktor ist (ergänzt), Aufgabe 1 hatte dieselben Zahlen wie
+  „Warum?“ (neue Zahlen), „.:“ in der Rückmeldung (Satzpunkt der Optionen entfernt).
+- Nicht umgesetzt (Laufzeit): „Lies dazu noch einmal den Text“, „Antworte zuerst: Wähle, tippe oder ordne alles zu“, Tipp ohne
+  „nicht richtig“ bei Aufgabe 3 mit Komponente (Komponente `ProzentVeraenderung`, offener Fund), „321,2 €“ gegenüber „321,20 €“,
+  rohe Kennungen im Kopf der Recap-Seite, „Hundertstel/Periode“ nicht abgefragt (zwei Kurztests je Baustein wären mehr als
+  ein Bildschirm).
+- Nach diesem Lauf geändert und nicht erneut geprüft: die Befunde oben (inhaltlich, `recap` und `veraenderung`).
 
 ### Nach dem letzten Prüferlauf geändert
 
