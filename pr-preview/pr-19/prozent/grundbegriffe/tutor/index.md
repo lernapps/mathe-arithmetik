@@ -68,10 +68,10 @@ Die meisten Fehler in der Prozentrechnung passieren, bevor du überhaupt rechnes
 - **Prozentsatz**: Der Prozentsatz $p\,\%$ ist der Anteil in Hundertsteln. Er ist die Zahl mit dem %-Zeichen.
 
 Die drei Größen und woran du sie erkennst:
-- Größe | Bedeutung | Woran du sie erkennst
-- **Grundwert** $G$ | das Ganze, 100 % | „von …“, der volle Preis, die ganze Klasse, alle Befragten
-- **Prozentwert** $W$ | der Teil vom Ganzen | dieselbe Einheit wie $G$ (€, Schüler, Personen), meist kleiner als $G$
-- **Prozentsatz** $p\,\%$ | der Anteil in Hundertsteln | die Zahl mit dem %-Zeichen
+- Größe | Bedeutung und Erkennung
+- **Grundwert** $G$ | das Ganze, 100 %. Du erkennst es an „von …“, am vollen Preis, an der ganzen Klasse.
+- **Prozentwert** $W$ | der Teil vom Ganzen, in der Einheit von $G$ (€, Schüler, Personen), meist kleiner als $G$.
+- **Prozentsatz** $p\,\%$ | der Anteil in Hundertsteln: die Zahl mit dem %-Zeichen.
 
 Die drei Größen hängen über drei Formeln zusammen, je nachdem, welche gesucht ist:
 

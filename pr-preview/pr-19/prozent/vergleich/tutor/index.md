@@ -82,9 +82,9 @@ Interaktiv: Prozentstreifen: Der ganze Streifen ist Laden B mit 120 €. Der Unt
 Interaktiv: Prozentstreifen: Der ganze Streifen ist Laden A mit 150 €. Derselbe Unterschied von 30 € ist nur 20 % davon.
 
 Zwei Fragen, zwei Bezugsgrößen:
-- Frage | Bezugsgröße | Rechnung
-- A teurer als B | B: 120 € | $p = \frac{30}{120} \cdot 100 = 25$, also **25 %**
-- B billiger als A | A: 150 € | $p = \frac{30}{150} \cdot 100 = 20$, also **20 %**
+- Frage mit Bezugsgröße | Rechnung
+- A teurer als B. Bezugsgröße: B = 120 € | $p = \frac{30}{120} \cdot 100 = 25$, also **25 %**
+- B billiger als A. Bezugsgröße: A = 150 € | $p = \frac{30}{150} \cdot 100 = 20$, also **20 %**
 
 **Beispiel: Mehr Schüler, kleinerer Anteil**
 
@@ -141,7 +141,7 @@ Interaktiv: Prozentstreifen für die 8b: Der ganze Streifen sind 25 Schüler, da
 - Typische Fehler (die Meldung der App passt zu einem davon):
   - F1: Das ist die Antwort auf die andere Frage. Die Bezugsgröße (100 %) ist die Zahl nach „als“.
   - F2: Das ist nur der Unterschied in der Einheit. Gefragt ist der Unterschied in Prozent der Bezugsgröße.
-  - F3: Das ist das Verhältnis der beiden Werte in Prozent. Gefragt ist, um wie viel Prozent mehr oder weniger – also die 100 % abziehen.
+  - F3: Das ist das Verhältnis der beiden Werte in Prozent. Vergleiche es mit 100 %: Bei „größer“ ziehst du 100 % ab, bei „kleiner“ ziehst du es von 100 % ab.
 - Link zu Nummer n: `../?vergleich-aufgabe=n&via=tutor#vergleich-aufgabe`
 - Aufgaben nach Nummer: die Werte für `{…}`, die Lösung und was bei den Fehlern herauskommt. Ein Fehler ohne Spalte hat keinen festen Wert; die Meldung der App sagt, ob er vorliegt.
 
@@ -335,7 +335,7 @@ Nr. | a | b | Lösung | F1 | F2 | F3
 14 | 125 | 101 | 19,2 % | 23,762376 | 24 | 80,8
 15 | 120 | 87 | 27,5 % | 37,931034 | 33 | 72,5
 16 | 125 | 74 | 40,8 % | 68,918919 | 51 | 59,2
-17 | 250 | 245 | 2 % | 2,040816 | 5 | 98
+17 | 120 | 102 | 15 % | 17,647059 | 18 | 85
 18 | 200 | 163 | 18,5 % | 22,699387 | 37 | 81,5
 19 | 250 | 183 | 26,8 % | 36,612022 | 67 | 73,2
 20 | 250 | 162 | 35,2 % | 54,320988 | 88 | 64,8
@@ -372,18 +372,18 @@ Nr. | a | b | Lösung | F1 | F2 | F3
 51 | 250 | 140 | 44 % | 78,571429 | 110 | 56
 52 | 250 | 210 | 16 % | 19,047619 | 40 | 84
 53 | 80 | 60 | 25 % | 33,333333 | 20 | 75
-54 | 120 | 102 | 15 % | 17,647059 | 18 | 85
-55 | 20 | 15 | 25 % | 33,333333 | 5 | 75
-56 | 250 | 247 | 1,2 % | 1,214575 | 3 | 98,8
-57 | 20 | 14 | 30 % | 42,857143 | 6 | 70
-58 | 80 | 52 | 35 % | 53,846154 | 28 | 65
-59 | 125 | 85 | 32 % | 47,058824 | 40 | 68
-60 | 250 | 154 | 38,4 % | 62,337662 | 96 | 61,6
-61 | 200 | 186 | 7 % | 7,526882 | 14 | 93
-62 | 125 | 117 | 6,4 % | 6,837607 | 8 | 93,6
-63 | 250 | 179 | 28,4 % | 39,664804 | 71 | 71,6
-64 | 200 | 133 | 33,5 % | 50,37594 | 67 | 66,5
-65 | 40 | 21 | 47,5 % | 90,47619 | 19 | 52,5
-66 | 200 | 191 | 4,5 % | 4,712042 | 9 | 95,5
-67 | 250 | 215 | 14 % | 16,27907 | 35 | 86
+54 | 20 | 15 | 25 % | 33,333333 | 5 | 75
+55 | 120 | 108 | 10 % | 11,111111 | 12 | 90
+56 | 20 | 14 | 30 % | 42,857143 | 6 | 70
+57 | 80 | 52 | 35 % | 53,846154 | 28 | 65
+58 | 125 | 85 | 32 % | 47,058824 | 40 | 68
+59 | 250 | 154 | 38,4 % | 62,337662 | 96 | 61,6
+60 | 200 | 186 | 7 % | 7,526882 | 14 | 93
+61 | 125 | 117 | 6,4 % | 6,837607 | 8 | 93,6
+62 | 250 | 179 | 28,4 % | 39,664804 | 71 | 71,6
+63 | 200 | 133 | 33,5 % | 50,37594 | 67 | 66,5
+64 | 40 | 21 | 47,5 % | 90,47619 | 19 | 52,5
+65 | 200 | 191 | 4,5 % | 4,712042 | 9 | 95,5
+66 | 250 | 215 | 14 % | 16,27907 | 35 | 86
+67 | 250 | 234 | 6,4 % | 6,837607 | 16 | 93,6
 ```

@@ -101,7 +101,7 @@ Dreisatz-Tabelle und Gleichung nebeneinander:
 - 1 % ist 240 € : 80 = 3 € | $G = \frac{240 \cdot 100}{80}$
 - 100 % sind 3 € · 100 = **300 €** | $G = 300$
 
-Warum 80 %? Nach dem Rabatt zahlst du noch 100 % − 20 % = 80 %. Probe: 20 % von 300 € sind 60 €, und 300 € − 60 € = 240 €. Das passt. Überschlag: 80 % ist knapp das Ganze, also muss das Ganze etwas größer sein als 240 €.
+Warum 80 %? Nach dem Rabatt zahlst du noch 100 % − 20 % = 80 %. Probe: 20 % von 300 € sind 60 €, und 300 € − 60 € = 240 €. Das passt. Überschlag: 80 % sind vier Fünftel. Also muss das Ganze ein Viertel größer sein als 240 €.
 
 ### Übung
 
