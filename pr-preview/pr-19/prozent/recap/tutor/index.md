@@ -87,7 +87,7 @@ Einen Bruch wandelst du in eine **Dezimalzahl** um, indem du Zähler durch Nenne
 
 **Beispiel: Drei Viertel und ein Drittel**
 
-$\frac{3}{4} = 3 : 4 = 0{,}75$. Die Rechnung bricht ab. $\frac{1}{3} = 1 : 3$ ergibt 0,333… Die 3 wiederholt sich immer weiter: Das ist die **Periode**. Ein **Hundertstel** ist $\frac{1}{100}$ = 0,01. Prozent heißt Hundertstel: 12 % sind $\frac{12}{100}$ = 0,12.
+$\frac{3}{4} = 3 : 4 = 0{,}75$. Die Rechnung bricht ab. $\frac{1}{3} = 1 : 3$ ergibt 0,333… Die 3 wiederholt sich immer weiter: Das ist die **Periode**. Ein **Hundertstel** ist $\frac{1}{100}$ = 0,01. Prozent heißt Hundertstel: 12 % sind $\frac{12}{100}$ = 0,12.
 
 Interaktiv: Kurztest: Welche Dezimalzahl ist drei Viertel? Antworten: 0,34, 0,75, 0,25 oder 3,4. Richtig ist 0,75, denn 3 : 4 = 0,75.
 

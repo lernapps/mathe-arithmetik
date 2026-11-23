@@ -65,7 +65,7 @@ Der ganze Streifen ist das Ganze, also der **Grundwert**: 250 € sind 100 %. 
 
 ### Regel
 
-Der Prozentwert $W$ ist der Teil des Grundwerts $G$, der zum Prozentsatz $p\,\%$ gehört. Er hat dieselbe Einheit wie der Grundwert. Rechnen kannst du auf zwei Wegen. Beide rechnen dasselbe. Der **Dreisatz** ist ein Rechenweg über 1 %: Du rechnest aus, was 1 % ist, und dann, was $p\,\%$ sind. Er geht in drei Zeilen von 100 % auf 1 % und dann auf $p\,\%$.
+Der Prozentwert $W$ ist der Teil des Grundwerts $G$, der zum Prozentsatz $p\,\%$ gehört. Er hat dieselbe Einheit wie der Grundwert. Rechnen kannst du auf zwei Wegen. Beide rechnen dasselbe. Der **Dreisatz** ist ein Rechenweg über 1 %: Du rechnest aus, was 1 % ist, und dann, was $p\,\%$ sind. Er geht in drei Zeilen von 100 % auf 1 % und dann auf $p\,\%$.
 
 Dreisatz-Tabelle und Formel nebeneinander, für 12 % von 250 €:
 - Dreisatz-Tabelle | Formel
