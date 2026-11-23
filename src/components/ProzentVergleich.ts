@@ -192,7 +192,7 @@ export function generate(seed: number): VergleichAufgabe {
     rechenweg: [
       `Unterschied: ${formatWert(gross, einheit)} − ${formatWert(klein, einheit)} = ${d}`,
       `Bezugsgröße (steht nach „als“): ${mitEinheit(bezug, einheit)} = 100 %`,
-      `p = ${d} / ${formatWert(bezug, einheit)} · 100 ${zeichen} ${formatZahl(prozentsatz)}`,
+      `p = ${d} : ${formatWert(bezug, einheit)} · 100 ${zeichen} ${formatZahl(prozentsatz)}`,
       `p % ${zeichen} ${formatZahl(prozentsatz)} %`,
     ],
     richtig: `Ergebnis: ${formatZahl(prozentsatz)} % ${wort}.`,

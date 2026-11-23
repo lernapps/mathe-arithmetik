@@ -23,7 +23,7 @@ blocks:
           wert: "30 €"
           verdeckt: true
         nojs: |
-          Prozentstreifen: Der ganze Streifen ist der Preis in Laden B, 120 €, das sind 100 %. Der Unterschied von 30 € ist ein
+          Prozentstreifen: Der ganze Streifen ist der Preis in Laden B, 120 €, das sind 100 %. Der Unterschied von 30 € ist ein
           Teil davon. Wie viel Prozent das sind, ist gesucht.
       - type: text
         text: >-
@@ -62,7 +62,7 @@ blocks:
               grundwert: "120 €"
               wert: "30 €"
             nojs: |
-              Prozentstreifen: Der ganze Streifen ist Laden B mit 120 €. Der Unterschied von 30 € ist 25 % davon.
+              Prozentstreifen: Der ganze Streifen ist Laden B mit 120 €. Der Unterschied von 30 € ist 25 % davon.
           - type: vue-component
             id: streifen-laden-a
             component: ProzentStreifen
@@ -72,7 +72,7 @@ blocks:
               grundwert: "150 €"
               wert: "30 €"
             nojs: |
-              Prozentstreifen: Der ganze Streifen ist Laden A mit 150 €. Derselbe Unterschied von 30 € ist nur 20 % davon.
+              Prozentstreifen: Der ganze Streifen ist Laden A mit 150 €. Derselbe Unterschied von 30 € ist nur 20 % davon.
           - type: table
             caption: Zwei Fragen, zwei Bezugsgrößen
             header: [Frage, Bezugsgröße, Rechnung]
@@ -88,7 +88,7 @@ blocks:
               Hat sie auch den größeren Anteil?
           - type: text
             text: >-
-              7a: 18 : 24 = 75 %. 7b: 21 : 30 = 70 %. Der Anteil der 7a ist größer, obwohl es weniger Schüler sind. Bei
+              7a: 18 : 24 = 0,75 = 75 %. 7b: 21 : 30 = 70 %. Der Anteil der 7a ist größer, obwohl es weniger Schüler sind. Bei
               Prozenten zählt der Anteil, nicht die Stückzahl.
   - type: section
     id: uebung
@@ -109,7 +109,7 @@ blocks:
             info: "Der Unterschied ist ein Teil des Ganzen, nicht das Ganze."
         explanation: "Die Bezugsgröße steht nach „als“. Hier ist das A mit 150 €."
         links:
-          - title: Zwei Werte vergleichen (Lernlandkarte)
+          - title: Prozentualer Vergleich (Lernlandkarte)
             url: "https://lernapps.net/apps/map/mathematik/c/prozent-vergleich/"
       - type: vue-component
         id: streifen-8a
@@ -150,7 +150,7 @@ blocks:
             info: "Die Anteile sind 75 % und 64 %. Sie sind nicht gleich."
         explanation: "Rechne beide Anteile aus: 75 % in der 8a, 64 % in der 8b. Mehr Schüler heißt nicht mehr Prozent."
         links:
-          - title: Zwei Werte vergleichen (Lernlandkarte)
+          - title: Prozentualer Vergleich (Lernlandkarte)
             url: "https://lernapps.net/apps/map/mathematik/c/prozent-vergleich/"
       - type: vue-component
         id: vergleich-aufgabe

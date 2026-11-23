@@ -78,8 +78,8 @@ export function generate(seed: number): GrundwertAufgabe {
     bildGeloest: streifen(prozentsatz, bildWert(grundwert, einheit), bildWert(prozentwert, wEinheit)),
     tipp: `Gesucht ist das Ganze (100 %). Du kennst ${formatZahl(prozentsatz)} %: das sind ${mitEinheit(prozentwert, wEinheit)}. Rechne erst aus, was 1 % ist (durch ${formatZahl(prozentsatz)} teilen), dann mal 100.`,
     rechenweg: [
-      "G = W · 100 / p",
-      `G = ${formatWert(prozentwert, einheit)} · 100 / ${formatZahl(prozentsatz)}`,
+      "G = W · 100 : p",
+      `G = ${formatWert(prozentwert, einheit)} · 100 : ${formatZahl(prozentsatz)}`,
       `G ${gleichheitszeichen(zahl(exakt), grundwert)} ${ergebnis}`,
     ],
     richtig: `Ergebnis: ${ergebnis}.`,

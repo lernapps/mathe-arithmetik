@@ -32,9 +32,10 @@ export function streifenText(beschriftung: {
   wert: string;
   grundwert: string;
   faktor?: string | undefined;
+  maximum?: number;
 }): string {
   const faktor = beschriftung.faktor
     ? ` Der Faktor ${beschriftung.faktor} führt vom Grundwert zum markierten Teil.`
     : "";
-  return `Prozentstreifen. Oben die Skala von 0 % bis 100 %, unten der Grundwert ${beschriftung.grundwert}. Der markierte Teil ist ${beschriftung.prozent}, unten ${beschriftung.wert}.${faktor}`;
+  return `Prozentstreifen. Oben die Skala von 0 % bis ${beschriftung.maximum ?? 100} %, unten der Grundwert ${beschriftung.grundwert}. Der markierte Teil ist ${beschriftung.prozent}, unten ${beschriftung.wert}.${faktor}`;
 }

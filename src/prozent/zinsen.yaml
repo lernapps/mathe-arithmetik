@@ -39,7 +39,7 @@ blocks:
       - type: text
         text: >-
           Bei weniger als einem Jahr nimmst du nur den Teil des Jahres. Die deutsche Zinsmethode rechnet: **1 Jahr hat
-          360 Tage, 1 Monat hat 30 Tage.**
+          360 Tage, 1 Monat hat 30 Tage.**
       - type: formula
         formula: 'Z = K \cdot \frac{p}{100} \cdot \frac{m}{12}'
       - type: text
@@ -81,12 +81,12 @@ blocks:
         blocks:
           - type: text
             text: >-
-              Monate: 1200 € werden 4 Monate lang mit 3 % im Jahr verzinst. Es sind 4 von 12 Monaten.
+              Monate: 1200 € werden 4 Monate lang mit 3 % im Jahr verzinst. Es sind 4 von 12 Monaten.
           - type: formula
             formula: 'Z = 1200 \cdot \frac{3}{100} \cdot \frac{4}{12} = 12'
           - type: text
             text: >-
-              Tage (deutsche Zinsmethode, 1 Jahr = 360 Tage): 900 € werden 45 Tage lang mit 4 % im Jahr verzinst.
+              Tage (deutsche Zinsmethode, 1 Jahr = 360 Tage): 900 € werden 45 Tage lang mit 4 % im Jahr verzinst.
           - type: formula
             formula: 'Z = 900 \cdot \frac{4}{100} \cdot \frac{45}{360} = 4{,}50'
           - type: text
@@ -149,17 +149,17 @@ blocks:
               value: "K * p / 100",
               message: "Das sind die Zinsen für ein ganzes Jahr. Du musst noch mit m : 12 malnehmen, denn es sind nur {{m}} von 12 Monaten.",
             }
-          - { value: "K * p / 100 * m", message: "Du hast vergessen, durch 12 zu teilen. Ein Jahr hat 12 Monate." }
+          - { value: "K * p / 100 * m", message: "Du hast vergessen, durch 12 zu teilen. Ein Jahr hat 12 Monate." }
         hint: "Rechne erst die Zinsen für ein Jahr aus. Nimm davon {{m}} Zwölftel."
         steps:
           - '$Z = K \cdot \frac{p}{100} \cdot \frac{m}{12}$'
           - '$Z = {{K}} \cdot \frac{{{p}}}{100} \cdot \frac{{{m}}}{12} = {{answer}}$, also {{answer}} € Zinsen.'
       - type: number
         id: tage-aus-monaten
-        text: "Nach der deutschen Zinsmethode hat jeder Monat 30 Tage. Wie viele Tage sind 4 Monate?"
+        text: "Nach der deutschen Zinsmethode hat jeder Monat 30 Tage. Wie viele Tage sind 4 Monate?"
         answer: 120
         tolerance: 0
-        explanation: Ein Monat hat 30 Tage, also sind 4 Monate 4 · 30 = 120 Tage. Ein Jahr hat 12 · 30 = 360 Tage.
+        explanation: Ein Monat hat 30 Tage, also sind 4 Monate 4 · 30 = 120 Tage. Ein Jahr hat 12 · 30 = 360 Tage.
         links:
           - title: Zinsrechnung (Lernlandkarte)
             url: "https://lernapps.net/apps/map/mathematik/c/zinsrechnung/"
@@ -172,16 +172,16 @@ blocks:
           t: { oneOf: [30, 45, 60, 90, 120, 180] }
         where: ["decimals(K * p / 100 * t / 360) <= 2"]
         task:
-          text: "Nach der deutschen Zinsmethode hat ein Jahr 360 Tage. Ein Guthaben von {{K}} € wird {{t}} Tage lang mit {{p}} % im Jahr verzinst. Wie viel Euro Zinsen sind das?"
+          text: "Nach der deutschen Zinsmethode hat ein Jahr 360 Tage. Ein Guthaben von {{K}} € wird {{t}} Tage lang mit {{p}} % im Jahr verzinst. Wie viel Euro Zinsen sind das?"
         answer: { value: "K * p / 100 * t / 360", compare: { number: { format: money } } }
         mistakes:
           - {
               value: "K * p / 100 * t",
-              message: "Du hast vergessen, durch 360 zu teilen. Ein Jahr hat nach der deutschen Zinsmethode 360 Tage.",
+              message: "Du hast vergessen, durch 360 zu teilen. Ein Jahr hat nach der deutschen Zinsmethode 360 Tage.",
             }
           - {
               value: "K * p / 100 * t / 30",
-              message: "Du hast durch 30 geteilt. 30 Tage sind ein Monat, ein Jahr hat aber 360 Tage.",
+              message: "Du hast durch 30 geteilt. 30 Tage sind ein Monat, ein Jahr hat aber 360 Tage.",
             }
         hint: "Rechne erst die Zinsen für ein Jahr aus. Nimm davon {{t}} von 360 Tagen."
         steps:

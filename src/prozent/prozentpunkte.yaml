@@ -46,7 +46,7 @@ blocks:
       - type: text
         text: >-
           Ein **Prozentpunkt** ist der Unterschied zwischen zwei Prozentsätzen. Eine Zustimmung steigt von 40 % auf
-          45 %: Das sind 5 Prozentpunkte. Gegen den Anfangswert gerechnet sind es 5 : 40 = 0,125, also 12,5 % mehr.
+          45 %: Das sind 5 Prozentpunkte. Gegen den Anfangswert gerechnet sind es 5 : 40 = 0,125, also 12,5 % mehr.
       - type: note
         title: Merke
         blocks:
@@ -87,7 +87,7 @@ blocks:
         blocks:
           - type: text
             text: >-
-              Die Zustimmung zu einem Vorschlag steigt von 40 % auf 45 %. Dann sind es 5 Prozentpunkte mehr. Die
+              Die Zustimmung zu einem Vorschlag steigt von 40 % auf 45 %. Dann sind es 5 Prozentpunkte mehr. Die
               Zustimmung ist um 5 : 40 = 12,5 % gestiegen.
   - type: section
     id: uebung
@@ -108,7 +108,7 @@ blocks:
             info: Der Rabatt nimmt mehr weg, als die Erhöhung vorher dazugegeben hat. Am Ende ist es weniger als vorher.
         explanation: Die Faktoren 1,10 und 0,90 ergeben zusammen 0,99. Das sind 99 % vom Anfangspreis.
         links:
-          - title: Prozent von Prozenten (Lernlandkarte)
+          - title: Prozentpunkte und mehrfache Änderungen (Lernlandkarte)
             url: "https://lernapps.net/apps/map/mathematik/c/prozent-von-prozenten/"
       - type: generated
         id: gesamtfaktor-ueben
@@ -161,28 +161,28 @@ blocks:
         id: prozent-oder-prozentpunkte
         text: "Die Zustimmung zu einem Vorschlag steigt von 40 % auf 50 %. Welche Aussage stimmt?"
         options:
-          - text: Sie steigt um 10 Prozentpunkte.
+          - text: Sie steigt um 10 Prozentpunkte.
             correct: true
-            info: 50 % − 40 % = 10 %. Der Unterschied zweier Prozentsätze wird in Prozentpunkten angegeben.
+            info: 50 % − 40 % = 10 Prozentpunkte. Der Unterschied zweier Prozentsätze wird in Prozentpunkten angegeben.
           - text: Sie steigt um 10 %.
             correct: false
-            info: 10 % von 40 % wären nur 4 Prozentpunkte, also 44 %. Hier sind es 10 Prozentpunkte.
-          - text: Sie steigt um 50 Prozentpunkte.
+            info: 10 % von 40 % wären nur 4 Prozentpunkte, also 44 %. Hier sind es 10 Prozentpunkte.
+          - text: Sie steigt um 50 Prozentpunkte.
             correct: false
             info: 50 % ist der neue Wert, nicht der Unterschied. Der Unterschied ist 50 % − 40 %.
-        explanation: "Der Unterschied zweier Prozentsätze ist 10 Prozentpunkte. Auf den Anfangswert bezogen sind es 10 : 40 = 25 % mehr."
+        explanation: "Der Unterschied zweier Prozentsätze ist 10 Prozentpunkte. Auf den Anfangswert bezogen sind es 10 : 40 = 25 % mehr."
         links:
-          - title: Prozent von Prozenten (Lernlandkarte)
+          - title: Prozentpunkte und mehrfache Änderungen (Lernlandkarte)
             url: "https://lernapps.net/apps/map/mathematik/c/prozent-von-prozenten/"
       - type: true-false
         id: quote-sinkt
         text: "Eine Quote sinkt von 8 % auf 6 %. Das sind 2 % weniger."
         answer: false
         explanation: >-
-          Der Unterschied der Prozentsätze sind 2 Prozentpunkte. Auf den Anfangswert bezogen sind es 2 : 8 = 0,25, also
+          Der Unterschied der Prozentsätze sind 2 Prozentpunkte. Auf den Anfangswert bezogen sind es 2 : 8 = 0,25, also
           25 % weniger.
         links:
-          - title: Prozent von Prozenten (Lernlandkarte)
+          - title: Prozentpunkte und mehrfache Änderungen (Lernlandkarte)
             url: "https://lernapps.net/apps/map/mathematik/c/prozent-von-prozenten/"
       - type: generated
         id: anfangswert-ueben

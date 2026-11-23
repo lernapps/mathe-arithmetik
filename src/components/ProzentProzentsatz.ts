@@ -84,8 +84,8 @@ export function generate(seed: number): ProzentsatzAufgabe {
     bildGeloest: streifen(prozentsatz, bildWert(grundwert, einheit), bildWert(prozentwert, wEinheit)),
     tipp: `Der Grundwert ist das Ganze: ${mitEinheit(grundwert, einheit)} sind 100 %. Teile den Teil (${mitEinheit(prozentwert, wEinheit)}) durch das Ganze und nimm das Ergebnis mal 100.`,
     rechenweg: [
-      "p = W / G · 100",
-      `p = ${formatWert(prozentwert, einheit)} / ${formatWert(grundwert, einheit)} · 100 ${zeichen} ${formatZahl(prozentsatz)}`,
+      "p = W : G · 100",
+      `p = ${formatWert(prozentwert, einheit)} : ${formatWert(grundwert, einheit)} · 100 ${zeichen} ${formatZahl(prozentsatz)}`,
       `p % ${zeichen} ${formatZahl(prozentsatz)} %`,
     ],
     richtig: `Ergebnis: ${formatZahl(prozentsatz)} %.`,

@@ -66,10 +66,10 @@ const TEXTE: Partial<Record<KontextId, Texte>> = {
 /** Die richtige Gleichung und zwei Fallen (Formeln verwechselt) für das Gesuchte. */
 function gleichungen(gesucht: Gesucht, G: string, W: string, P: string): { richtig: string; falsch: string[] } {
   if (gesucht === "W")
-    return { richtig: `W = ${G} · ${P} / 100`, falsch: [`W = ${G} · 100 / ${P}`, `W = ${P} / ${G} · 100`] };
+    return { richtig: `W = ${G} · ${P} : 100`, falsch: [`W = ${G} · 100 : ${P}`, `W = ${P} : ${G} · 100`] };
   if (gesucht === "G")
-    return { richtig: `G = ${W} · 100 / ${P}`, falsch: [`G = ${W} · ${P} / 100`, `G = ${P} / ${W} · 100`] };
-  return { richtig: `p = ${W} / ${G} · 100`, falsch: [`p = ${G} / ${W} · 100`, `p = ${G} · ${W} / 100`] };
+    return { richtig: `G = ${W} · 100 : ${P}`, falsch: [`G = ${W} · ${P} : 100`, `G = ${P} : ${W} · 100`] };
+  return { richtig: `p = ${W} : ${G} · 100`, falsch: [`p = ${G} : ${W} · 100`, `p = ${G} · ${W} : 100`] };
 }
 
 /** Die Rollen der beiden Zahlen im Text, in ihrer Reihenfolge, je nach dem Gesuchten. */
@@ -109,7 +109,15 @@ function bilder(gesucht: Gesucht, g: number, w: number, p: number, einheit: stri
 
 function aufgabeGleichung(zufall: Zufall): SachAufgabe {
   const kontext = waehleKontext(zufall, ["preis", "umfrage"], { preis: { min: 30, max: 300, saetze: RABATTE } });
-  const { grundwert: g, prozentsatz: p, prozentwert: w } = erzeugeTripel(zufall, kontext);
+  // Fallen dürfen nie zahlengleich mit der richtigen Gleichung sein: das passiert bei G = 100 und bei W = p
+  let tripel = erzeugeTripel(zufall, kontext);
+  for (
+    let versuch = 0;
+    versuch < 20 && (tripel.grundwert === 100 || tripel.prozentwert === tripel.prozentsatz);
+    versuch++
+  )
+    tripel = erzeugeTripel(zufall, kontext);
+  const { grundwert: g, prozentsatz: p, prozentwert: w } = tripel;
   const gesucht = zufall.wahl<Gesucht>(["W", "G", "p"]);
   const einheit = kontext.einheit;
   const wEinheit = kontext.id === "umfrage" ? "Personen" : einheit;
@@ -163,7 +171,8 @@ function aufgabeGleichung(zufall: Zufall): SachAufgabe {
 function aufgabeDreisatz(zufall: Zufall): SachAufgabe {
   const kontext = waehleKontext(zufall, ["preis", "umfrage", "akku"], { preis: { min: 300, max: 1500 } });
   const g = 100 * zufall.ganzzahl(Math.max(1, Math.ceil(kontext.min / 100)), Math.floor(kontext.max / 100));
-  const p = zufall.wahl(PROZENTSAETZE);
+  // Personen sind ganze Zahlen: bei Umfragen nur Prozentsätze ohne Nachkommastelle
+  const p = zufall.wahl(kontext.id === "umfrage" ? PROZENTSAETZE.filter((q) => Number.isInteger(q)) : PROZENTSAETZE);
   const einheit = kontext.einheit;
   const einsExakt = durch(alsBruch(g), bruch(100));
   const prozentExakt = mal(einsExakt, alsBruch(p));

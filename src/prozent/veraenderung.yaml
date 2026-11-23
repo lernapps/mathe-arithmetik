@@ -147,7 +147,7 @@ blocks:
             info: Der Streifen ist länger als 100 %. Bei einer Abnahme wäre er kürzer.
         explanation: Reicht der Streifen über 100 % hinaus, ist der Wert gestiegen, und zwar um den Teil über 100 %.
         links:
-          - title: Prozentuale Veränderung (Lernlandkarte)
+          - title: Prozentuale Zu- und Abnahme (Lernlandkarte)
             url: "https://lernapps.net/apps/map/mathematik/c/prozent-veraenderung/"
       - type: single-choice
         id: faktor-waehlen
@@ -164,7 +164,7 @@ blocks:
             info: Der Faktor 1,2 gehört zu einer Zunahme um 20 %. Bei einem Rabatt ist der Faktor kleiner als 1.
         explanation: Bei einer Abnahme um 20 % bleiben 100 % − 20 % = 80 % übrig. Der Faktor ist 0,8.
         links:
-          - title: Prozentuale Veränderung (Lernlandkarte)
+          - title: Prozentuale Zu- und Abnahme (Lernlandkarte)
             url: "https://lernapps.net/apps/map/mathematik/c/prozent-veraenderung/"
       - type: vue-component
         id: veraenderung-aufgabe
@@ -209,7 +209,7 @@ blocks:
           Die 25 % gehören zum alten Preis, nicht zum neuen. Rückwärts teilst du durch den Faktor: 150 € : 1,25 =
           120 €. Zur Probe: 120 € · 1,25 = 150 €.
         links:
-          - title: Prozentuale Veränderung (Lernlandkarte)
+          - title: Prozentuale Zu- und Abnahme (Lernlandkarte)
             url: "https://lernapps.net/apps/map/mathematik/c/prozent-veraenderung/"
       - type: generated
         id: veraenderung-rueckwaerts

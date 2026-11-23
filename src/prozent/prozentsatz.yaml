@@ -21,7 +21,7 @@ blocks:
           wert: "20 €"
           verdeckt: true
         nojs: |
-          Prozentstreifen: Oben die Skala von 0 % bis 100 %, unten der Grundwert 80 €. Der Teil von 20 € ist bekannt.
+          Prozentstreifen: Oben die Skala von 0 % bis 100 %, unten der Grundwert 80 €. Der Teil von 20 € ist bekannt.
           Der Prozentsatz dazu oben ist gesucht.
       - type: text
         text: >-
@@ -59,7 +59,7 @@ blocks:
         title: Haustiere in der Klasse
         blocks:
           - type: text
-            text: In einer Klasse sind 24 Schüler. 18 davon haben ein Haustier. Wie viel Prozent der Klasse sind das?
+            text: In einer Klasse sind 24 Schüler. 18 davon haben ein Haustier. Wie viel Prozent der Klasse sind das?
           - type: vue-component
             id: streifen-haustiere
             component: ProzentStreifen
@@ -69,14 +69,14 @@ blocks:
               grundwert: "24 Schüler"
               wert: "18 Schüler"
             nojs: |
-              Prozentstreifen: Oben die Skala von 0 % bis 100 %, unten der Grundwert 24 Schüler. Der blaue Teil ist 18
-              Schüler lang und reicht bis 75 %.
+              Prozentstreifen: Oben die Skala von 0 % bis 100 %, unten der Grundwert 24 Schüler. Der blaue Teil ist 18
+              Schüler lang und reicht bis 75 %.
           - type: table
             caption: Die Größen im Beispiel und die Rechnung
             rowHeaders: true
             rows:
-              - ["Grundwert $G$", "24 Schüler (die ganze Klasse)"]
-              - ["Prozentwert $W$", "18 Schüler (der Teil)"]
+              - ["Grundwert $G$", "24 Schüler (die ganze Klasse)"]
+              - ["Prozentwert $W$", "18 Schüler (der Teil)"]
               - ["Rechnung", "$p = \\frac{18}{24} \\cdot 100 = 0{,}75 \\cdot 100 = 75$"]
               - ["Prozentsatz $p$", "**75 %** der Klasse"]
   - type: section
@@ -93,7 +93,7 @@ blocks:
           wert: "10 €"
           verdeckt: true
         nojs: |
-          Prozentstreifen: Oben die Skala von 0 % bis 100 %, unten der Grundwert 50 €. Der Teil von 10 € ist bekannt.
+          Prozentstreifen: Oben die Skala von 0 % bis 100 %, unten der Grundwert 50 €. Der Teil von 10 € ist bekannt.
           Der Prozentsatz dazu oben ist ein Fragezeichen.
       - type: single-choice
         id: prozentsatz-streifen
@@ -123,7 +123,7 @@ blocks:
           wert: "40 Fragen"
           verdeckt: true
         nojs: |
-          Prozentstreifen: Oben die Skala von 0 % bis 100 %, unten der Grundwert 50 Fragen. Der Teil von 40 Fragen ist
+          Prozentstreifen: Oben die Skala von 0 % bis 100 %, unten der Grundwert 50 Fragen. Der Teil von 40 Fragen ist
           bekannt. Der Prozentsatz dazu oben ist gesucht.
       - type: number
         id: prozentsatz-quiz
@@ -149,7 +149,7 @@ blocks:
         examples:
           accepted:
             - { answer: { prozentsatz: "3" }, seed: 1 }
-            - { answer: { prozentsatz: "3 %" }, seed: 1 }
+            - { answer: { prozentsatz: "3 %" }, seed: 1 }
             - { answer: { prozentsatz: "9/300*100" }, seed: 1 }
             - { answer: { prozentsatz: "15" }, seed: 2 }
           rejected:

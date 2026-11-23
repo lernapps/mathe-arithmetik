@@ -192,13 +192,13 @@ export function generate(seed: number): VeraenderungAufgabe {
     rechenweg:
       typ === "neu"
         ? [
-            `Neuer Wert = alter Wert · (1 ${zeichen} p/100)`,
-            `Faktor: 1 ${zeichen} ${formatZahl(p)}/100 = ${f}`,
+            `Neuer Wert = alter Wert · (1 ${zeichen} p : 100)`,
+            `Faktor: 1 ${zeichen} ${formatZahl(p)} : 100 = ${f}`,
             `${formatWert(alt, einheit)} · ${f} ${gl} ${mitEinheit(neu, einheit)}`,
           ]
         : [
-            `Alter Wert = neuer Wert : (1 ${zeichen} p/100)`,
-            `Faktor: 1 ${zeichen} ${formatZahl(p)}/100 = ${f}`,
+            `Alter Wert = neuer Wert : (1 ${zeichen} p : 100)`,
+            `Faktor: 1 ${zeichen} ${formatZahl(p)} : 100 = ${f}`,
             `${formatWert(neu, einheit)} : ${f} ${gl} ${mitEinheit(alt, einheit)}`,
           ],
     richtig: `Ergebnis: ${mitEinheit(ergebnis, einheit)}.`,

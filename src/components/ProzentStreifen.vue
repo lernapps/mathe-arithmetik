@@ -21,7 +21,13 @@ const props = defineProps<{
 
 const lage = computed(() => streifenLage(props.verdeckt ? 50 : props.prozent));
 const text = computed(() =>
-  streifenText({ prozent: props.prozentText, wert: props.wert, grundwert: props.grundwert, faktor: props.faktor }),
+  streifenText({
+    prozent: props.prozentText,
+    wert: props.wert,
+    grundwert: props.grundwert,
+    faktor: props.faktor,
+    maximum: lage.value.maximum,
+  }),
 );
 const breite = STREIFEN_LINKS * 2 + STREIFEN_BREITE;
 const OBEN = 34;

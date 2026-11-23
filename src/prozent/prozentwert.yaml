@@ -48,7 +48,7 @@ blocks:
         blocks:
           - type: text
             text: >-
-              Im Dreisatz teilst du zuerst durch 100 und nimmst dann mal $p$. In der Formel steht erst mal $p$, dann geteilt
+              Im Dreisatz teilst du zuerst durch 100 und nimmst dann mal $p$. In der Formel rechnest du erst $G \cdot p$, dann geteilt
               durch 100. Das Ergebnis ist dasselbe.
   - type: section
     id: beispiel
@@ -116,7 +116,7 @@ blocks:
         examples:
           accepted:
             - { answer: { prozentwert: "74,70" }, seed: 1 }
-            - { answer: { prozentwert: "74.7 €" }, seed: 1 }
+            - { answer: { prozentwert: "74.7 €" }, seed: 1 }
             - { answer: { prozentwert: "1245*6/100" }, seed: 1 }
             - { answer: { prozentwert: "1870" }, seed: 2 }
           rejected:
@@ -142,7 +142,7 @@ blocks:
               value: "G - G * p / 100",
               message: "Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.",
             }
-        hint: "Rechne erst 1 % aus: {{G}} € geteilt durch 100. Dann mal {{p}}."
+        hint: "Rechne erst 1 % aus: {{G}} € geteilt durch 100. Dann mal {{p}}."
         steps:
           - '$W = \frac{G \cdot p}{100}$'
           - '$W = \frac{{{G}} \cdot {{p}}}{100} = {{answer}}$, also {{answer}} €.'
@@ -152,15 +152,15 @@ blocks:
         given:
           G: { int: [20, 400], step: 10 }
         task:
-          text: "Eine Jacke kostet ohne Steuer {{G}} €. Die Mehrwertsteuer beträgt 19 %. Wie viel Euro Mehrwertsteuer sind das?"
+          text: "Eine Jacke kostet ohne Steuer {{G}} €. Die Mehrwertsteuer beträgt 19 %. Wie viel Euro Mehrwertsteuer sind das?"
         answer: { value: "G * 19 / 100", compare: { number: { format: money } } }
         mistakes:
-          - { value: "G * 19", message: "Du hast vergessen, durch 100 zu teilen: 19 % sind 19 Hundertstel." }
+          - { value: "G * 19", message: "Du hast vergessen, durch 100 zu teilen: 19 % sind 19 Hundertstel." }
           - {
               value: "G + G * 19 / 100",
               message: "Das ist der Preis mit Steuer. Gefragt ist nur die Mehrwertsteuer, also der Prozentwert.",
             }
-        hint: "Rechne erst 1 % aus: {{G}} € geteilt durch 100. Dann mal 19."
+        hint: "Rechne erst 1 % aus: {{G}} € geteilt durch 100. Dann mal 19."
         steps:
           - '$W = \frac{G \cdot p}{100}$'
           - '$W = \frac{{{G}} \cdot 19}{100} = {{answer}}$, also {{answer}} €.'

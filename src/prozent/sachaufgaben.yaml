@@ -22,7 +22,7 @@ blocks:
           grundwert: "800 Stimmen"
           wert: "? Stimmen"
         nojs: |
-          Prozentstreifen: Der ganze Streifen sind 800 Stimmen, das sind 100 %. Der blaue Teil reicht bis 36 %. Wie viele
+          Prozentstreifen: Der ganze Streifen sind 800 Stimmen, das sind 100 %. Der blaue Teil reicht bis 36 %. Wie viele
           Stimmen das sind, ist gesucht.
       - type: text
         text: >-
@@ -87,7 +87,7 @@ blocks:
               grundwert: "? €"
               wert: "240 €"
             nojs: |
-              Prozentstreifen: Der ganze Streifen ist der alte Preis, gesucht. Der blaue Teil reicht bis 80 % und ist 240 € lang.
+              Prozentstreifen: Der ganze Streifen ist der alte Preis, gesucht. Der blaue Teil reicht bis 80 % und ist 240 € lang.
           - type: table
             caption: Dreisatz-Tabelle und Gleichung nebeneinander
             header: [Dreisatz, Gleichung]
@@ -113,7 +113,7 @@ blocks:
           grundwert: "? Personen"
           wert: "90 Personen"
         nojs: |
-          Prozentstreifen: Der ganze Streifen sind die Befragten, das ist die gesuchte Zahl. Der blaue Teil reicht bis 30 %
+          Prozentstreifen: Der ganze Streifen sind die Befragten, das ist die gesuchte Zahl. Der blaue Teil reicht bis 30 %
           und sind 90 Personen.
       - type: single-choice
         id: stelle-erkennen
@@ -130,7 +130,7 @@ blocks:
             info: "Der Prozentsatz ist bekannt: Es sind 30 %."
         explanation: "Gegeben sind der Teil (90 Personen) und der Prozentsatz (30 %). Gesucht ist das Ganze."
         links:
-          - title: Sachaufgaben lösen (Lernlandkarte)
+          - title: Sachaufgaben zur Prozentrechnung (Lernlandkarte)
             url: "https://lernapps.net/apps/map/mathematik/c/prozent-sachaufgaben/"
       - type: single-choice
         id: gleichung-waehlen
@@ -142,12 +142,12 @@ blocks:
           - text: '$\frac{90 \cdot 30}{100}$'
             correct: false
             info: "Das ist die Formel für den Prozentwert. Sie ergibt 27, also weniger als die 90 Personen, die schon ein Teil sind."
-          - text: '$\frac{90}{30} \cdot 100$'
+          - text: '$\frac{30}{90} \cdot 100$'
             correct: false
-            info: "Das ist die Formel für den Prozentsatz. Das Ergebnis wäre 300 ohne Einheit, außerdem ist hier das Ganze gesucht."
+            info: "Das ist die Formel für den Prozentsatz, mit vertauschten Zahlen. Sie ergibt 33,3 und hat keine Einheit. Gesucht ist hier das Ganze."
         explanation: "Gesucht ist das Ganze. Dann passt $G = \\frac{W \\cdot 100}{p}$. Probe: 30 % von 300 sind 90."
         links:
-          - title: Sachaufgaben lösen (Lernlandkarte)
+          - title: Sachaufgaben zur Prozentrechnung (Lernlandkarte)
             url: "https://lernapps.net/apps/map/mathematik/c/prozent-sachaufgaben/"
       - type: vue-component
         id: sachaufgaben-aufgabe
@@ -155,12 +155,12 @@ blocks:
         examples:
           accepted:
             - { answer: { eins: "26", prozent: "650" }, seed: 1 }
-            - { answer: { eins: "2600/100", prozent: "650 mAh" }, seed: 1 }
-            - { answer: { gleichung: "G = 408 · 100 / 80", ergebnis: "510" }, seed: 2 }
+            - { answer: { eins: "2600/100", prozent: "650 mAh" }, seed: 1 }
+            - { answer: { gleichung: "G = 408 · 100 : 80", ergebnis: "510" }, seed: 2 }
           rejected:
             - { answer: { eins: "260000", prozent: "650" }, seed: 1 }
-            - { answer: { gleichung: "G = 408 · 80 / 100", ergebnis: "326,4" }, seed: 2 }
-            - { answer: { gleichung: "G = 408 · 100 / 80", ergebnis: "500" }, seed: 2 }
+            - { answer: { gleichung: "G = 408 · 80 : 100", ergebnis: "326,4" }, seed: 2 }
+            - { answer: { gleichung: "G = 408 · 100 : 80", ergebnis: "500" }, seed: 2 }
       - type: generated
         id: sachaufgaben-dreisatz
         practice: Ein Dreisatz ohne Geschichte.

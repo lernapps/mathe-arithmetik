@@ -20,7 +20,7 @@ blocks:
           grundwert: "? €"
           wert: "15 €"
         nojs: |
-          Prozentstreifen: Oben die Skala von 0 % bis 100 %. Der blaue Teil reicht bis 20 % und ist 15 € lang.
+          Prozentstreifen: Oben die Skala von 0 % bis 100 %. Der blaue Teil reicht bis 20 % und ist 15 € lang.
           Der Grundwert am Ende des Streifens unten ist gesucht.
       - type: text
         text: >-
@@ -49,7 +49,7 @@ blocks:
           - type: text
             text: >-
               Erst durch $p$ teilen, dann mal 100. Bei $p$ unter 100 % ist der Grundwert größer als der Prozentwert.
-              Kommt etwas Kleineres heraus, hast du den Prozentwert gerechnet.
+              Kommt etwas Kleineres heraus, hast du $p\,\%$ vom Prozentwert gerechnet statt das Ganze.
   - type: section
     id: beispiel
     title: Beispiel
@@ -68,8 +68,8 @@ blocks:
               grundwert: "250 €"
               wert: "30 €"
             nojs: |
-              Prozentstreifen: Oben die Skala von 0 % bis 100 %, unten der Grundwert 250 €. Der blaue Teil reicht bis 12 %
-              und ist 30 € lang.
+              Prozentstreifen: Oben die Skala von 0 % bis 100 %, unten der Grundwert 250 €. Der blaue Teil reicht bis 12 %
+              und ist 30 € lang.
           - type: table
             caption: Die Größen im Beispiel und die Rechnung
             rowHeaders: true
@@ -91,7 +91,7 @@ blocks:
           grundwert: "? €"
           wert: "30 €"
         nojs: |
-          Prozentstreifen: Oben die Skala von 0 % bis 100 %. Der blaue Teil reicht bis 40 % und ist 30 € lang.
+          Prozentstreifen: Oben die Skala von 0 % bis 100 %. Der blaue Teil reicht bis 40 % und ist 30 € lang.
           Der Grundwert am Ende des Streifens unten ist ein Fragezeichen.
       - type: single-choice
         id: grundwert-streifen
@@ -120,7 +120,7 @@ blocks:
           grundwert: "? €"
           wert: "45 €"
         nojs: |
-          Prozentstreifen: Oben die Skala von 0 % bis 100 %. Der blaue Teil reicht bis 30 % und ist 45 € lang.
+          Prozentstreifen: Oben die Skala von 0 % bis 100 %. Der blaue Teil reicht bis 30 % und ist 45 € lang.
           Der Grundwert am Ende des Streifens unten ist gesucht.
       - type: number
         id: grundwert-schuhe
@@ -158,7 +158,7 @@ blocks:
         given:
           W: { int: [3, 600] }
           p: { oneOf: [2, 4, 5, 8, 12, 12.5, 15, 20, 24, 25, 30, 40, 45, 60, 75, 80] }
-        where: ["decimals(W * 100 / p) <= 2"]
+        where: ["decimals(W * 100 / p) <= 2", "W * 100 / p < 10000"]
         task:
           text: "{{W}} € sind {{p}} % eines Betrags. Wie groß ist der ganze Betrag?"
         answer: { value: "W * 100 / p", compare: { number: { format: money } } }

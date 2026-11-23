@@ -21,7 +21,7 @@ blocks:
         title: Die Zahl 3456
         blocks:
           - type: text
-            text: "In 3456 steht die 4 an der Hunderterstelle. Sie bedeutet 4 · 100 = 400. Die Zahl heißt 3 · 1000 + 4 · 100 + 5 · 10 + 6 · 1."
+            text: "In 3456 steht die 4 an der Hunderterstelle. Sie bedeutet 4 · 100 = 400. Die Zahl ist die Summe 3 · 1000 + 4 · 100 + 5 · 10 + 6 · 1."
       - type: vue-component
         id: test-stellenwert
         component: Kurztest
@@ -109,7 +109,7 @@ blocks:
         title: Drei Viertel und ein Drittel
         blocks:
           - type: text
-            text: "$\\frac{3}{4} = 3 : 4 = 0{,}75$. Die Rechnung bricht ab. $\\frac{1}{3} = 1 : 3 = 0{,}3333$ und so weiter. Die 3 wiederholt sich immer weiter."
+            text: "$\\frac{3}{4} = 3 : 4 = 0{,}75$. Die Rechnung bricht ab. $\\frac{1}{3} = 1 : 3$ ergibt 0,333… Die 3 wiederholt sich immer weiter: Das ist die **Periode**."
       - type: vue-component
         id: test-dezimalbrueche
         component: Kurztest
