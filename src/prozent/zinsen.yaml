@@ -12,7 +12,7 @@ blocks:
       - type: text
         text: >-
           Du hast 800 € auf einem Sparkonto. Dafür bekommst du in einem Jahr 2 % Zinsen. Wie viele Euro sind das? Der
-          Prozentstreifen zeigt es: Das Guthaben ist das Ganze.
+          Prozentstreifen zeigt es: Das Guthaben ist das Ganze. Zinsen sind das Geld, das die Bank dir dafür gibt, dass du ihr dein Geld überlässt.
       - type: vue-component
         id: streifen-zinsen
         component: ProzentStreifen

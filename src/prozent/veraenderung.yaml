@@ -203,11 +203,11 @@ blocks:
           - '$\text{neuer Wert} = {{alt}} \cdot (1 - \frac{{{p}}}{100}) = {{answer}}$, also {{answer}} €.'
       - type: true-false
         id: alter-preis-falsch
-        text: "Ein Preis ist um 25 % gestiegen und kostet jetzt 150 €. Der alte Preis war dann 150 € − 25 % von 150 € = 112,50 €."
+        text: "Ein Preis ist um 20 % gestiegen und kostet jetzt 60 €. Der alte Preis war dann 60 € − 20 % von 60 € = 48 €."
         answer: false
         explanation: >-
-          Die 25 % gehören zum alten Preis, nicht zum neuen. Rückwärts teilst du durch den Faktor: 150 € : 1,25 =
-          120 €. Zur Probe: 120 € · 1,25 = 150 €.
+          Die 20 % gehören zum alten Preis, nicht zum neuen. Rückwärts teilst du durch den Faktor: 60 € : 1,2 =
+          50 €. Zur Probe: 50 € · 1,2 = 60 €.
         links:
           - title: Prozentuale Zu- und Abnahme (Lernlandkarte)
             url: "https://lernapps.net/apps/map/mathematik/c/prozent-veraenderung/"

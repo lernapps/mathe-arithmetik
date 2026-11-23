@@ -31,7 +31,7 @@ const text = computed(() =>
 );
 const breite = STREIFEN_LINKS * 2 + STREIFEN_BREITE;
 const OBEN = 34;
-const hoehe = computed(() => (props.faktor ? 128 : 100));
+const hoehe = computed(() => (props.faktor ? 172 : 104));
 </script>
 
 <template>
@@ -90,7 +90,7 @@ const hoehe = computed(() => (props.faktor ? 128 : 100));
       {{ grundwert }}
     </text>
     <text
-      v-if="Math.abs(lage.teilEnde - lage.grundEnde) > 60"
+      v-if="Math.abs(lage.teilEnde - lage.grundEnde) > 60 && lage.teilEnde - lage.x(0) > 60"
       :x="lage.teilEnde"
       :y="OBEN + STREIFEN_HOEHE + 18"
       font-size="12"
@@ -117,6 +117,10 @@ const hoehe = computed(() => (props.faktor ? 128 : 100));
         :d="`M ${lage.grundEnde} ${OBEN + STREIFEN_HOEHE + 48} Q ${(lage.grundEnde + lage.teilEnde) / 2} ${OBEN + STREIFEN_HOEHE + 74} ${lage.teilEnde} ${OBEN + STREIFEN_HOEHE + 48}`"
         class="pfeil"
         fill="none"
+      />
+      <polygon
+        :points="`${lage.teilEnde - 5},${OBEN + STREIFEN_HOEHE + 58} ${lage.teilEnde + 5},${OBEN + STREIFEN_HOEHE + 58} ${lage.teilEnde},${OBEN + STREIFEN_HOEHE + 47}`"
+        class="spitze"
       />
       <text
         :x="(lage.grundEnde + lage.teilEnde) / 2"
@@ -160,6 +164,9 @@ const hoehe = computed(() => (props.faktor ? 128 : 100));
 .marke {
   stroke: var(--page-accent, #1d4ed8);
   stroke-width: 2;
+}
+.spitze {
+  fill: var(--page-text, #1a1a1a);
 }
 .pfeil {
   stroke: var(--page-text, #1a1a1a);

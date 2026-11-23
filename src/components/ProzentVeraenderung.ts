@@ -98,9 +98,10 @@ const KONTEXTE: readonly Kontext[] = [
     richtung: "plus",
     preis: true,
     saetze: [19],
-    neu: (alt) => `Ein Fahrrad kostet netto ${alt}. Dazu kommen 19 % Mehrwertsteuer. Wie viel kostet es brutto?`,
+    neu: (alt) =>
+      `Ein Fahrrad kostet ohne Steuer ${alt}. Dazu kommen 19 % Mehrwertsteuer. Wie viel kostet es mit Steuer?`,
     alt: (neu) =>
-      `Ein Fahrrad kostet brutto ${neu}. Darin sind 19 % Mehrwertsteuer enthalten. Wie hoch ist der Nettopreis?`,
+      `Ein Fahrrad kostet mit Steuer ${neu}. Darin sind 19 % Mehrwertsteuer enthalten. Wie hoch ist der Preis ohne Steuer?`,
   },
   {
     id: "gehalt",
