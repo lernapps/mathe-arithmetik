@@ -108,9 +108,6 @@ blocks:
             correct: false
             info: "Der Unterschied ist ein Teil des Ganzen, nicht das Ganze."
         explanation: "Die Bezugsgröße steht nach „als“. Hier ist das A mit 150 €."
-        links:
-          - title: Prozentualer Vergleich (Lernlandkarte)
-            url: "https://lernapps.net/apps/map/mathematik/c/prozent-vergleich/"
       - type: vue-component
         id: streifen-8a
         component: ProzentStreifen
@@ -149,9 +146,6 @@ blocks:
             correct: false
             info: "Die Anteile sind 75 % und 64 %. Sie sind nicht gleich."
         explanation: "Rechne beide Anteile aus: 75 % in der 8a, 64 % in der 8b. Mehr Schüler heißt nicht mehr Prozent."
-        links:
-          - title: Prozentualer Vergleich (Lernlandkarte)
-            url: "https://lernapps.net/apps/map/mathematik/c/prozent-vergleich/"
       - type: vue-component
         id: vergleich-aufgabe
         component: ProzentVergleich

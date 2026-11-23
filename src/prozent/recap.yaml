@@ -26,25 +26,29 @@ blocks:
         id: test-stellenwert
         component: Kurztest
         props:
-          question: "Welchen Wert hat die Ziffer 4 in der Zahl 3456?"
+          question: "Welchen Wert hat die Ziffer 7 in der Zahl 40 782?"
           options:
             - {
-                text: "4",
+                text: "7",
                 correct: false,
-                info: "Das wäre die 4 an der Einerstelle. Die 4 steht aber an der Hunderterstelle.",
+                info: "Das wäre die Einerstelle. Die 2 steht dort. Die 7 steht eine Stelle weiter links.",
               }
-            - { text: "40", correct: false, info: "40 wäre die Zehnerstelle. In 3456 steht die 5 an der Zehnerstelle." }
             - {
-                text: "400",
-                correct: true,
-                info: "Von rechts: Einer 6, Zehner 5, Hunderter 4. Die 4 steht für 4 Hunderter, also 400.",
+                text: "70",
+                correct: false,
+                info: "70 wäre die Zehnerstelle. Dort steht die 8. Die 7 steht an der Hunderterstelle.",
               }
-            - { text: "4000", correct: false, info: "4000 wäre die Tausenderstelle. Dort steht die 3." }
+            - {
+                text: "700",
+                correct: true,
+                info: "Von rechts: Einer 2, Zehner 8, Hunderter 7. Die 7 steht für 7 Hunderter, also 700.",
+              }
+            - { text: "7000", correct: false, info: "7000 wäre die Tausenderstelle. Dort steht die 0." }
           right: Richtig.
           wrong: Nicht richtig.
         nojs: |
-          Kurztest: Welchen Wert hat die Ziffer 4 in der Zahl 3456? Antworten: 4, 40, 400 oder 4000. Richtig ist 400: Von
-          rechts stehen Einer 6, Zehner 5, Hunderter 4.
+          Kurztest: Welchen Wert hat die Ziffer 7 in der Zahl 40 782? Antworten: 7, 70, 700 oder 7000. Richtig ist 700: Von
+          rechts stehen Einer 2, Zehner 8, Hunderter 7.
       - type: text
         text: >-
           Wenn du dich vertan hast: Übe den Baustein „Natürliche Zahlen im Stellenwertsystem“, siehe seine
@@ -66,33 +70,33 @@ blocks:
         id: test-bruchbegriff
         component: Kurztest
         props:
-          question: "Eine Tafel Schokolade hat 10 gleiche Riegel. Du isst 4 Riegel. Welcher Bruch der Tafel ist das?"
+          question: "Eine Schachtel hat 12 gleiche Pralinen. Du isst 9. Welchen Bruch der Schachtel hast du gegessen, so weit wie möglich gekürzt?"
           options:
             - {
-                text: "Vier Zehntel",
+                text: "Drei Viertel",
                 correct: true,
-                info: "Die Tafel ist in 10 gleiche Teile geteilt (Nenner 10), du isst 4 davon (Zähler 4).",
+                info: "Neun Zwölftel, beide Zahlen durch 3 geteilt: drei Viertel. Probe: 3 von 4 gleichen Teilen sind 9 von 12.",
               }
             - {
-                text: "Zehn Viertel",
+                text: "Neun Zwölftel",
                 correct: false,
-                info: "Du hast Zähler und Nenner vertauscht. Der Nenner ist die Zahl aller gleichen Teile, hier 10.",
+                info: "Das stimmt, ist aber noch nicht gekürzt. Zähler und Nenner lassen sich durch 3 teilen.",
               }
             - {
-                text: "Vier Sechstel",
+                text: "Drei Zwölftel",
                 correct: false,
-                info: "Sechs Riegel sind übrig, aber der Nenner zählt alle Teile des Ganzen, also 10.",
+                info: "Du hast nur den Zähler gekürzt. Beim Kürzen teilst du Zähler und Nenner durch dieselbe Zahl.",
               }
             - {
-                text: "Sechs Zehntel",
+                text: "Vier Drittel",
                 correct: false,
-                info: "Das sind die 6 Riegel, die übrig sind. Gefragt ist, was du gegessen hast: 4 Riegel.",
+                info: "Das ist größer als ein Ganzes. Du hast gegessen, was weniger als die ganze Schachtel ist.",
               }
           right: Richtig.
           wrong: Nicht richtig.
         nojs: |
-          Kurztest: Eine Tafel Schokolade hat 10 gleiche Riegel, du isst 4. Welcher Bruch ist das? Richtig ist vier Zehntel:
-          Nenner 10 (alle Teile), Zähler 4 (gegessene Teile).
+          Kurztest: Eine Schachtel hat 12 gleiche Pralinen, du isst 9. Welchen Bruch hast du gegessen, so weit wie möglich
+          gekürzt? Richtig ist drei Viertel: neun Zwölftel, durch 3 gekürzt.
       - type: text
         text: >-
           Wenn du dich vertan hast: Übe den Baustein „Bruchbegriff“, siehe seine
@@ -114,21 +118,21 @@ blocks:
         id: test-dezimalbrueche
         component: Kurztest
         props:
-          question: "Welche Dezimalzahl ist drei Viertel?"
+          question: "Welche Dezimalzahl ist sieben Achtel?"
           options:
+            - { text: "0,78", correct: false, info: "Das ist nur die 7 und die 8 hinter dem Komma. Teile 7 durch 8." }
             - {
-                text: "0,34",
-                correct: false,
-                info: "Das ist nur die 3 und die 4 hinter dem Komma. Teile 3 durch 4: Das ergibt 0,75.",
+                text: "0,875",
+                correct: true,
+                info: "7 : 8 = 0,875. Probe: ein Achtel ist 0,125, sieben Achtel sind 7 · 0,125 = 0,875.",
               }
-            - { text: "0,75", correct: true, info: "3 : 4 = 0,75. Probe: 0,75 sind 75 Hundertstel, also drei Viertel." }
-            - { text: "0,25", correct: false, info: "0,25 ist ein Viertel. Drei Viertel sind das Dreifache." }
-            - { text: "3,4", correct: false, info: "3,4 ist größer als 1. Drei Viertel sind weniger als ein Ganzes." }
+            - { text: "0,125", correct: false, info: "0,125 ist ein Achtel. Sieben Achtel sind das Siebenfache." }
+            - { text: "8,7", correct: false, info: "8,7 ist größer als 1. Sieben Achtel sind weniger als ein Ganzes." }
           right: Richtig.
           wrong: Nicht richtig.
         nojs: |
-          Kurztest: Welche Dezimalzahl ist drei Viertel? Antworten: 0,34, 0,75, 0,25 oder 3,4. Richtig ist 0,75, denn
-          3 : 4 = 0,75.
+          Kurztest: Welche Dezimalzahl ist sieben Achtel? Antworten: 0,78, 0,875, 0,125 oder 8,7. Richtig ist 0,875, denn
+          7 : 8 = 0,875.
       - type: text
         text: >-
           Wenn du dich vertan hast: Übe den Baustein „Dezimalbrüche und Periode“, siehe seine

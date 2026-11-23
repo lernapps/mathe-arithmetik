@@ -110,9 +110,6 @@ blocks:
             info: Der Grundwert steht schon unten am Ende des Streifens (50 €). Er ist bekannt.
         explanation: Das Fragezeichen steht oben bei den Prozenten. Diese Stelle ist der Prozentsatz.
         hint: Schau, ob das Fragezeichen oben bei den Prozenten steht oder unten bei den Werten.
-        links:
-          - title: Prozentsatz berechnen (Lernlandkarte)
-            url: "https://lernapps.net/apps/map/mathematik/c/prozent-prozentsatz/"
       - type: vue-component
         id: streifen-quiz
         component: ProzentStreifen
@@ -140,9 +137,6 @@ blocks:
             message: "Das sind die Prozent der falschen Antworten. Gefragt sind die richtigen."
         hint: "Teile den Teil, 40, durch das Ganze, 50. Das Ergebnis nimmst du mal 100."
         explanation: "Teil durch Ganzes: 40 : 50 = 0,8. Mal 100 sind das 80 %. Der Dreisatz sagt dasselbe: 1 % sind 0,50 Fragen, und 40 : 0,5 = 80."
-        links:
-          - title: Prozentsatz berechnen (Lernlandkarte)
-            url: "https://lernapps.net/apps/map/mathematik/c/prozent-prozentsatz/"
       - type: vue-component
         id: prozentsatz-aufgabe
         component: ProzentProzentsatz

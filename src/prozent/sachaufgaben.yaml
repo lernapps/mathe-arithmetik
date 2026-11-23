@@ -129,9 +129,6 @@ blocks:
             correct: false
             info: "Der Prozentsatz ist bekannt: Es sind 30 %."
         explanation: "Gegeben sind der Teil (90 Personen) und der Prozentsatz (30 %). Gesucht ist das Ganze."
-        links:
-          - title: Sachaufgaben zur Prozentrechnung (Lernlandkarte)
-            url: "https://lernapps.net/apps/map/mathematik/c/prozent-sachaufgaben/"
       - type: single-choice
         id: gleichung-waehlen
         text: "Gesucht ist das Ganze $G$. Welche Rechnung passt, wenn 90 Personen 30 % sind?"
@@ -146,9 +143,6 @@ blocks:
             correct: false
             info: "Das ist die Formel für den Prozentsatz, mit vertauschten Zahlen. Sie ergibt 33,3 und hat keine Einheit. Gesucht ist hier das Ganze."
         explanation: "Gesucht ist das Ganze. Dann passt $G = \\frac{W \\cdot 100}{p}$. Probe: 30 % von 300 sind 90."
-        links:
-          - title: Sachaufgaben zur Prozentrechnung (Lernlandkarte)
-            url: "https://lernapps.net/apps/map/mathematik/c/prozent-sachaufgaben/"
       - type: vue-component
         id: sachaufgaben-aufgabe
         component: ProzentSachaufgaben

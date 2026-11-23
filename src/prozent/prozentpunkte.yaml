@@ -107,9 +107,6 @@ blocks:
             correct: false
             info: Der Rabatt nimmt mehr weg, als die Erhöhung vorher dazugegeben hat. Am Ende ist es weniger als vorher.
         explanation: Die Faktoren 1,10 und 0,90 ergeben zusammen 0,99. Das sind 99 % vom Anfangspreis.
-        links:
-          - title: Prozentpunkte und mehrfache Änderungen (Lernlandkarte)
-            url: "https://lernapps.net/apps/map/mathematik/c/prozent-von-prozenten/"
       - type: generated
         id: gesamtfaktor-ueben
         practice: Der Gesamtfaktor aus zwei Änderungen.
@@ -171,9 +168,6 @@ blocks:
             correct: false
             info: 50 % ist der neue Wert, nicht der Unterschied. Der Unterschied ist 50 % − 40 %.
         explanation: "Der Unterschied zweier Prozentsätze ist 10 Prozentpunkte. Auf den Anfangswert bezogen sind es 10 : 40 = 25 % mehr."
-        links:
-          - title: Prozentpunkte und mehrfache Änderungen (Lernlandkarte)
-            url: "https://lernapps.net/apps/map/mathematik/c/prozent-von-prozenten/"
       - type: true-false
         id: quote-sinkt
         text: "Eine Quote sinkt von 8 % auf 6 %. Das sind 2 % weniger."
@@ -181,9 +175,6 @@ blocks:
         explanation: >-
           Der Unterschied der Prozentsätze sind 2 Prozentpunkte. Auf den Anfangswert bezogen sind es 2 : 8 = 0,25, also
           25 % weniger.
-        links:
-          - title: Prozentpunkte und mehrfache Änderungen (Lernlandkarte)
-            url: "https://lernapps.net/apps/map/mathematik/c/prozent-von-prozenten/"
       - type: generated
         id: anfangswert-ueben
         practice: Zurückrechnen auf den Anfangswert.

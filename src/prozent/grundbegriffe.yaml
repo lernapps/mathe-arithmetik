@@ -115,9 +115,6 @@ blocks:
               10 Schüler sind 40 % von 25 Schülern, also der Prozentwert: ein Teil der Klasse. Die Zahl steht nicht im
               Text, du müsstest sie erst ausrechnen.
         explanation: Frag dich „40 % wovon?“ – von den 25 Schülern der Klasse. Also sind 25 Schüler der Grundwert.
-        links:
-          - title: "Prozentrechnung: Grundbegriffe (Lernlandkarte)"
-            url: "https://lernapps.net/apps/map/mathematik/c/prozent-grundbegriffe/"
       - type: true-false
         id: grundbegriffe-einheit
         text: Der Prozentwert hat dieselbe Einheit wie der Grundwert.
@@ -125,6 +122,3 @@ blocks:
         explanation: >-
           Der Prozentwert ist ein Teil des Grundwerts: Sind es beim Grundwert Euro, sind es auch beim Prozentwert Euro.
           Nur der Prozentsatz hat das %-Zeichen.
-        links:
-          - title: "Prozentrechnung: Grundbegriffe (Lernlandkarte)"
-            url: "https://lernapps.net/apps/map/mathematik/c/prozent-grundbegriffe/"

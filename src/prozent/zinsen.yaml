@@ -110,9 +110,6 @@ blocks:
             correct: false
             info: 612 € ist das Guthaben nach einem Jahr, mit Zinsen. Die Zinsen allein sind der Unterschied zu 600 €.
         explanation: Die Zinsen sind die Zunahme des Guthabens in einem Jahr, hier 612 € − 600 € = 12 €.
-        links:
-          - title: Zinsrechnung (Lernlandkarte)
-            url: "https://lernapps.net/apps/map/mathematik/c/zinsrechnung/"
       - type: generated
         id: jahreszinsen-ueben
         practice: Jahreszinsen berechnen.
@@ -160,9 +157,6 @@ blocks:
         answer: 120
         tolerance: 0
         explanation: Ein Monat hat 30 Tage, also sind 4 Monate 4 · 30 = 120 Tage. Ein Jahr hat 12 · 30 = 360 Tage.
-        links:
-          - title: Zinsrechnung (Lernlandkarte)
-            url: "https://lernapps.net/apps/map/mathematik/c/zinsrechnung/"
       - type: generated
         id: tageszinsen-ueben
         practice: Tageszinsen berechnen.

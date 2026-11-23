@@ -12,7 +12,8 @@ blocks:
       - type: text
         text: >-
           Eine Hose kostet 80 €. Der Preis steigt um 25 %. Was kostet sie danach? Am **Prozentstreifen** siehst du: Bei
-          einer Zunahme wird der Streifen länger als 100 %.
+          einer Zunahme wird der Streifen länger als 100 %: Das gestrichelte Stück ist die Zunahme. Der Pfeil darunter
+          führt vom alten zum neuen Wert.
       - type: vue-component
         id: streifen-zunahme
         component: ProzentStreifen
@@ -84,7 +85,7 @@ blocks:
               Prozentstreifen: Der Streifen reicht nur bis 75 %. Unten steht der alte Preis 80 € bei 100 %, der neue
               Preis ist 60 €. Ein Pfeil zeigt den Faktor 0,75.
           - type: table
-            caption: Abnahme um 25 % mit dem Faktor
+            caption: Abnahme um 25 %. Der Streifen endet bei 75 %, der Rest bis 100 % ist der Rabatt. Der Pfeil zeigt den Faktor.
             rowHeaders: true
             rows:
               - ["Alter Wert", "80 € = 100 %"]
@@ -146,9 +147,6 @@ blocks:
             correct: false
             info: Der Streifen ist länger als 100 %. Bei einer Abnahme wäre er kürzer.
         explanation: Reicht der Streifen über 100 % hinaus, ist der Wert gestiegen, und zwar um den Teil über 100 %.
-        links:
-          - title: Prozentuale Zu- und Abnahme (Lernlandkarte)
-            url: "https://lernapps.net/apps/map/mathematik/c/prozent-veraenderung/"
       - type: single-choice
         id: faktor-waehlen
         text: "Ein Rabatt von 20 % senkt einen Preis. Mit welchem Faktor rechnest du den neuen Preis aus?"
@@ -163,9 +161,6 @@ blocks:
             correct: false
             info: Der Faktor 1,2 gehört zu einer Zunahme um 20 %. Bei einem Rabatt ist der Faktor kleiner als 1.
         explanation: Bei einer Abnahme um 20 % bleiben 100 % − 20 % = 80 % übrig. Der Faktor ist 0,8.
-        links:
-          - title: Prozentuale Zu- und Abnahme (Lernlandkarte)
-            url: "https://lernapps.net/apps/map/mathematik/c/prozent-veraenderung/"
       - type: vue-component
         id: veraenderung-aufgabe
         component: ProzentVeraenderung
@@ -208,9 +203,6 @@ blocks:
         explanation: >-
           Die 20 % gehören zum alten Preis, nicht zum neuen. Rückwärts teilst du durch den Faktor: 60 € : 1,2 =
           50 €. Zur Probe: 50 € · 1,2 = 60 €.
-        links:
-          - title: Prozentuale Zu- und Abnahme (Lernlandkarte)
-            url: "https://lernapps.net/apps/map/mathematik/c/prozent-veraenderung/"
       - type: generated
         id: veraenderung-rueckwaerts
         practice: Rückwärts gerechnet, ohne Geschichte.

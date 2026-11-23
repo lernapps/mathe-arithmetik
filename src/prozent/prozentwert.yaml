@@ -107,9 +107,6 @@ blocks:
             correct: false
             info: Der Grundwert steht schon unten am Ende des Streifens (80 €). Er ist bekannt.
         explanation: Das Fragezeichen steht bei dem Wert in Euro. Dieser Teil des Grundwerts ist der Prozentwert.
-        links:
-          - title: Prozentwert berechnen (Lernlandkarte)
-            url: "https://lernapps.net/apps/map/mathematik/c/prozent-prozentwert/"
       - type: vue-component
         id: prozentwert-aufgabe
         component: ProzentProzentwert
