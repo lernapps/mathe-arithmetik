@@ -38,7 +38,7 @@ test("jede Aufgabe: Lösung richtig, typischer Fehler falsch, Grundwert größer
     expect(grund(a, wrong(a))).toBe(erwartet);
     expect(Number((solution(a)["grundwert"] ?? "").replace(",", "."))).toBeGreaterThan(a.prozentwert);
   }
-  expect(describe(generate(1)).task).toContain("100 % = ?");
+  expect(describe(generate(1)).task).toContain("unten der Grundwert ?");
 });
 
 test("reason ist grund: die Meldung zur Antwort", () => {

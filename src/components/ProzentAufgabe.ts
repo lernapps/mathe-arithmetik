@@ -44,9 +44,18 @@ export interface Balken {
   text: string;
 }
 
-/** Das Bild zur Aufgabe: Hunderterfeld, Prozentbalken (0 bis 100 %) oder waagerechte Balken zum Vergleich. */
+/** Das Bild zur Aufgabe: Hunderterfeld, Prozentbalken (0 bis 100 %) oder waagerechte Balken zum Vergleich. */
 export type Bild =
   | { art: "raster"; gefuellt: number; titel: string; untertitel: string }
+  | {
+      art: "streifen";
+      prozent: number;
+      prozentText: string;
+      grundwert: string;
+      wert: string;
+      faktor?: string;
+      verdeckt?: boolean;
+    }
   | { art: "prozentbalken"; prozent: number; links: string; rechts: string; mitte: string }
   | { art: "balken"; titel: string; balken: Balken[] };
 
@@ -123,13 +132,38 @@ export function grundFuer(
   return diagnose(antworten) ?? falsch;
 }
 
+/** Das Gesuchte am Streifen: „?“ mit der Einheit. */
+export const unbekannt = (einheit: string): string => (einheit ? `?\u00a0${einheit}` : "?");
+
+/** Der Prozentstreifen zur Aufgabe: p % des Grundwerts, unten der Wert dazu („unbekannt“ solange er gesucht ist). */
+export const streifen = (
+  prozent: number,
+  grundwert: string,
+  wert: string,
+  faktor?: string,
+  prozentText = `${formatZahl(prozent)}\u00a0%`,
+  verdeckt = false,
+): Bild => ({
+  art: "streifen",
+  prozent,
+  prozentText,
+  grundwert,
+  wert,
+  ...(faktor === undefined ? {} : { faktor }),
+  ...(verdeckt ? { verdeckt } : {}),
+});
+
 /** Was das Bild zeigt, in Worten: für Screenreader und die Seite ohne JavaScript. */
 export function bildText(bild: Bild): string {
+  if (bild.art === "streifen") {
+    const faktor = bild.faktor ? ` Der Faktor ${bild.faktor} führt vom Grundwert zum neuen Wert.` : "";
+    return `Prozentstreifen: oben die Skala in Prozent, unten der Grundwert ${bild.grundwert}. Der markierte Teil: ${bild.prozentText}, unten ${bild.wert}.${faktor}`;
+  }
   if (bild.art === "raster") {
     return `Hunderterfeld: ${formatZahl(bild.gefuellt)} von 100 Kästchen sind blau. ${bild.titel}; ${bild.untertitel}.`;
   }
   if (bild.art === "prozentbalken") {
-    return `Prozentbalken von 0 % bis 100 %, ${formatZahl(bild.prozent)} % sind blau. Über dem Balken: ${bild.mitte}. Rechts: ${bild.rechts}.`;
+    return `Prozentbalken von 0 % bis 100 %, ${formatZahl(bild.prozent)} % sind blau. Über dem Balken: ${bild.mitte}. Rechts: ${bild.rechts}.`;
   }
   return `Balkenbild „${bild.titel}“: ${bild.balken.map((b) => b.text).join("; ")}.`;
 }
@@ -167,7 +201,7 @@ export { MELDUNG_KEINE_ZAHL };
 export const hatEingabe = (antworten: Readonly<Antworten>): boolean =>
   Object.values(antworten).some((wert) => wert.trim() !== "");
 
-/** Eine Auswahl kurz, wie das Kind sie nennt: „Grundwert G“ statt „Grundwert G (das Ganze, 100 %)“. */
+/** Eine Auswahl kurz, wie das Kind sie nennt: „Grundwert G“ statt „Grundwert G (das Ganze, 100 %)“. */
 const kurz = (text: string): string => text.replace(/\s*\(.*\)$/, "");
 
 /**
@@ -186,7 +220,7 @@ export function zeige(aufgabe: Aufgabe, antwort: unknown): string {
       wert = kurz(feld.optionen.find((option) => option.wert === eingabe)?.text ?? eingabe);
     }
     if (aufgabe.felder.length === 1) return wert;
-    // „1 % sind 26 mAh“, „490 € ist Grundwert G“, sonst „Ergebnis (W): 10 €“
+    // „1 % sind 26 mAh“, „490 € ist Grundwert G“, sonst „Ergebnis (W): 10 €“
     const label = feld.label.replace(/\s*[?:…]$/, "");
     return /\s(sind|ist)$/.test(label) ? `${label} ${wert}` : `${label}: ${wert}`;
   });
@@ -205,7 +239,7 @@ export function eingabeVon(aufgabe: Aufgabe, id: string, wert: Bruch): Antworten
   return { [id]: feld?.typ === "zahl" ? loesungsText(wert, feld.art, feld.stellen) : "" };
 }
 
-/** Der Platzhalter {name} einer Zahl mit ihrer Einheit, so wie mitEinheit sie schreibt: „{G} €“. */
+/** Der Platzhalter {name} einer Zahl mit ihrer Einheit, so wie mitEinheit sie schreibt: „{G} €“. */
 export const platzhalter = (name: string, einheit = ""): string =>
   mitEinheit(0, einheit).replace(formatWert(0, einheit), `{${name}}`);
 
@@ -230,7 +264,7 @@ export const fuelle = (text: string, werte: Readonly<Record<string, string | num
 export const PROZENTSAETZE = [
   2, 3, 4, 5, 6, 8, 10, 12, 12.5, 15, 18, 20, 24, 25, 30, 35, 40, 45, 50, 60, 65, 70, 75, 80, 85, 90, 95,
 ];
-/** Rabatte, wie sie im Laden vorkommen: 5 bis 50 %. */
+/** Rabatte, wie sie im Laden vorkommen: 5 bis 50 %. */
 export const RABATTE = PROZENTSAETZE.filter((p) => p >= 5 && p <= 50);
 
 export type KontextId = "preis" | "klasse" | "umfrage" | "akku" | "sport";
@@ -254,7 +288,7 @@ export const KONTEXTE: readonly Kontext[] = [
   { id: "sport", einheit: "Würfe", min: 10, max: 60, nachkomma: 0, schritt: 1 },
 ];
 
-/** Andere Bereiche für einzelne Kontexte, passend zum Ding im Text (eine Jacke kostet 30 bis 300 €). */
+/** Andere Bereiche für einzelne Kontexte, passend zum Ding im Text (eine Jacke kostet 30 bis 300 €). */
 export type Bereiche = Partial<Record<KontextId, Partial<Kontext>>>;
 
 const ggt = (a: number, b: number): number => (b === 0 ? a : ggt(b, a % b));
@@ -292,13 +326,13 @@ export function erzeugeTripel(
     if (grundwert === undefined) continue;
     return { grundwert, prozentsatz, prozentwert: runde((grundwert * prozentsatz) / 100, kontext.nachkomma) };
   }
-  // 50 % einer geraden Zahl ist immer schön
+  // 50 % einer geraden Zahl ist immer schön
   const grundwert = 2 * zufall.ganzzahl(Math.ceil(kontext.min / 2), Math.floor(kontext.max / 2));
   return { grundwert, prozentsatz: 50, prozentwert: grundwert / 2 };
 }
 
 const DATIV: Readonly<Record<string, string>> = { Würfe: "Würfen", Schüler: "Schülern" };
-/** Die Einheit nach „von“: „65 % von 60 Würfen“. */
+/** Die Einheit nach „von“: „65 % von 60 Würfen“. */
 export const imDativ = (einheit: string): string => DATIV[einheit] ?? einheit;
 
 /** Wert mit Einheit für Bilder: Geld mit Cent wie im Text, normales Leerzeichen. */
@@ -334,7 +368,7 @@ export function umbrechen(text: string, max: number): string[] {
 export const SCHRIFT = 15;
 export const BREITE = 320;
 
-/** Die 100 Kästchen des Hunderterfelds; das Kästchen nach den vollen ist anteilig gefüllt (12,5 %: ein halbes). */
+/** Die 100 Kästchen des Hunderterfelds; das Kästchen nach den vollen ist anteilig gefüllt (12,5 %: ein halbes). */
 export function rasterKaestchen(gefuellt: number): { x: number; y: number; voll: boolean; teil: number }[] {
   const p = Math.max(0, Math.min(100, gefuellt));
   return Array.from({ length: 100 }, (_, i) => ({

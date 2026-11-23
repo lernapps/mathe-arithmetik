@@ -136,7 +136,7 @@ export function generate(seed: number): VergleichAufgabe {
   const zufall = erzeugeZufall(seed, "vergleich");
   const frage = zufall.wahl<Frage>(["groesser", "kleiner"]);
   const k = zufall.wahl(KONTEXTE);
-  // beide Werte bleiben im Bereich des Kontexts; Rückfall: 10 % vom Rand liegt immer darin
+  // beide Werte bleiben im Bereich des Kontexts; Rückfall: 10 % vom Rand liegt immer darin
   let bezug = frage === "groesser" ? k.min : k.max;
   let anderer = runde(frage === "groesser" ? bezug * 1.1 : bezug * 0.9, k.nachkomma);
   for (let versuch = 0; versuch < 50; versuch++) {
@@ -171,11 +171,11 @@ export function generate(seed: number): VergleichAufgabe {
     art: "balken" as const,
     titel: `Um wie viel Prozent ${wort}?`,
     balken: [
-      { wert: bezug, grau: true, text: `Bezugsgröße (100 %): ${bildWert(bezug, einheit)}` },
+      { wert: bezug, grau: true, text: `Bezugsgröße (100 %): ${bildWert(bezug, einheit)}` },
       {
         wert: vergleich,
         grau: false,
-        text: `Vergleichswert ${bildWert(vergleich, einheit)} – ${geloest ? formatZahl(prozentsatz) : "?"} % ${richtung}`,
+        text: `Vergleichswert ${bildWert(vergleich, einheit)} – ${geloest ? formatZahl(prozentsatz) : "?"} % ${richtung}`,
       },
     ],
   });

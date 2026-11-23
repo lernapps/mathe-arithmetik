@@ -36,7 +36,7 @@ test("jede Aufgabe: gleich für dieselbe Nummer, Lösung richtig, typischer Fehl
 
 test("Beschreibung für Tutor und Seite ohne JavaScript", () => {
   const { task, solution: loesung } = describe(generate(1));
-  expect(task).toContain("Bild zur Aufgabe: Hunderterfeld: 6 von 100 Kästchen sind blau.");
+  expect(task).toContain("Bild zur Aufgabe: Prozentstreifen: oben die Skala in Prozent");
   expect(loesung).toContain("Prozentwert W: 74,70 €");
   expect(about.mistakes).toHaveLength(2);
 });

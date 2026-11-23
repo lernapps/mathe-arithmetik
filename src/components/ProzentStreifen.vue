@@ -15,9 +15,11 @@ const props = defineProps<{
   wert: string;
   /** Der Faktor-Pfeil, zum Beispiel „· 1,05“; ohne Angabe kein Pfeil. */
   faktor?: string;
+  /** Der Prozentsatz ist gesucht: kein markierter Teil, die Texte stehen mittig. */
+  verdeckt?: boolean;
 }>();
 
-const lage = computed(() => streifenLage(props.prozent));
+const lage = computed(() => streifenLage(props.verdeckt ? 50 : props.prozent));
 const text = computed(() =>
   streifenText({ prozent: props.prozentText, wert: props.wert, grundwert: props.grundwert, faktor: props.faktor }),
 );
@@ -43,6 +45,7 @@ const hoehe = computed(() => (props.faktor ? 128 : 100));
     <!-- Streifen -->
     <rect :x="lage.x(0)" :y="OBEN" :width="lage.grundEnde - lage.x(0)" :height="STREIFEN_HOEHE" rx="4" class="aus" />
     <rect
+      v-if="!verdeckt"
       :x="lage.x(0)"
       :y="OBEN"
       :width="Math.min(lage.teilEnde, lage.grundEnde) - lage.x(0)"
@@ -59,7 +62,14 @@ const hoehe = computed(() => (props.faktor ? 128 : 100));
       rx="4"
       class="ueber"
     />
-    <line :x1="lage.teilEnde" :y1="OBEN - 4" :x2="lage.teilEnde" :y2="OBEN + STREIFEN_HOEHE + 4" class="marke" />
+    <line
+      v-if="!verdeckt"
+      :x1="lage.teilEnde"
+      :y1="OBEN - 4"
+      :x2="lage.teilEnde"
+      :y2="OBEN + STREIFEN_HOEHE + 4"
+      class="marke"
+    />
     <line :x1="lage.grundEnde" :y1="OBEN - 4" :x2="lage.grundEnde" :y2="OBEN + STREIFEN_HOEHE + 4" class="grenze" />
     <!-- Grundwert unten -->
     <text :x="lage.x(0)" :y="OBEN + STREIFEN_HOEHE + 18" font-size="12" text-anchor="start" class="schrift">0</text>
@@ -96,7 +106,7 @@ const hoehe = computed(() => (props.faktor ? 128 : 100));
       {{ wert }}
     </text>
     <!-- Faktor-Pfeil -->
-    <g v-if="faktor">
+    <g v-if="faktor && !verdeckt">
       <path
         :d="`M ${lage.grundEnde} ${OBEN + STREIFEN_HOEHE + 48} Q ${(lage.grundEnde + lage.teilEnde) / 2} ${OBEN + STREIFEN_HOEHE + 74} ${lage.teilEnde} ${OBEN + STREIFEN_HOEHE + 48}`"
         class="pfeil"

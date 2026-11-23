@@ -1,5 +1,5 @@
 // Übung „Sachaufgaben übersetzen“: Typ Gleichung (die passende Gleichung wählen und ausrechnen) und Typ Dreisatz
-// (100 % → 1 % → p %), mit Hunderterfeld. Portiert aus aufgaben/sachaufgaben.js der alten App.
+// (100 % → 1 % → p %), mit Hunderterfeld. Portiert aus aufgaben/sachaufgaben.js der alten App.
 import {
   type Antworten,
   type Aufgabe,
@@ -11,11 +11,12 @@ import {
   RABATTE,
   beschreibe,
   bildWert,
+  streifen,
+  unbekannt,
   check,
   eingabeFuer,
   erzeugeTripel,
   grundFuer,
-  imDativ,
   nurFalsche,
   platzhalter,
   solution,
@@ -89,40 +90,21 @@ export interface SachAufgabe extends Aufgabe {
   fassung: string;
   /** Die beiden Zahlen im Text, in ihrer Reihenfolge, ohne Einheit. */
   zahlen: [string, string];
-  /** Gleichung: die erste falsche Gleichung und ihr Ergebnis; Dreisatz: 1 % und p %, mal statt durch 100. */
+  /** Gleichung: die erste falsche Gleichung und ihr Ergebnis; Dreisatz: 1 % und p %, mal statt durch 100. */
   fehlweg: Antworten;
 }
 
-/** Das Hunderterfeld: das Gesuchte steht bis zur Lösung als „?“ darin, die Füllung verrät p nicht. */
+/** Der Prozentstreifen: das Gesuchte steht bis zur Lösung als „?“ darin, die Länge verrät p nie. */
 function bilder(gesucht: Gesucht, g: number, w: number, p: number, einheit: string, wEinheit: string): [Bild, Bild] {
-  const P = `${formatZahl(p)} %`;
   const G = bildWert(g, einheit);
   const W = bildWert(w, wEinheit);
   if (gesucht === "G") {
-    const bild = (geloest: boolean): Bild => ({
-      art: "raster",
-      gefuellt: p,
-      titel: `${P} = ${W}`,
-      untertitel: `100 % = ${geloest ? G : "?"}`,
-    });
-    return [bild(false), bild(true)];
+    return [streifen(p, unbekannt(einheit), W), streifen(p, G, W)];
   }
   if (gesucht === "p") {
-    const bild = (geloest: boolean): Bild => ({
-      art: "raster",
-      gefuellt: geloest ? p : 0,
-      titel: `100 % = ${G}`,
-      untertitel: `${W} = ${geloest ? P : "? %"}`,
-    });
-    return [bild(false), bild(true)];
+    return [streifen(0, G, W, undefined, "?\u00a0%", true), streifen(p, G, W)];
   }
-  const eins = g / 100;
-  const einsText = runde(eins, 2) === eins ? bildWert(eins, einheit) : `${formatGenau(eins)} ${einheit}`.trim();
-  const titel = `${P} von ${bildWert(g, imDativ(einheit))}`;
-  return [
-    { art: "raster", gefuellt: p, titel, untertitel: `ein Kästchen = 1 %, ${P} = ?` },
-    { art: "raster", gefuellt: p, titel, untertitel: `1 % = ${einsText}, ${P} = ${bildWert(w, einheit)}` },
-  ];
+  return [streifen(p, G, unbekannt(wEinheit)), streifen(p, G, W)];
 }
 
 function aufgabeGleichung(zufall: Zufall): SachAufgabe {
@@ -208,7 +190,7 @@ function aufgabeDreisatz(zufall: Zufall): SachAufgabe {
     bild,
     bildGeloest,
     tipp: "Von 100 % auf 1 %: durch 100 teilen. Von 1 % auf p %: mal p nehmen.",
-    // 1 % steht ungerundet (Geld mit Cent wie 2,50 €): mit genau dieser Zahl geht die nächste Zeile weiter
+    // 1 % steht ungerundet (Geld mit Cent wie 2,50 €): mit genau dieser Zahl geht die nächste Zeile weiter
     rechenweg: [
       `100 % = ${mitEinheit(g, einheit)}`,
       `1 % = ${formatWert(g, einheit)} : 100 = ${einsText} ${einheit}`,
@@ -306,7 +288,7 @@ export function wrong(aufgabe: SachAufgabe): Antworten {
     const falsch = erstes.optionen.find((o) => o.wert !== erstes.loesung)?.wert ?? "";
     return { ...richtig, gleichung: falsch };
   }
-  // 1 % ist der Grundwert mal 100 statt geteilt durch 100
+  // 1 % ist der Grundwert mal 100 statt geteilt durch 100
   const eins = aufgabe.felder.find((feld) => feld.id === "eins");
   return { ...richtig, eins: eins?.typ === "zahl" ? eingabeFuer(zahl(eins.exakt) * 10000) : "0" };
 }
@@ -316,10 +298,10 @@ export function describe(aufgabe: SachAufgabe): { task: string; solution: string
 }
 
 export const about = {
-  task: "Eine Sachaufgabe zur Prozentrechnung, Aufgabe für Aufgabe einer von zwei Typen: Gleichung (aus drei Gleichungen die passende wählen und das Ergebnis ausrechnen) oder Dreisatz (zum Grundwert erst 1 %, dann p % ausrechnen). Das Bild zur Aufgabe ist ein Hunderterfeld.",
+  task: "Eine Sachaufgabe zur Prozentrechnung, Aufgabe für Aufgabe einer von zwei Typen: Gleichung (aus drei Gleichungen die passende wählen und das Ergebnis ausrechnen) oder Dreisatz (zum Grundwert erst 1 %, dann p % ausrechnen). Das Bild zur Aufgabe ist ein Prozentstreifen.",
   answer:
     "Gleichung: eine der drei Gleichungen (Knöpfe) und eine Zahl. Dreisatz: zwei Zahlen (1 % und p %) in der Einheit des Grundwerts. Dann „Prüfen“ unter der Aufgabe. Komma oder Punkt, ein Bruch oder ein Term gehen auch.",
   correct:
-    "Richtig, wenn jede Angabe stimmt: die Gleichung, deren linke Seite das Gesuchte ist, und das exakte oder richtig gerundete Ergebnis; im Dreisatz 1 % = G / 100 und p % = G / 100 · p.",
+    "Richtig, wenn jede Angabe stimmt: die Gleichung, deren linke Seite das Gesuchte ist, und das exakte oder richtig gerundete Ergebnis; im Dreisatz 1 % = G / 100 und p % = G / 100 · p.",
   mistakes: [MELDUNGEN.gleichungFalsch, MELDUNGEN.ergebnisFalsch, MELDUNGEN.falsch],
 };

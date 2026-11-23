@@ -8,12 +8,13 @@ import {
   RABATTE,
   beschreibe,
   bildWert,
+  streifen,
+  unbekannt,
   check,
   eingabeFuer,
   erzeugeTripel,
   eingabeVon,
   grundFuer,
-  imDativ,
   nurFalsche,
   platzhalter,
   solution,
@@ -68,15 +69,14 @@ export function generate(seed: number): ProzentwertAufgabe {
   const wEinheit = kontext.id === "sport" ? "Treffer" : einheit;
   const exakt = durch(mal(alsBruch(grundwert), alsBruch(prozentsatz)), bruch(100));
   const ergebnis = mitEinheit(prozentwert, wEinheit);
-  const titel = `${formatZahl(prozentsatz)} % von ${bildWert(grundwert, imDativ(einheit))}`;
   return {
     kontext: kontext.id,
     grundwert,
     prozentsatz,
     text: TEXTE[kontext.id](mitEinheit(grundwert, einheit), mitEinheit(prozentsatz, "%")),
     felder: [zahlenfeld("prozentwert", "Prozentwert W", wEinheit, artFuer(einheit), exakt)],
-    bild: { art: "raster", gefuellt: prozentsatz, titel, untertitel: "100 Kästchen = Grundwert" },
-    bildGeloest: { art: "raster", gefuellt: prozentsatz, titel, untertitel: `= ${bildWert(prozentwert, wEinheit)}` },
+    bild: streifen(prozentsatz, bildWert(grundwert, einheit), unbekannt(wEinheit)),
+    bildGeloest: streifen(prozentsatz, bildWert(grundwert, einheit), bildWert(prozentwert, wEinheit)),
     tipp: `Der Grundwert ist das Ganze: ${mitEinheit(grundwert, einheit)} sind 100 %. Rechne erst 1 % aus (Grundwert geteilt durch 100) und dann mal ${formatZahl(prozentsatz)}.`,
     rechenweg: [
       "W = G · p / 100",
@@ -160,7 +160,7 @@ export function describe(aufgabe: ProzentwertAufgabe): { task: string; solution:
 }
 
 export const about = {
-  task: "Eine Textaufgabe: Grundwert und Prozentsatz sind gegeben, der Prozentwert ist gesucht. Das Bild zur Aufgabe ist ein Hunderterfeld, in dem der Prozentsatz blau ist.",
+  task: "Eine Textaufgabe: Grundwert und Prozentsatz sind gegeben, der Prozentwert ist gesucht. Das Bild zur Aufgabe ist ein Prozentstreifen: oben die Prozente, unten die Werte, der gesuchte als „?“.",
   answer:
     "Eine Zahl in der Einheit des Grundwerts (Euro, Schüler, Personen, mAh, Treffer), ins Feld getippt, dann „Prüfen“ unter der Aufgabe. Komma oder Punkt, ein Bruch oder ein Term wie 250*12/100 gehen auch.",
   correct:

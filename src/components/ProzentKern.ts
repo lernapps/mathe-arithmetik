@@ -64,7 +64,7 @@ export function formatWert(x: number, einheit = ""): string {
   return formatZahl(x);
 }
 
-/** Zahl mit Einheit, mit geschütztem Leerzeichen: „250 €“, „780,50 €“, „12,5 %“. */
+/** Zahl mit Einheit, mit geschütztem Leerzeichen: „250 €“, „780,50 €“, „12,5 %“. */
 export const mitEinheit = (x: number, einheit = ""): string =>
   einheit ? `${formatWert(x, einheit)} ${einheit}` : formatZahl(x);
 

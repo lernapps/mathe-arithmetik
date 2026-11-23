@@ -2,6 +2,7 @@
 // Das Bild zu einer Prozent-Aufgabe als SVG: Hunderterfeld, Prozentbalken oder Vergleichsbalken (diagramme.js der
 // alten App). Die Prozent-Übungen zeichnen damit ihr „Bild zur Aufgabe“; es ist keine Übung und kein Block.
 import { computed } from "vue";
+import ProzentStreifen from "./ProzentStreifen.vue";
 import {
   type Bild,
   BREITE,
@@ -16,6 +17,19 @@ import {
 // aus YAML geben kann (Balken mit unbekanntem Wert sind null). Die Übungen geben immer ein Bild.
 const props = defineProps<{ bild: unknown }>();
 const bild = computed(() => props.bild as Bild);
+// Nur die Angaben, die der Streifen hat: optionale Props bleiben sonst „undefined“.
+const streifenProps = computed(() => {
+  const b = bild.value;
+  if (b.art !== "streifen") return { prozent: 0, prozentText: "", grundwert: "", wert: "" };
+  return {
+    prozent: b.prozent,
+    prozentText: b.prozentText,
+    grundwert: b.grundwert,
+    wert: b.wert,
+    ...(b.faktor === undefined ? {} : { faktor: b.faktor }),
+    ...(b.verdeckt === undefined ? {} : { verdeckt: b.verdeckt }),
+  };
+});
 const name = computed(() => bildText(bild.value));
 const raster = computed(() => (bild.value.art === "raster" ? rasterKaestchen(bild.value.gefuellt) : []));
 const prozentbalken = computed(() =>
@@ -25,8 +39,9 @@ const balken = computed(() => (bild.value.art === "balken" ? balkenLage(bild.val
 </script>
 
 <template>
+  <ProzentStreifen v-if="bild.art === 'streifen'" v-bind="streifenProps" />
   <svg
-    v-if="bild.art === 'raster'"
+    v-else-if="bild.art === 'raster'"
     class="prozent-svg"
     viewBox="0 0 260 300"
     role="img"

@@ -33,10 +33,10 @@ test("jede Aufgabe: Lösung richtig, typischer Fehler falsch, Bild verrät p ers
     expect(check(a, solution(a))).toBe(true);
     expect(check(a, wrong(a))).toBe(false);
     expect(grund(a, wrong(a))).toBe(MELDUNGEN.dezimalStattProzent);
-    expect(a.bild.art === "prozentbalken" && a.bild.prozent).toBe(0);
+    expect(a.bild.art === "streifen" && a.bild.verdeckt).toBe(true);
     expect(a.prozentwert).toBeLessThan(a.grundwert);
   }
-  expect(describe(generate(1)).task).toContain("? %");
+  expect(describe(generate(1)).task).toContain("? %");
 });
 
 test("für den Tutor: der Text aus Fassung und Werten, typische Fehler mit ihrer Meldung, Antworten als Text", () => {

@@ -26,7 +26,7 @@ test("jede Aufgabe: Werte im Bereich, Lösung richtig, Bezug verwechselt falsch"
     expect(check(a, wrong(a))).toBe(false);
     expect(grund(a, wrong(a))).toBe(MELDUNGEN.bezugVerwechselt);
   }
-  expect(describe(generate(1)).task).toContain("? % weniger");
+  expect(describe(generate(1)).task).toContain("? % weniger");
 });
 
 test("für den Tutor: der Text aus Fassung und Werten, typische Fehler mit ihrer Meldung, Antworten als Text", () => {
