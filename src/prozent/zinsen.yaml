@@ -38,7 +38,7 @@ blocks:
         formula: 'Z = K \cdot \frac{p}{100}'
       - type: text
         text: >-
-          Bei weniger als einem Jahr nimmst du nur den Teil des Jahres. Die deutsche Zinsmethode rechnet: **1 Jahr hat
+          Wenn dein Geld nur einige Monate oder Tage angelegt ist, bekommst du nur einen Teil der Jahreszinsen. Dann nimmst du nur den Teil des Jahres. Die deutsche Zinsmethode rechnet: **1 Jahr hat
           360 Tage, 1 Monat hat 30 Tage.**
       - type: formula
         formula: 'Z = K \cdot \frac{p}{100} \cdot \frac{m}{12}'

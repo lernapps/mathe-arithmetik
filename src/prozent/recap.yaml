@@ -8,7 +8,7 @@ blocks:
   - type: text
     text: >-
       Das brauchst du für dieses Kapitel: Zahlen nach Stellen lesen, Brüche deuten und Brüche als Dezimalzahlen
-      schreiben. Lies jeden Abschnitt und löse am Ende die zwei Aufgaben. Sie zählen nichts und werden nicht gespeichert.
+      schreiben. Lies jeden Abschnitt und löse die zwei Aufgaben. Damit testest du dich selbst: Du siehst, was du schon kannst und was du noch auffrischen solltest. Die Aufgaben werden nicht gespeichert.
   - type: section
     id: stellenwert
     title: Natürliche Zahlen im Stellenwertsystem
@@ -32,7 +32,7 @@ blocks:
             info: Das ist nur die Ziffer an der Hunderterstelle. Gefragt ist, wie viele Hunderter die ganze Zahl enthält.
           - text: "40"
             correct: false
-            info: 40 sind die Zehntausender. Du hast die Hunderter noch nicht gezählt.
+            info: 40 sind die Tausender (40000). Du hast die Hunderter noch nicht gezählt.
           - text: "407"
             correct: true
             info: "40 782 = 407 · 100 + 82. Die Ziffern 4, 0, 7 vor den letzten zwei Stellen sagen, wie viele Hunderter es sind."

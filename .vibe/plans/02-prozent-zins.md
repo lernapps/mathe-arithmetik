@@ -255,6 +255,19 @@ Rechenprobe. Nichts übernommen. Ungeprüft: Lehrplanzuordnung Hessen (Annahme),
   ein Bildschirm).
 - Nach diesem Lauf geändert und nicht erneut geprüft: die Befunde oben (inhaltlich, `recap` und `veraenderung`).
 
+### Lernenden-Prüfer, vierter Lauf (Recap, prozentwert, sachaufgaben, prozentpunkte, zinsen; Runde nach dem Review des Menschen)
+
+- Geändert vorab: `lernapps update` (app-templates 0.19.0, tooling 0.18.6), Recap ohne Komponente `Kurztest` mit zwei normalen Übungen,
+  ein Anlass-Satz vor jeder Regel, jedem Weg und jedem Verfahren (Wozu vor Wie), Buttons geprüft (nur „Lösung zeigen“ mit Klasse
+  der Laufzeit, `ProzentStreifen` hat keine).
+- Befunde umgesetzt: falsche Rückmeldung im Recap („40 sind die Zehntausender“, richtig: Tausender), Sinn der zwei Aufgaben im Recap-
+  Kopf genannt, Anlass für Monats- und Tageszinsen.
+- Offen/nicht umgesetzt: Recap-Aufgaben für Klasse 7 weiter leicht (Voraussetzungen aus 5/6, zwei Übungen decken Periode, Kürzen
+  und Hundertstel nicht ab), erste Aufgaben in `prozentpunkte` und `zinsen` gleichen den Beispielen, „Merkhilfe“ ohne Anlass,
+  rückwärts über zwei Faktoren ohne Vorbereitung auf der Seite, Rückmeldung der Zahlaufgaben und gesperrte Optionen nach „Lösung
+  zeigen“ (Laufzeit), „Tipp“ als grauer Link statt blau (Laufzeit).
+- Nach diesem Lauf geändert und nicht erneut geprüft: die drei Befunde oben.
+
 ### Nach dem letzten Prüferlauf geändert
 
 - Fachlicher Prüfer: nach seinem Lauf nur seine Befunde umgesetzt (Commit `fc4d9f8`). Die Änderungen sind inhaltlich
