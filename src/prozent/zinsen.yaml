@@ -33,7 +33,7 @@ blocks:
     title: Regel
     blocks:
       - type: text
-        text: "**Jahreszinsen:** Die Zinsen sind der Prozentwert vom Kapital."
+        text: "Wenn du wissen willst, wie viel Geld ein Guthaben in einer bestimmten Zeit bringt, berechnest du die Zinsen. Je nachdem, wie lange das Geld angelegt ist, sind es Jahres-, Monats- oder Tageszinsen. **Jahreszinsen:** Die Zinsen sind der Prozentwert vom Kapital."
       - type: formula
         formula: 'Z = K \cdot \frac{p}{100}'
       - type: text

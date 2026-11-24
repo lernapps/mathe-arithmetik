@@ -34,7 +34,7 @@ blocks:
     blocks:
       - type: text
         text: >-
-          Gehe in fünf Schritten vor:
+          Wenn eine Geschichte eine Prozentaufgabe versteckt, hilft dir immer derselbe Weg in fünf Schritten:
 
 
           1. Lies die Aufgabe und schreibe die drei Stellen auf.
@@ -50,6 +50,8 @@ blocks:
         id: gleichung
         title: "Weg 1: Gleichung"
         blocks:
+          - type: text
+            text: Wenn du schnell zum Ergebnis willst, schreibst du die passende Gleichung auf. Welche das ist, hängt davon ab, welche Stelle fehlt.
           - type: table
             caption: Welche Stelle fehlt, welche Gleichung passt
             header: [Gesucht, Gleichung]
@@ -61,6 +63,8 @@ blocks:
         id: dreisatz
         title: "Weg 2: Dreisatz"
         blocks:
+          - type: text
+            text: Wenn du dir bei einer Gleichung unsicher bist, rechnest du Schritt für Schritt über 1 %. Das geht immer.
           - type: definition
             term: Dreisatz
             explanation: >-

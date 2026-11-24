@@ -21,7 +21,7 @@ description: Use for any content work in this app - researching, writing, extend
 Je Seite eine Kompetenz, Datei `src/<kapitel>/<seite>.yaml`. Ein Kapitel `prozent` mit zehn Seiten in dieser Reihenfolge,
 gegliedert nach dem Issue lernapps/apps#391: Grundaufgaben, Vergleichen und Sachaufgaben, Zu- und Abnahme und Zinsen.
 
-- Recap: `recap` (`recap:` natuerliche-zahlen, brueche-begriff, dezimalbrueche): Fachbegriffe, Beispiele, `Kurztest`.
+- Recap: `recap` (`recap:` natuerliche-zahlen, brueche-begriff, dezimalbrueche): Fachbegriffe, Beispiele, zwei Übungen.
 - Grundaufgaben am Prozentstreifen: Grundwert, Prozentwert, Prozentsatz erkennen (`grundbegriffe`, gehört auch zu
   #389, nur nach den Regeln bereinigt), Prozentwert (`prozentwert`, Musterseite), Prozentsatz (`prozentsatz`) und
   Grundwert berechnen (`grundwert`).
@@ -48,6 +48,9 @@ Jede Seite hat diese Abschnitte, in dieser Reihenfolge und mit diesen ids (öffe
 Kein `bild`- und kein `video`-Abschnitt mehr: Der Streifen steht in `warum` und im Beispiel.
 
 `description` und `summary` sind reiner Text ohne `$…$`.
+
+- Erst das Wozu, dann das Wie: Jede Seite, jeder Abschnitt und jedes Verfahren (Regel, Weg, Faktor, Zinsen) beginnt mit
+  dem Anlass („Wenn du wissen willst …“), dann folgt die Methode.
 
 ## Ids, addresses and the tutor
 
@@ -81,8 +84,8 @@ Kein `bild`- und kein `video`-Abschnitt mehr: Der Streifen steht in `warum` und 
 - Selbsteinschätzung (`selfAssessment` in `chapter.yaml`): fünf Schritte zu 3 bis 4 Aufgaben, je abgefragte Seite 2
   Aufgaben, in der Reihenfolge der Seiten; bevorzugt Komponente und `generated`. `grundbegriffe` fehlt: Wer die
   Aufgaben mit Geschichte löst, erkennt Grundwert, Prozentwert und Prozentsatz schon.
-- Kurztest im Recap: Komponente `Kurztest` (aus den gemeinsamen Dateien des Epics), eine Frage, sofortige
-  Rückmeldung, danach der Satz mit der Kartenseite des Bausteins.
+- Recap-Übungen: höchstens zwei `single-choice`-Übungen auf der Recap-Seite, sofortige Rückmeldung mit Grund, danach der Satz
+  mit der Kartenseite des Bausteins. Die Komponente `Kurztest` gibt es nicht mehr.
 - Text und Optionen einer Quiz-Frage sind reiner Text ohne `$…$` (die Laufzeit-Tests vergleichen ungesetzten Text):
   Hochzahlen als `²`, Malpunkt `·`.
 

@@ -38,7 +38,7 @@ blocks:
     blocks:
       - type: text
         text: >-
-          Bei einer **Zunahme** um $p\,\%$ rechnest du mit dem Faktor $1 + \frac{p}{100}$, bei einer **Abnahme** mit
+          Wenn ein Wert um einen Prozentsatz steigt oder sinkt und du den neuen Wert in einem Schritt brauchst, rechnest du mit einem Faktor. Bei einer **Zunahme** um $p\,\%$ rechnest du mit dem Faktor $1 + \frac{p}{100}$, bei einer **Abnahme** mit
           $1 - \frac{p}{100}$.
       - type: formula
         formula: '\text{neuer Wert} = \text{alter Wert} \cdot \text{Faktor}'

@@ -34,6 +34,10 @@ blocks:
     id: regel
     title: Regel
     blocks:
+      - type: text
+        text: >-
+          Wenn du zwei Werte vergleichen willst, fragst du: Um wie viel Prozent ist der eine größer oder kleiner als der
+          andere? Dafür brauchst du einen Wert, der 100 % ist: die Bezugsgröße.
       - type: formula
         formula: 'p = \frac{\text{Unterschied}}{\text{Bezugsgröße}} \cdot 100'
       - type: definition

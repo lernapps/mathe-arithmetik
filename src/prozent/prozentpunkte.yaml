@@ -35,7 +35,7 @@ blocks:
     blocks:
       - type: text
         text: >-
-          Bei zwei Änderungen nacheinander **multiplizierst** du die Faktoren. Die Prozentsätze darfst du nicht
+          Wenn sich ein Wert zweimal hintereinander ändert, willst du wissen, was am Ende herauskommt. Dafür **multiplizierst** du die Faktoren. Die Prozentsätze darfst du nicht
           addieren.
       - type: formula
         formula: '\text{Gesamtfaktor} = 1{,}10 \cdot 0{,}90 = 0{,}99'
@@ -45,7 +45,7 @@ blocks:
           den Anfangswert, sondern 1 % weniger.
       - type: text
         text: >-
-          Ein **Prozentpunkt** ist der Unterschied zwischen zwei Prozentsätzen. Eine Zustimmung steigt von 40 % auf
+          Wenn eine Quote von einem Prozentsatz auf einen anderen springt, brauchst du ein Wort für den Sprung. Ein **Prozentpunkt** ist der Unterschied zwischen zwei Prozentsätzen. Eine Zustimmung steigt von 40 % auf
           45 %: Das sind 5 Prozentpunkte. Gegen den Anfangswert gerechnet sind es 5 : 40 = 0,125, also 12,5 % mehr.
       - type: note
         title: Merke
