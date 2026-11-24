@@ -65,7 +65,7 @@ Die 80 € sind 100 %. Der neue Preis ist 125 % davon. 125 % sind 125 Hunder
 
 ### Regel
 
-Bei einer **Zunahme** um $p\,\%$ rechnest du mit dem Faktor $1 + \frac{p}{100}$, bei einer **Abnahme** mit $1 - \frac{p}{100}$.
+Wenn ein Wert um einen Prozentsatz steigt oder sinkt und du den neuen Wert in einem Schritt brauchst, rechnest du mit einem Faktor. Bei einer **Zunahme** um $p\,\%$ rechnest du mit dem Faktor $1 + \frac{p}{100}$, bei einer **Abnahme** mit $1 - \frac{p}{100}$.
 
 $\text{neuer Wert} = \text{alter Wert} \cdot \text{Faktor}$
 

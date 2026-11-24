@@ -65,6 +65,8 @@ Der ganze Streifen ist der **Grundwert**. Hier ist es der Preis von B, denn A is
 
 ### Regel
 
+Wenn du zwei Werte vergleichen willst, fragst du: Um wie viel Prozent ist der eine größer oder kleiner als der andere? Dafür brauchst du einen Wert, der 100 % ist: die Bezugsgröße.
+
 $p = \frac{\text{Unterschied}}{\text{Bezugsgröße}} \cdot 100$
 
 - **Bezugsgröße**: Der Wert, mit dem verglichen wird: Er ist 100 %. Im Satz steht er nach dem Wort **„als“**.

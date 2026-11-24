@@ -65,13 +65,13 @@ Jetzt kostet die Ware 220 €. Der Rabatt von 10 % gehört zu diesen 220 €,
 
 ### Regel
 
-Bei zwei Änderungen nacheinander **multiplizierst** du die Faktoren. Die Prozentsätze darfst du nicht addieren.
+Wenn sich ein Wert zweimal hintereinander ändert, willst du wissen, was am Ende herauskommt. Dafür **multiplizierst** du die Faktoren. Die Prozentsätze darfst du nicht addieren.
 
 $\text{Gesamtfaktor} = 1{,}10 \cdot 0{,}90 = 0{,}99$
 
 Der Gesamtfaktor 0,99 heißt: Am Ende sind es 99 % vom Anfangswert. Erst +10 %, dann −10 % ergibt also nicht den Anfangswert, sondern 1 % weniger.
 
-Ein **Prozentpunkt** ist der Unterschied zwischen zwei Prozentsätzen. Eine Zustimmung steigt von 40 % auf 45 %: Das sind 5 Prozentpunkte. Gegen den Anfangswert gerechnet sind es 5 : 40 = 0,125, also 12,5 % mehr.
+Wenn eine Quote von einem Prozentsatz auf einen anderen springt, brauchst du ein Wort für den Sprung. Ein **Prozentpunkt** ist der Unterschied zwischen zwei Prozentsätzen. Eine Zustimmung steigt von 40 % auf 45 %: Das sind 5 Prozentpunkte. Gegen den Anfangswert gerechnet sind es 5 : 40 = 0,125, also 12,5 % mehr.
 
 **Merke: Merke**
 

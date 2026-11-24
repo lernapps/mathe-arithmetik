@@ -65,7 +65,7 @@ Der ganze Streifen ist das Ganze, also der **Grundwert**: 80 € sind 100 %. D
 
 ### Regel
 
-Der Prozentsatz $p\,\%$ sagt, welcher Anteil des Grundwerts $G$ der Prozentwert $W$ ist. Rechnen kannst du auf zwei Wegen. Beide rechnen dasselbe. Der **Dreisatz** geht in drei Zeilen von 100 % auf 1 % und dann auf $p\,\%$. Hier fragst du in der letzten Zeile: Wie oft passt 1 % in den Prozentwert?
+Wenn du wissen willst, welchen Anteil 20 € von 80 € haben, suchst du den Prozentsatz $p\,\%$: Er sagt, welcher Anteil des Grundwerts $G$ der Prozentwert $W$ ist. Dafür gibt es zwei Wege, die dasselbe rechnen. Der **Dreisatz** geht in drei Zeilen von 100 % auf 1 % und dann auf $p\,\%$. Hier fragst du in der letzten Zeile: Wie oft passt 1 % in den Prozentwert?
 
 Dreisatz-Tabelle und Formel nebeneinander, für 20 € von 80 €:
 - Dreisatz-Tabelle | Formel

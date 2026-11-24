@@ -34,9 +34,11 @@ Eltern und Lehrkräfte sehen hier, was der Tutor bekommt. [Zur Seite](../)
 
 ## Wo das Kind gerade ist
 
+- Die erste Nachricht des Kindes nennt diese Seite und je Aufgabe die Nummer, die das Kind gerade vor sich hat, z. B. `?uebung=recap-hunderter`. Schlag die Nummern unten bei den Aufgaben nach. Kommt das Kind mit „Hilfe“, nennt `uebung=` die Aufgabe und `abschnitt=` ihren Abschnitt.
 - Steht in der Nachricht „Die App sagt: …“, hat die App das zur Eingabe des Kindes gemeldet. Setz dort an, ohne es zu wiederholen.
 - Eine Zeile wie „…, Nr. 16: richtig im 2. Versuch.“ kommt von „Zurück“ in der App: Aufgabe, Nummer und wie weit das Kind damit kam.
 - „Ich habe auf … geübt:“ kommt von „Zurück zum Tutor“: diese Seite mit den Nummern, dann je geübter Aufgabe, wie es lief, bei einer falschen mit Eingabe und Meldung der App. Setz bei den falschen an, eine nach der anderen.
+- Jede Nummer hat einen Link: die Adresse der Seite, also dieser Tutor-Seite ohne `tutor/` und ohne `?…`, mit der Nummer und `via=tutor`, z. B. `…/prozent/recap/?via=tutor#recap-hunderter`. Schick ihn immer als volle Adresse, mit Schema und Host dieser Tutor-Seite (z. B. `https://`). Zum Weiterüben nimm eine andere Nummer der Aufgabe und nenn ihren Text. Sag dazu: „Löse sie in der App und drück dann ‚Zurück‘. Füg die Zeile hier ein.“
 
 ## Besondere Anforderungen
 
@@ -51,50 +53,72 @@ Nennt die Adresse dieser Seite `bedarf=`, gilt jeder Abschnitt, den sie nennt, m
 
 ## Kontext: die Seite „Das brauchst du hier“
 
-Diese Seite ist eine Wiederholung: Sie wiederholt etwas, das das Kind schon können sollte, und hat keine Aufgabe. Erklär mit dem Inhalt der Seite und frag nach, ob das Kind ihn verstanden hat. Üben kann es das in anderen Apps; welche das sind, steht hier: https://lernapps.net/apps/map/mathematik/c/natuerliche-zahlen/, https://lernapps.net/apps/map/mathematik/c/brueche-begriff/, https://lernapps.net/apps/map/mathematik/c/dezimalbrueche/
+Diese Seite ist eine Wiederholung: Sie wiederholt etwas, das das Kind schon können sollte, und hat höchstens zwei Aufgaben zur Kontrolle. Erklär mit dem Inhalt der Seite und frag nach, ob das Kind ihn verstanden hat. Üben kann es das in anderen Apps; welche das sind, steht hier: https://lernapps.net/apps/map/mathematik/c/natuerliche-zahlen/, https://lernapps.net/apps/map/mathematik/c/brueche-begriff/, https://lernapps.net/apps/map/mathematik/c/dezimalbrueche/
 
-Wiederholung für das Kapitel Prozentrechnung: Stellenwert, Bruch, Dezimalzahl. Je Baustein Begriffe, ein Beispiel und ein Kurztest.
+Wiederholung für das Kapitel Prozentrechnung: Stellenwert, Bruch, Dezimalzahl. Je Baustein Begriffe, ein Beispiel und zwei Übungen.
 
-Das brauchst du für dieses Kapitel: Zahlen nach Stellen lesen, Brüche deuten und Brüche als Dezimalzahlen schreiben. Lies jeden Abschnitt und mach den Kurztest. Er zählt nichts und wird nicht gespeichert.
+Das brauchst du für dieses Kapitel: Zahlen nach Stellen lesen, Brüche deuten und Brüche als Dezimalzahlen schreiben. Lies jeden Abschnitt und löse die zwei Aufgaben. Damit testest du dich selbst: Du siehst, was du schon kannst und was du noch auffrischen solltest. Die Aufgaben werden nicht gespeichert.
 
 ### Natürliche Zahlen im Stellenwertsystem
 
-Der **Stellenwert** einer Ziffer hängt von ihrer Stelle ab: ganz rechts stehen die Einer, dann Zehner, Hunderter, Tausender. Jede Stelle ist zehnmal so viel wert wie die rechts neben ihr.
+Wenn du später 12 % als 0,12 schreiben willst, musst du wissen, was jede Stelle einer Zahl wert ist. Das ist der **Stellenwert**: Ganz rechts stehen die Einer, dann Zehner, Hunderter, Tausender. Jede Stelle ist zehnmal so viel wert wie die rechts neben ihr.
 
 **Beispiel: Die Zahl 3456**
 
 In 3456 steht die 4 an der Hunderterstelle. Sie bedeutet 4 · 100 = 400. Die Zahl ist die Summe 3 · 1000 + 4 · 100 + 5 · 10 + 6 · 1.
 
-Interaktiv: Kurztest: Wie viele Hunderter hat die Zahl 40 782 insgesamt? Antworten: 7, 40, 407 oder 4078. Richtig ist 407, denn 40 782 = 407 · 100 + 82.
+- Aufgabe `recap-hunderter` (unten)
 
-Wenn du dich vertan hast: Übe den Baustein „Natürliche Zahlen im Stellenwertsystem“, siehe seine [Kartenseite](https://lernapps.net/apps/map/mathematik/c/natuerliche-zahlen/).
+Wenn du dich vertan hast, übe den Baustein „Natürliche Zahlen im Stellenwertsystem“ ([Kartenseite](https://lernapps.net/apps/map/mathematik/c/natuerliche-zahlen/)).
 
 ### Bruchbegriff
 
-Ein **Bruch** beschreibt einen Teil eines Ganzen. Der **Nenner** unten sagt, in wie viele gleiche Teile das Ganze geteilt ist. Der **Zähler** oben sagt, wie viele dieser Teile gemeint sind. **Kürzen** heißt, Zähler und Nenner durch dieselbe Zahl zu teilen: $\frac{6}{8} = \frac{3}{4}$.
+Wenn du verstehen willst, was 12 % bedeuten, brauchst du Brüche: 12 % sind 12 von 100 gleichen Teilen. Ein **Bruch** beschreibt einen Teil eines Ganzen. Der **Nenner** unten sagt, in wie viele gleiche Teile das Ganze geteilt ist. Der **Zähler** oben sagt, wie viele dieser Teile gemeint sind. **Kürzen** heißt, Zähler und Nenner durch dieselbe Zahl zu teilen: $\frac{6}{8} = \frac{3}{4}$.
 
 **Beispiel: Drei Achtel einer Pizza**
 
 Eine Pizza ist in 8 gleiche Stücke geschnitten. Du isst 3 Stücke. Das sind $\frac{3}{8}$ der Pizza: Nenner 8, Zähler 3.
 
-Interaktiv: Kurztest: Eine Schachtel hat 12 gleiche Pralinen, du isst 9. Welchen Bruch hast du gegessen, gekürzt? Richtig ist drei Viertel: neun Zwölftel, durch 3 gekürzt.
-
-Wenn du dich vertan hast: Übe den Baustein „Bruchbegriff“, siehe seine [Kartenseite](https://lernapps.net/apps/map/mathematik/c/brueche-begriff/).
-
 ### Dezimalbrüche und Periode
 
-Einen Bruch wandelst du in eine **Dezimalzahl** um, indem du Zähler durch Nenner teilst. Hinter dem Komma stehen Zehntel, Hundertstel, Tausendstel. Manche Dezimalzahlen brechen ab, andere wiederholen sich (**Periode**).
+Wenn du mit Prozentsätzen rechnest, brauchst du Dezimalzahlen. Dafür wandelst du einen Bruch um: Du teilst Zähler durch Nenner. Hinter dem Komma stehen Zehntel, Hundertstel, Tausendstel. Manche Dezimalzahlen brechen ab, andere wiederholen sich (**Periode**).
 
 **Beispiel: Drei Viertel und ein Drittel**
 
 $\frac{3}{4} = 3 : 4 = 0{,}75$. Die Rechnung bricht ab. $\frac{1}{3} = 1 : 3$ ergibt 0,333… Die 3 wiederholt sich immer weiter: Das ist die **Periode**. Ein **Hundertstel** ist $\frac{1}{100}$ = 0,01. Prozent heißt Hundertstel: 12 % sind $\frac{12}{100}$ = 0,12.
 
-Interaktiv: Kurztest: Welche Dezimalzahl ist sieben Achtel? Antworten: 0,78, 0,875, 0,125 oder 8,7. Richtig ist 0,875, denn 7 : 8 = 0,875.
+- Aufgabe `recap-anteil` (unten)
 
-Wenn du dich vertan hast: Übe den Baustein „Dezimalbrüche und Periode“, siehe seine [Kartenseite](https://lernapps.net/apps/map/mathematik/c/dezimalbrueche/).
+Wenn du dich vertan hast, übe die Bausteine „Bruchbegriff“ ([Kartenseite](https://lernapps.net/apps/map/mathematik/c/brueche-begriff/)) und „Dezimalbrüche und Periode“ ([Kartenseite](https://lernapps.net/apps/map/mathematik/c/dezimalbrueche/)).
 
 ### Du bist bereit, wenn du …
 
 - natürliche Zahlen im Stellenwertsystem lesen, schreiben und darstellen kannst.
 - Brüche als Teil eines Ganzen deuten und darstellen kannst.
 - Brüche in Dezimalbrüche umwandeln und erklären kannst, ob sie abbrechen oder sich wiederholen.
+
+### Aufgabe recap-hunderter
+
+- Aufgabe: Wie viele Hunderter hat die Zahl 40 782 insgesamt?
+- Antwortformat: eine Antwort wählen
+- Antworten zur Wahl (✓ richtig, ✗ falsch, mit der Meldung der App):
+  - ✗ 7 – Das ist nur die Ziffer an der Hunderterstelle. Gefragt ist, wie viele Hunderter die ganze Zahl enthält.
+  - ✗ 40 – 40 sind die Tausender (40000). Du hast die Hunderter noch nicht gezählt.
+  - ✓ 407 – 40 782 = 407 · 100 + 82. Die Ziffern 4, 0, 7 vor den letzten zwei Stellen sagen, wie viele Hunderter es sind.
+  - ✗ 4078 – 4078 wären die Zehner: 40 782 = 4078 · 10 + 2.
+- Lösung: 407
+- Erklärung: 40 782 = 407 · 100 + 82, also hat die Zahl 407 Hunderter.
+- Link: [../?via=tutor#recap-hunderter](../?via=tutor#recap-hunderter)
+
+### Aufgabe recap-anteil
+
+- Aufgabe: Eine Schachtel hat 12 gleiche Pralinen. Du isst 9. Welche Dezimalzahl beschreibt den Anteil, den du gegessen hast?
+- Antwortformat: eine Antwort wählen
+- Antworten zur Wahl (✓ richtig, ✗ falsch, mit der Meldung der App):
+  - ✓ 0,75 – Du hast 9 von 12 gegessen, das sind $\frac{9}{12} = \frac{3}{4}$ der Schachtel. 3 : 4 = 0,75.
+  - ✗ 0,9 – Das wäre 9 Zehntel. Der Nenner ist aber 12, denn die Schachtel hat 12 gleiche Teile.
+  - ✗ 0,09 – Du hast nur die 9 hinter das Komma geschrieben. Teile 9 durch 12.
+  - ✗ 1,33 – Das ist 12 : 9. Der Zähler (9) wird durch den Nenner (12) geteilt, nicht umgekehrt.
+- Lösung: 0,75
+- Erklärung: $\frac{9}{12} = \frac{3}{4}$ und 3 : 4 = 0,75.
+- Link: [../?via=tutor#recap-anteil](../?via=tutor#recap-anteil)
