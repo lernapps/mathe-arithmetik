@@ -18,6 +18,10 @@ test("Aufgabe 1: Fahrrad für 1245 €, 6 % Rabatt", () => {
   expect(grund(a, { prozentwert: "75" })).toBe("Fast – runde auf zwei Nachkommastellen.");
   expect(grund(a, { prozentwert: "" })).toBe("Bitte gib eine Zahl ein, zum Beispiel 12,5.");
   expect(grund(a, { prozentwert: "80" })).toBe(MELDUNGEN.falsch);
+  // Grundwert durch Prozentsatz (207,50), Grundwert plus Prozentwert (1319,70), der Grundwert selbst
+  expect(grund(a, { prozentwert: "207,50" })).toBe(MELDUNGEN.durchProzentsatz);
+  expect(grund(a, { prozentwert: "1319,70" })).toBe(MELDUNGEN.grundwertPlus);
+  expect(grund(a, { prozentwert: "1245" })).toBe(MELDUNGEN.grundwertSelbst);
 });
 
 test("jede Aufgabe: gleich für dieselbe Nummer, Lösung richtig, typischer Fehler falsch, Zahlen plausibel", () => {
@@ -36,7 +40,7 @@ test("jede Aufgabe: gleich für dieselbe Nummer, Lösung richtig, typischer Fehl
 
 test("Beschreibung für Tutor und Seite ohne JavaScript", () => {
   const { task, solution: loesung } = describe(generate(1));
-  expect(task).toContain("Bild zur Aufgabe: Hunderterfeld: 6 von 100 Kästchen sind blau.");
+  expect(task).toContain("Bild zur Aufgabe: Prozentstreifen: oben die Skala in Prozent");
   expect(loesung).toContain("Prozentwert W: 74,70 €");
   expect(about.mistakes).toHaveLength(2);
 });

@@ -28,7 +28,7 @@ test("jede Aufgabe: Lösung richtig, typischer Fehler falsch, der gesuchte Balke
     const a = generate(seed);
     expect(check(a, solution(a))).toBe(true);
     expect(check(a, wrong(a))).toBe(false);
-    expect(a.bild.art === "balken" && a.bild.balken.some((b) => b.wert === null)).toBe(true);
+    expect(a.bild.art === "streifen" && (a.bild.grundwert.startsWith("?") || a.bild.wert.startsWith("?"))).toBe(true);
     if (a.richtung === "minus") expect(a.neu).toBeLessThan(a.alt);
     else expect(a.neu).toBeGreaterThan(a.alt);
   }

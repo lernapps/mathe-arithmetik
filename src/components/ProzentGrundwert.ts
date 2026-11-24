@@ -8,6 +8,8 @@ import {
   RABATTE,
   beschreibe,
   bildWert,
+  streifen,
+  unbekannt,
   check,
   eingabeFuer,
   erzeugeTripel,
@@ -65,7 +67,6 @@ export function generate(seed: number): GrundwertAufgabe {
   const einheit = kontext.einheit;
   const wEinheit = W_EINHEIT[kontext.id] ?? einheit;
   const exakt = durch(mal(alsBruch(prozentwert), bruch(100)), alsBruch(prozentsatz));
-  const titel = `${formatZahl(prozentsatz)} % = ${bildWert(prozentwert, wEinheit)}`;
   const ergebnis = mitEinheit(grundwert, einheit);
   return {
     kontext: kontext.id,
@@ -73,12 +74,12 @@ export function generate(seed: number): GrundwertAufgabe {
     prozentwert,
     text: TEXTE[kontext.id](mitEinheit(prozentwert, wEinheit), mitEinheit(prozentsatz, "%")),
     felder: [zahlenfeld("grundwert", "Grundwert G", einheit, artFuer(einheit), exakt)],
-    bild: { art: "raster", gefuellt: prozentsatz, titel, untertitel: "100 % = ?" },
-    bildGeloest: { art: "raster", gefuellt: prozentsatz, titel, untertitel: `100 % = ${bildWert(grundwert, einheit)}` },
+    bild: streifen(prozentsatz, unbekannt(einheit), bildWert(prozentwert, wEinheit)),
+    bildGeloest: streifen(prozentsatz, bildWert(grundwert, einheit), bildWert(prozentwert, wEinheit)),
     tipp: `Gesucht ist das Ganze (100 %). Du kennst ${formatZahl(prozentsatz)} %: das sind ${mitEinheit(prozentwert, wEinheit)}. Rechne erst aus, was 1 % ist (durch ${formatZahl(prozentsatz)} teilen), dann mal 100.`,
     rechenweg: [
-      "G = W · 100 / p",
-      `G = ${formatWert(prozentwert, einheit)} · 100 / ${formatZahl(prozentsatz)}`,
+      "G = W · 100 : p",
+      `G = ${formatWert(prozentwert, einheit)} · 100 : ${formatZahl(prozentsatz)}`,
       `G ${gleichheitszeichen(zahl(exakt), grundwert)} ${ergebnis}`,
     ],
     richtig: `Ergebnis: ${ergebnis}.`,
@@ -114,7 +115,7 @@ export function grund(aufgabe: GrundwertAufgabe, antwort: unknown): string {
 export const reason = (aufgabe: GrundwertAufgabe, antwort: unknown, _props?: unknown, _lang?: string): string =>
   grund(aufgabe, antwort);
 
-/** Die Antwort jedes typischen Fehlers aus about.mistakes: p % vom Prozentwert, erst 1 %. */
+/** Die Antwort jedes typischen Fehlers aus about.mistakes: p % vom Prozentwert, erst 1 %. */
 export function mistakes(aufgabe: GrundwertAufgabe, _props?: unknown): (Antworten | undefined)[] {
   const [feld] = aufgabe.felder;
   if (feld?.typ !== "zahl") return [undefined, undefined];
@@ -149,7 +150,7 @@ export function params(aufgabe: GrundwertAufgabe, _props?: unknown, _lang?: stri
 export const show = (antwort: unknown, aufgabe: GrundwertAufgabe, _props?: unknown, _lang?: string): string =>
   zeige(aufgabe, antwort);
 
-/** Die typische falsche Antwort: erst 1 %, nicht mal 100 genommen. */
+/** Die typische falsche Antwort: erst 1 %, nicht mal 100 genommen. */
 export function wrong(aufgabe: GrundwertAufgabe): Antworten {
   const [feld] = aufgabe.felder;
   return { grundwert: feld?.typ === "zahl" ? eingabeFuer(zahl(feld.exakt) / 100) : "0" };
@@ -160,7 +161,7 @@ export function describe(aufgabe: GrundwertAufgabe): { task: string; solution: s
 }
 
 export const about = {
-  task: "Eine Textaufgabe: Prozentwert und Prozentsatz sind gegeben, der Grundwert (das Ganze) ist gesucht. Das Bild zur Aufgabe ist ein Hunderterfeld mit dem bekannten Teil in Blau.",
+  task: "Eine Textaufgabe: Prozentwert und Prozentsatz sind gegeben, der Grundwert (das Ganze) ist gesucht. Das Bild zur Aufgabe ist ein Prozentstreifen mit dem bekannten Teil in Blau, der Grundwert steht als „?“ darunter.",
   answer:
     "Eine Zahl in der Einheit des Ganzen (Euro, Schüler, Personen, mAh, Würfe), ins Feld getippt, dann „Prüfen“ unter der Aufgabe; Komma oder Punkt, ein Bruch oder ein Term gehen auch.",
   correct: "Richtig ist G = W · 100 / p: exakt, oder kaufmännisch gerundet auf die Stellen, die neben dem Feld stehen.",

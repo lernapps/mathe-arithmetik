@@ -1,0 +1,201 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Prozentpunkte und mehrfache Änderungen
+description: >-
+  Zwei prozentuale Änderungen nacheinander, der Gesamtfaktor und der Unterschied zwischen Prozent und Prozentpunkten:
+  am Prozentstreifen, mit Beispielen und Übungen.
+competencies: [prozent-von-prozenten]
+blocks:
+  - type: section
+    id: warum
+    title: Warum?
+    blocks:
+      - type: text
+        text: >-
+          Ein Laden erhöht einen Preis von 200 € um 10 %. Später gibt es 10 % Rabatt. Ist der Preis dann wieder 200 €?
+          Am Streifen siehst du den ersten Schritt.
+      - type: vue-component
+        id: streifen-erster-schritt
+        component: ProzentStreifen
+        props:
+          prozent: 110
+          prozentText: "110 %"
+          grundwert: "200 €"
+          wert: "220 €"
+          faktor: "· 1,10"
+        nojs: |
+          Prozentstreifen: Der Streifen reicht über 100 % hinaus bis 110 %. Unten steht der alte Preis 200 € bei 100 %,
+          der neue Preis ist 220 €. Ein Pfeil zeigt den Faktor 1,10.
+      - type: text
+        text: >-
+          Jetzt kostet die Ware 220 €. Der Rabatt von 10 % gehört zu diesen 220 €, nicht zu den alten 200 €. Der zweite
+          Schritt hat einen neuen Grundwert.
+  - type: section
+    id: regel
+    title: Regel
+    blocks:
+      - type: text
+        text: >-
+          Wenn sich ein Wert zweimal hintereinander ändert, willst du wissen, was am Ende herauskommt. Dafür **multiplizierst** du die Faktoren. Die Prozentsätze darfst du nicht
+          addieren.
+      - type: formula
+        formula: '\text{Gesamtfaktor} = 1{,}10 \cdot 0{,}90 = 0{,}99'
+      - type: text
+        text: >-
+          Der Gesamtfaktor 0,99 heißt: Am Ende sind es 99 % vom Anfangswert. Erst +10 %, dann −10 % ergibt also nicht
+          den Anfangswert, sondern 1 % weniger.
+      - type: text
+        text: >-
+          Wenn eine Quote von einem Prozentsatz auf einen anderen springt, brauchst du ein Wort für den Sprung. Ein **Prozentpunkt** ist der Unterschied zwischen zwei Prozentsätzen. Eine Zustimmung steigt von 40 % auf
+          45 %: Das sind 5 Prozentpunkte. Gegen den Anfangswert gerechnet sind es 5 : 40 = 0,125, also 12,5 % mehr.
+      - type: note
+        title: Merke
+        blocks:
+          - type: text
+            text: >-
+              Prozentpunkte vergleichen zwei Prozentsätze miteinander. Prozente beziehen sich auf den Anfangswert.
+  - type: section
+    id: beispiel
+    title: Beispiel
+    blocks:
+      - type: example
+        title: Erst mehr, dann weniger
+        blocks:
+          - type: text
+            text: Ein Preis von 200 € steigt um 10 % und sinkt dann um 10 %. Was kostet die Ware am Ende?
+          - type: vue-component
+            id: streifen-gesamt
+            component: ProzentStreifen
+            props:
+              prozent: 99
+              prozentText: "99 %"
+              grundwert: "200 €"
+              wert: "198 €"
+              faktor: "· 0,99"
+            nojs: |
+              Prozentstreifen: Der Streifen reicht bis 99 %, knapp unter 100 %. Unten steht der Anfangspreis 200 € bei
+              100 %, der Endpreis ist 198 €. Ein Pfeil zeigt den Gesamtfaktor 0,99.
+          - type: table
+            caption: Beide Schritte und der Gesamtfaktor
+            rowHeaders: true
+            rows:
+              - ["Nach +10 %", "$200 \\cdot 1{,}10 = 220$, also 220 €"]
+              - ["Nach −10 %", "$220 \\cdot 0{,}90 = 198$, also 198 €"]
+              - ["Gesamtfaktor", "$1{,}10 \\cdot 0{,}90 = 0{,}99$"]
+              - ["Probe", "$200 \\cdot 0{,}99 = 198$, also **198 €**"]
+      - type: example
+        title: Prozent oder Prozentpunkte
+        blocks:
+          - type: text
+            text: >-
+              Die Zustimmung zu einem Vorschlag steigt von 40 % auf 45 %. Dann sind es 5 Prozentpunkte mehr. Die
+              Zustimmung ist um 5 : 40 = 12,5 % gestiegen.
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: single-choice
+        id: erst-mehr-dann-weniger
+        text: "Ein Preis steigt um 10 % und sinkt danach um 10 %. Wie ist der Endpreis im Vergleich zum Anfangspreis?"
+        options:
+          - text: Der Endpreis ist niedriger.
+            correct: true
+            info: Die 10 % Rabatt gehören zum höheren, schon erhöhten Preis. Sie sind mehr Euro als die 10 % Erhöhung.
+          - text: Der Endpreis ist genauso hoch.
+            correct: false
+            info: Das wäre nur so, wenn beide 10 % zum selben Grundwert gehörten. Der zweite Grundwert ist schon größer.
+          - text: Der Endpreis ist höher.
+            correct: false
+            info: Der Rabatt nimmt mehr weg, als die Erhöhung vorher dazugegeben hat. Am Ende ist es weniger als vorher.
+        explanation: Die Faktoren 1,10 und 0,90 ergeben zusammen 0,99. Das sind 99 % vom Anfangspreis.
+      - type: generated
+        id: gesamtfaktor-ueben
+        practice: Der Gesamtfaktor aus zwei Änderungen.
+        given:
+          p: { oneOf: [10, 20, 30, 40, 50] }
+          q: { oneOf: [10, 20, 30, 40, 50] }
+        where: ["decimals((1 + p / 100) * (1 - q / 100)) <= 2"]
+        task:
+          text: "Ein Preis steigt um {{p}} % und sinkt dann um {{q}} %. Mit welchem Faktor kommst du vom Anfangspreis zum Endpreis?"
+        answer: { value: "(1 + p / 100) * (1 - q / 100)", compare: { number: { format: decimal, decimals: 2 } } }
+        mistakes:
+          - {
+              value: "1 + (p - q) / 100",
+              message: "Du hast die Prozentsätze verrechnet. Die Faktoren musst du malnehmen, denn der zweite Schritt hat einen neuen Grundwert.",
+            }
+          - {
+              value: "(1 + p / 100) * (1 + q / 100)",
+              message: "Der zweite Schritt ist eine Senkung. Dafür ist der Faktor kleiner als 1.",
+            }
+        hint: "Der Faktor der Erhöhung ist 1 + {{p}} : 100, der Faktor der Senkung ist 1 − {{q}} : 100. Multipliziere beide."
+        steps:
+          - '$\text{Faktor 1} = 1 + \frac{{{p}}}{100}$ und $\text{Faktor 2} = 1 - \frac{{{q}}}{100}$.'
+          - '$\text{Gesamtfaktor} = (1 + \frac{{{p}}}{100}) \cdot (1 - \frac{{{q}}}{100}) = {{answer}}$.'
+      - type: generated
+        id: endwert-ueben
+        practice: Der Endpreis nach zwei Änderungen.
+        given:
+          alt: { int: [100, 500], step: 10 }
+          p: { oneOf: [10, 20, 30, 40, 50] }
+          q: { oneOf: [10, 20, 30, 40, 50] }
+        where: ["decimals(alt * (1 + p / 100) * (1 - q / 100)) <= 2"]
+        task:
+          text: "Ein Fahrrad kostet {{alt}} €. Der Preis steigt um {{p}} % und sinkt dann um {{q}} %. Wie viel kostet das Fahrrad am Ende?"
+        answer: { value: "alt * (1 + p / 100) * (1 - q / 100)", compare: { number: { format: money } } }
+        mistakes:
+          - {
+              value: "alt * (1 + (p - q) / 100)",
+              message: "Du hast die Prozentsätze verrechnet. Rechne zuerst den Preis nach dem ersten Schritt aus, dann den nach dem zweiten.",
+            }
+          - {
+              value: "alt * (1 + p / 100)",
+              message: "Das ist der Preis nach dem ersten Schritt. Es kommt noch die Senkung dazu.",
+            }
+        hint: "Multipliziere {{alt}} € mit dem Faktor 1 + {{p}} : 100 und dann mit dem Faktor 1 − {{q}} : 100."
+        steps:
+          - '$\text{Endwert} = \text{Anfangswert} \cdot (1 + \frac{p}{100}) \cdot (1 - \frac{q}{100})$'
+          - '$\text{Endwert} = {{alt}} \cdot (1 + \frac{{{p}}}{100}) \cdot (1 - \frac{{{q}}}{100}) = {{answer}}$, also {{answer}} €.'
+      - type: single-choice
+        id: prozent-oder-prozentpunkte
+        text: "Die Zustimmung zu einem Vorschlag steigt von 40 % auf 50 %. Welche Aussage stimmt?"
+        options:
+          - text: Sie steigt um 10 Prozentpunkte.
+            correct: true
+            info: 50 % − 40 % = 10 Prozentpunkte. Der Unterschied zweier Prozentsätze wird in Prozentpunkten angegeben.
+          - text: Sie steigt um 10 %.
+            correct: false
+            info: 10 % von 40 % wären nur 4 Prozentpunkte, also 44 %. Hier sind es 10 Prozentpunkte.
+          - text: Sie steigt um 50 Prozentpunkte.
+            correct: false
+            info: 50 % ist der neue Wert, nicht der Unterschied. Der Unterschied ist 50 % − 40 %.
+        explanation: "Der Unterschied zweier Prozentsätze ist 10 Prozentpunkte. Auf den Anfangswert bezogen sind es 10 : 40 = 25 % mehr."
+      - type: true-false
+        id: quote-sinkt
+        text: "Eine Quote sinkt von 8 % auf 6 %. Das sind 2 % weniger."
+        answer: false
+        explanation: >-
+          Der Unterschied der Prozentsätze sind 2 Prozentpunkte. Auf den Anfangswert bezogen sind es 2 : 8 = 0,25, also
+          25 % weniger.
+      - type: generated
+        id: anfangswert-ueben
+        practice: Zurückrechnen auf den Anfangswert.
+        given:
+          neu: { int: [60, 600], step: 6 }
+          p: { oneOf: [20, 50] }
+          q: { oneOf: [20, 50] }
+        where: ["decimals(neu / ((1 + p / 100) * (1 - q / 100))) <= 2"]
+        task:
+          text: "Ein Preis steigt um {{p}} % und sinkt dann um {{q}} %. Danach kostet die Ware {{neu}} €. Wie viel kostete sie am Anfang?"
+        answer: { value: "neu / ((1 + p / 100) * (1 - q / 100))", compare: { number: { format: money } } }
+        mistakes:
+          - {
+              value: "neu * (1 + p / 100) * (1 - q / 100)",
+              message: "Du hast noch einmal beide Änderungen angewendet. Rückwärts teilst du durch den Gesamtfaktor.",
+            }
+          - {
+              value: "neu / (1 + p / 100)",
+              message: "Du hast nur die Erhöhung rückgängig gemacht. Es gab zwei Änderungen: Teile durch den Gesamtfaktor.",
+            }
+        hint: "Der Gesamtfaktor ist (1 + {{p}} : 100) · (1 − {{q}} : 100). Teile {{neu}} € durch ihn."
+        steps:
+          - '$\text{Gesamtfaktor} = (1 + \frac{{{p}}}{100}) \cdot (1 - \frac{{{q}}}{100})$'
+          - '$\text{Anfangswert} = {{neu}} : (1 + \frac{{{p}}}{100}) : (1 - \frac{{{q}}}{100}) = {{answer}}$, also {{answer}} €.'

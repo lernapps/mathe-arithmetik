@@ -8,6 +8,7 @@ import {
   RABATTE,
   beschreibe,
   bildWert,
+  streifen,
   check,
   eingabeFuer,
   erzeugeTripel,
@@ -67,8 +68,6 @@ export function generate(seed: number): ProzentsatzAufgabe {
   const wEinheit = wEinheitVon(kontext.id, einheit);
   const exakt = mal(durch(alsBruch(prozentwert), alsBruch(grundwert)), bruch(100));
   const zeichen = gleichheitszeichen(zahl(exakt), prozentsatz);
-  const teil = bildWert(prozentwert, wEinheit);
-  const rechts = `100 % = ${bildWert(grundwert, einheit)}`;
   return {
     kontext: kontext.id,
     grundwert,
@@ -80,19 +79,13 @@ export function generate(seed: number): ProzentsatzAufgabe {
       formatZahl(prozentwert),
     ),
     felder: [zahlenfeld("prozentsatz", "Prozentsatz p", "%", "prozent", exakt)],
-    // ungelöst bleibt der Balken leer: an der Füllung ließe sich p sonst ablesen
-    bild: { art: "prozentbalken", prozent: 0, links: "0 %", rechts, mitte: `${teil} = ? %` },
-    bildGeloest: {
-      art: "prozentbalken",
-      prozent: prozentsatz,
-      links: "0 %",
-      rechts,
-      mitte: `${teil} = ${formatZahl(prozentsatz)} %`,
-    },
+    // ungelöst bleibt der Streifen ohne Teil: an der Länge ließe sich p sonst ablesen
+    bild: streifen(0, bildWert(grundwert, einheit), bildWert(prozentwert, wEinheit), undefined, "?\u00a0%", true),
+    bildGeloest: streifen(prozentsatz, bildWert(grundwert, einheit), bildWert(prozentwert, wEinheit)),
     tipp: `Der Grundwert ist das Ganze: ${mitEinheit(grundwert, einheit)} sind 100 %. Teile den Teil (${mitEinheit(prozentwert, wEinheit)}) durch das Ganze und nimm das Ergebnis mal 100.`,
     rechenweg: [
-      "p = W / G · 100",
-      `p = ${formatWert(prozentwert, einheit)} / ${formatWert(grundwert, einheit)} · 100 ${zeichen} ${formatZahl(prozentsatz)}`,
+      "p = W : G · 100",
+      `p = ${formatWert(prozentwert, einheit)} : ${formatWert(grundwert, einheit)} · 100 ${zeichen} ${formatZahl(prozentsatz)}`,
       `p % ${zeichen} ${formatZahl(prozentsatz)} %`,
     ],
     richtig: `Ergebnis: ${formatZahl(prozentsatz)} %.`,
@@ -176,7 +169,7 @@ export function describe(aufgabe: ProzentsatzAufgabe): { task: string; solution:
 }
 
 export const about = {
-  task: "Eine Textaufgabe: Grundwert und Prozentwert sind gegeben, der Prozentsatz ist gesucht. Das Bild zur Aufgabe ist ein Prozentbalken, der erst nach der Lösung gefüllt ist.",
+  task: "Eine Textaufgabe: Grundwert und Prozentwert sind gegeben, der Prozentsatz ist gesucht. Das Bild zur Aufgabe ist ein Prozentstreifen, dessen markierter Teil erst nach der Lösung erscheint.",
   answer:
     "Der Prozentsatz als Zahl in Prozent (ohne oder mit %-Zeichen), ins Feld getippt, dann „Prüfen“ unter der Aufgabe; Komma oder Punkt, ein Bruch oder ein Term gehen auch.",
   correct:

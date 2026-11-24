@@ -8,12 +8,13 @@ import {
   RABATTE,
   beschreibe,
   bildWert,
+  streifen,
+  unbekannt,
   check,
   eingabeFuer,
   erzeugeTripel,
   eingabeVon,
   grundFuer,
-  imDativ,
   nurFalsche,
   platzhalter,
   solution,
@@ -37,6 +38,7 @@ import {
   minus,
   mitEinheit,
   passtZu,
+  plus,
   zahl,
 } from "./ProzentKern.ts";
 
@@ -68,19 +70,18 @@ export function generate(seed: number): ProzentwertAufgabe {
   const wEinheit = kontext.id === "sport" ? "Treffer" : einheit;
   const exakt = durch(mal(alsBruch(grundwert), alsBruch(prozentsatz)), bruch(100));
   const ergebnis = mitEinheit(prozentwert, wEinheit);
-  const titel = `${formatZahl(prozentsatz)} % von ${bildWert(grundwert, imDativ(einheit))}`;
   return {
     kontext: kontext.id,
     grundwert,
     prozentsatz,
     text: TEXTE[kontext.id](mitEinheit(grundwert, einheit), mitEinheit(prozentsatz, "%")),
     felder: [zahlenfeld("prozentwert", "Prozentwert W", wEinheit, artFuer(einheit), exakt)],
-    bild: { art: "raster", gefuellt: prozentsatz, titel, untertitel: "100 Kästchen = Grundwert" },
-    bildGeloest: { art: "raster", gefuellt: prozentsatz, titel, untertitel: `= ${bildWert(prozentwert, wEinheit)}` },
+    bild: streifen(prozentsatz, bildWert(grundwert, einheit), unbekannt(wEinheit)),
+    bildGeloest: streifen(prozentsatz, bildWert(grundwert, einheit), bildWert(prozentwert, wEinheit)),
     tipp: `Der Grundwert ist das Ganze: ${mitEinheit(grundwert, einheit)} sind 100 %. Rechne erst 1 % aus (Grundwert geteilt durch 100) und dann mal ${formatZahl(prozentsatz)}.`,
     rechenweg: [
-      "W = G · p / 100",
-      `W = ${formatWert(grundwert, einheit)} · ${formatZahl(prozentsatz)} / 100`,
+      "W = G · p : 100",
+      `W = ${formatWert(grundwert, einheit)} · ${formatZahl(prozentsatz)} : 100`,
       `W ${gleichheitszeichen(zahl(exakt), prozentwert)} ${ergebnis}`,
     ],
     richtig: `Ergebnis: ${ergebnis}.`,
@@ -90,7 +91,13 @@ export function generate(seed: number): ProzentwertAufgabe {
 export const MELDUNGEN = {
   prozentStattDezimal: "Du hast vergessen, durch 100 zu teilen: 12 % sind 12/100 = 0,12.",
   restStattAnteil: "Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.",
-  falsch: "Das stimmt noch nicht. Rechne noch einmal: erst 1 %, dann den Prozentsatz mal nehmen.",
+  durchProzentsatz: "Du hast durch den Prozentsatz geteilt. Geteilt wird durch 100: Das ist der Weg von 100 % auf 1 %.",
+  grundwertPlus:
+    "Du hast den Prozentwert zum Grundwert dazugerechnet. Gefragt ist nur der Teil selbst, nicht Grundwert plus Teil.",
+  grundwertSelbst:
+    "Das ist der Grundwert, der ganze Streifen. Gesucht ist der Teil davon, der zu den Prozenten gehört.",
+  falsch:
+    "Das stimmt noch nicht. Schau auf den Streifen: Der Grundwert ist 100 %. Rechne erst 1 %, dann mal den Prozentsatz.",
 };
 
 /** Was an einer falschen Antwort falsch ist. */
@@ -107,6 +114,10 @@ export function grund(aufgabe: ProzentwertAufgabe, antwort: unknown): string {
         return `Du hast vergessen, durch 100 zu teilen: ${formatZahl(p)} % sind ${formatZahl(p)}/100 = ${formatGenau(p / 100)}.`;
       }
       if (passtZu(eingabe, minus(alsBruch(aufgabe.grundwert), feld.exakt), feld.art)) return MELDUNGEN.restStattAnteil;
+      if (passtZu(eingabe, durch(mal(alsBruch(aufgabe.grundwert), bruch(1)), alsBruch(aufgabe.prozentsatz)), feld.art))
+        return MELDUNGEN.durchProzentsatz;
+      if (passtZu(eingabe, plus(alsBruch(aufgabe.grundwert), feld.exakt), feld.art)) return MELDUNGEN.grundwertPlus;
+      if (passtZu(eingabe, alsBruch(aufgabe.grundwert), feld.art)) return MELDUNGEN.grundwertSelbst;
       return undefined;
     },
     MELDUNGEN.falsch,
@@ -160,7 +171,7 @@ export function describe(aufgabe: ProzentwertAufgabe): { task: string; solution:
 }
 
 export const about = {
-  task: "Eine Textaufgabe: Grundwert und Prozentsatz sind gegeben, der Prozentwert ist gesucht. Das Bild zur Aufgabe ist ein Hunderterfeld, in dem der Prozentsatz blau ist.",
+  task: "Eine Textaufgabe: Grundwert und Prozentsatz sind gegeben, der Prozentwert ist gesucht. Das Bild zur Aufgabe ist ein Prozentstreifen: oben die Prozente, unten die Werte, der gesuchte als „?“.",
   answer:
     "Eine Zahl in der Einheit des Grundwerts (Euro, Schüler, Personen, mAh, Treffer), ins Feld getippt, dann „Prüfen“ unter der Aufgabe. Komma oder Punkt, ein Bruch oder ein Term wie 250*12/100 gehen auch.",
   correct:

@@ -8,6 +8,8 @@ import {
   RABATTE,
   beschreibe,
   bildWert,
+  streifen,
+  unbekannt,
   check,
   eingabeFuer,
   eingabeVon,
@@ -96,9 +98,10 @@ const KONTEXTE: readonly Kontext[] = [
     richtung: "plus",
     preis: true,
     saetze: [19],
-    neu: (alt) => `Ein Fahrrad kostet netto ${alt}. Dazu kommen 19 % Mehrwertsteuer. Wie viel kostet es brutto?`,
+    neu: (alt) =>
+      `Ein Fahrrad kostet ohne Steuer ${alt}. Dazu kommen 19 % Mehrwertsteuer. Wie viel kostet es mit Steuer?`,
     alt: (neu) =>
-      `Ein Fahrrad kostet brutto ${neu}. Darin sind 19 % Mehrwertsteuer enthalten. Wie hoch ist der Nettopreis?`,
+      `Ein Fahrrad kostet mit Steuer ${neu}. Darin sind 19 % Mehrwertsteuer enthalten. Wie hoch ist der Preis ohne Steuer?`,
   },
   {
     id: "gehalt",
@@ -160,28 +163,16 @@ export function generate(seed: number): VeraenderungAufgabe {
   const ergebnis = typ === "neu" ? neu : alt;
   const gl = gleichheitszeichen(zahl(exakt), ergebnis);
   const neuProzent = k.richtung === "plus" ? 100 + p : 100 - p;
-  const wort = k.preis ? "Preis" : "Wert";
-  const balken = (geloest: boolean) => {
+  // Der Streifen: der alte Wert ist 100 %, der neue liegt bei 100 ± p; der Pfeil zeigt den Faktor.
+  const streifenBild = (geloest: boolean) => {
     const altBekannt = typ === "neu" || geloest;
     const neuBekannt = typ === "alt" || geloest;
-    return {
-      art: "balken" as const,
-      titel: `${zeichen} ${formatZahl(p)} %`,
-      balken: [
-        {
-          wert: altBekannt ? alt : null,
-          grau: true,
-          text: `Alter ${wort} (100 %): ${altBekannt ? bildWert(alt, einheit) : "?"}`,
-        },
-        {
-          wert: neuBekannt ? neu : null,
-          grau: false,
-          text: neuBekannt
-            ? `Neuer ${wort} (${formatZahl(neuProzent)} %): ${bildWert(neu, einheit)}`
-            : `Neuer ${wort}: ?`,
-        },
-      ],
-    };
+    return streifen(
+      neuProzent,
+      altBekannt ? bildWert(alt, einheit) : unbekannt(einheit),
+      neuBekannt ? bildWert(neu, einheit) : unbekannt(einheit),
+      `${"·"} ${f}`,
+    );
   };
   const pText = mitEinheit(p, "%");
   return {
@@ -193,8 +184,8 @@ export function generate(seed: number): VeraenderungAufgabe {
     prozentsatz: p,
     text: typ === "neu" ? k.neu(mitEinheit(alt, einheit), pText) : k.alt(mitEinheit(neu, einheit), pText),
     felder: [zahlenfeld(typ, typ === "neu" ? "Neuer Wert" : "Alter Wert", einheit, artFuer(einheit), exakt)],
-    bild: balken(false),
-    bildGeloest: balken(true),
+    bild: streifenBild(false),
+    bildGeloest: streifenBild(true),
     tipp:
       typ === "neu"
         ? `Der alte Wert (${mitEinheit(alt, einheit)}) ist 100 %. Nach der Änderung sind es ${formatZahl(neuProzent)} %. Rechne den Prozentwert aus und ${k.richtung === "plus" ? "addiere" : "subtrahiere"} ihn – oder nimm gleich den Faktor ${f}.`
@@ -202,13 +193,13 @@ export function generate(seed: number): VeraenderungAufgabe {
     rechenweg:
       typ === "neu"
         ? [
-            `Neuer Wert = alter Wert · (1 ${zeichen} p/100)`,
-            `Faktor: 1 ${zeichen} ${formatZahl(p)}/100 = ${f}`,
+            `Neuer Wert = alter Wert · (1 ${zeichen} p : 100)`,
+            `Faktor: 1 ${zeichen} ${formatZahl(p)} : 100 = ${f}`,
             `${formatWert(alt, einheit)} · ${f} ${gl} ${mitEinheit(neu, einheit)}`,
           ]
         : [
-            `Alter Wert = neuer Wert : (1 ${zeichen} p/100)`,
-            `Faktor: 1 ${zeichen} ${formatZahl(p)}/100 = ${f}`,
+            `Alter Wert = neuer Wert : (1 ${zeichen} p : 100)`,
+            `Faktor: 1 ${zeichen} ${formatZahl(p)} : 100 = ${f}`,
             `${formatWert(neu, einheit)} : ${f} ${gl} ${mitEinheit(alt, einheit)}`,
           ],
     richtig: `Ergebnis: ${mitEinheit(ergebnis, einheit)}.`,
@@ -310,7 +301,7 @@ export function describe(aufgabe: VeraenderungAufgabe): { task: string; solution
 }
 
 export const about = {
-  task: "Eine Textaufgabe zu einer Erhöhung oder Senkung um p %: entweder der neue Wert gesucht (alter Wert gegeben) oder der alte Wert gesucht (neuer Wert gegeben). Das Bild zur Aufgabe zeigt alten und neuen Wert als Balken, der gesuchte mit „?“.",
+  task: "Eine Textaufgabe zu einer Erhöhung oder Senkung um p %: entweder der neue Wert gesucht (alter Wert gegeben) oder der alte Wert gesucht (neuer Wert gegeben). Das Bild zur Aufgabe ist ein Prozentstreifen: der alte Wert ist 100 %, der neue Wert liegt bei 100 ± p, der Pfeil zeigt den Faktor, der gesuchte Wert steht als „?“.",
   answer:
     "Eine Zahl in der Einheit des Textes (Euro oder Mitglieder), ins Feld getippt, dann „Prüfen“ unter der Aufgabe; Komma oder Punkt, ein Bruch oder ein Term gehen auch.",
   correct:

@@ -136,7 +136,7 @@ export function generate(seed: number): VergleichAufgabe {
   const zufall = erzeugeZufall(seed, "vergleich");
   const frage = zufall.wahl<Frage>(["groesser", "kleiner"]);
   const k = zufall.wahl(KONTEXTE);
-  // beide Werte bleiben im Bereich des Kontexts; Rückfall: 10 % vom Rand liegt immer darin
+  // beide Werte bleiben im Bereich des Kontexts; Rückfall: 10 % vom Rand liegt immer darin
   let bezug = frage === "groesser" ? k.min : k.max;
   let anderer = runde(frage === "groesser" ? bezug * 1.1 : bezug * 0.9, k.nachkomma);
   for (let versuch = 0; versuch < 50; versuch++) {
@@ -171,11 +171,11 @@ export function generate(seed: number): VergleichAufgabe {
     art: "balken" as const,
     titel: `Um wie viel Prozent ${wort}?`,
     balken: [
-      { wert: bezug, grau: true, text: `Bezugsgröße (100 %): ${bildWert(bezug, einheit)}` },
+      { wert: bezug, grau: true, text: `Bezugsgröße (100 %): ${bildWert(bezug, einheit)}` },
       {
         wert: vergleich,
         grau: false,
-        text: `Vergleichswert ${bildWert(vergleich, einheit)} – ${geloest ? formatZahl(prozentsatz) : "?"} % ${richtung}`,
+        text: `Vergleichswert ${bildWert(vergleich, einheit)} – ${geloest ? formatZahl(prozentsatz) : "?"} % ${richtung}`,
       },
     ],
   });
@@ -192,7 +192,7 @@ export function generate(seed: number): VergleichAufgabe {
     rechenweg: [
       `Unterschied: ${formatWert(gross, einheit)} − ${formatWert(klein, einheit)} = ${d}`,
       `Bezugsgröße (steht nach „als“): ${mitEinheit(bezug, einheit)} = 100 %`,
-      `p = ${d} / ${formatWert(bezug, einheit)} · 100 ${zeichen} ${formatZahl(prozentsatz)}`,
+      `p = ${d} : ${formatWert(bezug, einheit)} · 100 ${zeichen} ${formatZahl(prozentsatz)}`,
       `p % ${zeichen} ${formatZahl(prozentsatz)} %`,
     ],
     richtig: `Ergebnis: ${formatZahl(prozentsatz)} % ${wort}.`,
@@ -204,7 +204,7 @@ export const MELDUNGEN = {
   differenzStattProzent:
     "Das ist nur der Unterschied in der Einheit. Gefragt ist der Unterschied in Prozent der Bezugsgröße.",
   verhaeltnisStattUnterschied:
-    "Das ist das Verhältnis der beiden Werte in Prozent. Gefragt ist, um wie viel Prozent mehr oder weniger – also die 100 % abziehen.",
+    "Das ist das Verhältnis der beiden Werte in Prozent. Vergleiche es mit 100 %: Bei „größer“ ziehst du 100 % ab, bei „kleiner“ ziehst du es von 100 % ab.",
   falsch: "Das stimmt noch nicht. Rechne: Unterschied geteilt durch die Bezugsgröße, dann mal 100.",
 };
 

@@ -18,30 +18,39 @@ description: Use for any content work in this app - researching, writing, extend
 
 ## Competencies
 
-Je Seite eine Kompetenz, Datei `src/<kapitel>/<seite>.yaml`.
+Je Seite eine Kompetenz, Datei `src/<kapitel>/<seite>.yaml`. Ein Kapitel `prozent` mit zehn Seiten in dieser Reihenfolge,
+gegliedert nach dem Issue lernapps/apps#391: Grundaufgaben, Vergleichen und Sachaufgaben, Zu- und Abnahme und Zinsen.
 
-- Prozent (`src/prozent/`): Ich kann Grundwert, Prozentwert und Prozentsatz erkennen (`grundbegriffe`), den
-  Prozentsatz (`prozentsatz`), den Prozentwert (`prozentwert`) und den Grundwert berechnen (`grundwert`), mit Zu- und
-  Abnahme rechnen (`veraenderung`), zwei Werte prozentual vergleichen (`vergleich`), Sachaufgaben übersetzen
+- Recap: `recap` (`recap:` natuerliche-zahlen, brueche-begriff, dezimalbrueche): Fachbegriffe, Beispiele, zwei Übungen.
+- Grundaufgaben am Prozentstreifen: Grundwert, Prozentwert, Prozentsatz erkennen (`grundbegriffe`, gehört auch zu
+  #389, nur nach den Regeln bereinigt), Prozentwert (`prozentwert`, Musterseite), Prozentsatz (`prozentsatz`) und
+  Grundwert berechnen (`grundwert`).
+- Vergleichen und Sachaufgaben: zwei Werte prozentual vergleichen (`vergleich`), Sachaufgaben übersetzen
   (`sachaufgaben`).
-- Bausteine je Seite (`competencies`): `grundbegriffe` → `prozent-grundbegriffe`, `prozentsatz` →
-  `prozent-prozentsatz`, `prozentwert` → `prozent-prozentwert`, `grundwert` → `prozent-grundwert`, `veraenderung` →
-  `prozent-veraenderung`, `vergleich` → `prozent-vergleich`, `sachaufgaben` → `prozent-sachaufgaben`.
+- Zu- und Abnahme, Zinsen: mit Zu- und Abnahme rechnen (`veraenderung`), Prozentpunkte unterscheiden und mehrere
+  Änderungen verknüpfen (`prozentpunkte`), einfache Zinsen berechnen (`zinsen`: Jahr, Monat, Tag mit 360-Tage-Jahr).
+- Bausteine je Seite (`competencies`): `grundbegriffe` → `prozent-grundbegriffe`, `prozentwert` →
+  `prozent-prozentwert`, `prozentsatz` → `prozent-prozentsatz`, `grundwert` → `prozent-grundwert`, `vergleich` →
+  `prozent-vergleich`, `sachaufgaben` → `prozent-sachaufgaben`, `veraenderung` → `prozent-veraenderung`,
+  `prozentpunkte` → `prozent-von-prozenten`, `zinsen` → `zinsrechnung`.
+- Nicht hier: Zinseszins und exponentielles Wachstum (#396), Prozent als Hundertstel (#389).
 
 ## Content structure
 
 Jede Seite hat diese Abschnitte, in dieser Reihenfolge und mit diesen ids (öffentlicher Vertrag, nie umbenennen):
 
-1. `warum` – „Warum?“: ein Absatz aus dem Alltag oder der Klassenarbeit.
-2. `regel` – „Regel“: `formula`-Blöcke, Fachbegriffe als `definition`, eine `note` „Merke“.
-3. `beispiel` – „Beispiel“: eine `example`-Box mit `table` (gegeben, Rechnung, Ergebnis).
-4. `bild` – „Bild“: das Beispielbild, ohne JavaScript sichtbar (siehe Figures).
-5. `video` – „Video dazu“: ein `video`-Block (`youtube: <11 Zeichen nach watch?v=>`, `title` wie YouTube ihn zeigt,
-   `channel: Lehrerschmidt`), danach der serlo-Link als Text, falls es einen geprüften gibt. Kein YouTube-Link im
-   Text, kein Satz zu Kanal oder Datenschutz: das zeigt der Block selbst.
-6. `uebung` – „Übung“: die Übungen (siehe Exercise patterns).
+1. `warum` – „Warum?“: ein Alltagsfall mit dem Prozentstreifen, die gesuchte Stelle als Fragezeichen.
+2. `regel` – „Regel“: Dreisatz-Tabelle und Formel nebeneinander (`table`), Merkhilfe. Begriffe als `definition`
+   nur einmal im ganzen Projekt (Grundwert, Prozentwert, Prozentsatz stehen auf `grundbegriffe`).
+3. `beispiel` – „Beispiel“: eine `example`-Box mit eigenen Zahlen, Streifen und `table`.
+4. `uebung` – „Übung“: mindestens vier Aufgaben, steigend, mindestens zwei Arten (siehe Exercise patterns).
+
+Kein `bild`- und kein `video`-Abschnitt mehr: Der Streifen steht in `warum` und im Beispiel.
 
 `description` und `summary` sind reiner Text ohne `$…$`.
+
+- Erst das Wozu, dann das Wie: Jede Seite, jeder Abschnitt und jedes Verfahren (Regel, Weg, Faktor, Zinsen) beginnt mit
+  dem Anlass („Wenn du wissen willst …“), dann folgt die Methode.
 
 ## Ids, addresses and the tutor
 
@@ -62,39 +71,44 @@ Jede Seite hat diese Abschnitte, in dieser Reihenfolge und mit diesen ids (öffe
   `src/components/Bruch.ts` (exakte Brüche, Runden) und `src/components/Zufallszahlen.ts` (mulberry32); nie in ein
   Kapitel kopieren.
 
-- Je Seite eine Übungskomponente mit „Bild zur Aufgabe“, Tipp, Rechenweg und den typischen Fehlern der alten App:
+- Je Seite eine Übungskomponente mit „Bild zur Aufgabe“ (Prozentstreifen), Tipp, Rechenweg und Rückmeldung nach
+  Fehlertyp:
   - Prozent: `Prozent<Seite>` (z. B. `grundwert-aufgabe`, `ProzentGrundwert`), gemeinsame Logik in
-    `ProzentKern.ts`/`ProzentAufgabe.ts`, Ansicht `ProzentUebung.vue`, Bild `ProzentBild.vue`. Rundungsregel:
-    so viele Stellen wie verlangt oder mehr, Brüche und Terme wie `250*12/100` erlaubt.
-- Dazu je Seite eine Übung, die keine Komponente ist (der explainer verlangt sie): ein `generated`-Block
-  (Zahl, `mistakes`, `hint`, `steps`).
-- Selbsteinschätzung (`selfAssessment` in `chapter.yaml`): so viele Seiten wie sinnvoll, je abgefragte Seite 2
-  Aufgaben, Schritte zu 3, je Kapitel 12. Bevorzugt die Übungskomponente der Seite (sie zeigt ihre Aufgabe
-  selbst und zieht jede Runde eine neue), dazu die `generated`-Übung, sonst die Komponente zweimal.
-  - Prozent: Komponente und `generated` auf `prozentsatz`, `prozentwert`, `grundwert`, `vergleich`; auf
-    `veraenderung` die Komponente und `veraenderung-rueckwaerts`; `sachaufgaben` die Komponente zweimal.
-    `grundbegriffe` fehlt, damit das Kapitel bei 12 bleibt: Wer die Aufgaben mit Geschichte der anderen Seiten löst,
-    erkennt Grundwert, Prozentwert und Prozentsatz schon.
+    `ProzentKern.ts`/`ProzentAufgabe.ts`, Ansicht `ProzentUebung.vue`, Bild `ProzentBild.vue`, das den Streifen
+    zeichnet (Bild `streifen` in `ProzentAufgabe.ts`). Rundungsregel: so viele Stellen wie verlangt oder mehr, Brüche
+    und Terme wie `250*12/100` erlaubt. Division steht als `:` in Gleichungen und Rechenwegen.
+- Dazu je Seite mindestens zwei Übungen ohne Komponente: `single-choice`/`true-false`/`number` mit Streifen davor und
+  `generated` (Zahl, `mistakes`, `hint`, `steps`). Jede falsche Antwort bekommt ihren Grund.
+- Zufallsaufgaben: keine Fallen, die zahlengleich mit der richtigen Antwort sind (G = 100, W = p); ganze Personen;
+  Ergebnisse unter 10000, damit kein Zahlenwert ohne Gruppierung erscheint.
+- Selbsteinschätzung (`selfAssessment` in `chapter.yaml`): fünf Schritte zu 3 bis 4 Aufgaben, je abgefragte Seite 2
+  Aufgaben, in der Reihenfolge der Seiten; bevorzugt Komponente und `generated`. `grundbegriffe` fehlt: Wer die
+  Aufgaben mit Geschichte löst, erkennt Grundwert, Prozentwert und Prozentsatz schon.
+- Recap-Übungen: höchstens zwei `single-choice`-Übungen auf der Recap-Seite, sofortige Rückmeldung mit Grund, danach der Satz
+  mit der Kartenseite des Bausteins. Die Komponente `Kurztest` gibt es nicht mehr.
 - Text und Optionen einer Quiz-Frage sind reiner Text ohne `$…$` (die Laufzeit-Tests vergleichen ungesetzten Text):
   Hochzahlen als `²`, Malpunkt `·`.
 
 ## Figures
 
-- Hunderterfeld und Balken als `figure` mit `draw` (`hundred-grid`, `bar`).
+- Der **Prozentstreifen** (`ProzentStreifen`, `vue-component` mit `nojs`): oben 0 % bis 100 % (bei Zunahme bis 125 %
+  u. ä., gestrichelt), unten der Grundwert; Marke für den Prozentsatz; Pfeil „· 1,25“ für den Faktor; `verdeckt`,
+  wenn der Prozentsatz gesucht ist. In allen Seiten und Übungsbildern gleich benannt: „Prozentstreifen“.
+- Hunderterfeld und Balken (`figure` mit `draw`) nur noch auf `grundbegriffe` (gehört auch zu #389).
 - Farben: Mathe-Blau `#1d4ed8`, Hervorhebung Orange `#ff8f00`.
 
 ## Sources
 
-- Videos: Kanal Lehrerschmidt (YouTube), je Seite geprüft über oEmbed (`author_name` und Titel passen); als `video`-Block,
-  der den Player erst nach dem Klick von youtube-nocookie.com lädt.
-- serlo.org: Artikel mit numerischer id (`https://de.serlo.org/mathe/<id>/<slug>`), per curl geprüft (Status 200, der
-  Artikel selbst, passt zur Kompetenz). Kein schwacher Treffer; dann kein Link.
-- Texte und Aufgaben sind eigene Arbeit (MIT), übernommen aus den alten Apps des Repos.
+- Lernlandkarte Mathematik, KMK-Bildungsstandards 2022, Hessisches Kerncurriculum (Links geprüft), eigene
+  Herleitungen und eigene Aufgaben mit Rechenprobe.
+- Keine Videos, kein serlo.org, keine externen Links an Aufgaben: wo das Werkzeug einen `links:`-Eintrag verlangt,
+  steht die Kartenseite des Bausteins (`https://lernapps.net/apps/map/mathematik/c/<id>/`).
+- Texte und Aufgaben sind eigene Arbeit (MIT).
 
 ## Adding a chapter or round
 
 1. Kompetenzen als „Ich kann …“ hier eintragen; Seiten-ids festlegen (nie wieder ändern).
-2. `src/<kapitel>/chapter.yaml` und je Seite die YAML-Datei mit den sechs Abschnitten und `competencies` (Bausteine
+2. `src/<kapitel>/chapter.yaml` und je Seite die YAML-Datei mit den vier Abschnitten und `competencies` (Bausteine
    des Strangs); Kapitel in `src/app.yaml`.
 3. Übungen nach den Mustern oben, Test zuerst (`src/components/<Name>.test.ts`).
 4. Beispielbilder nach Figures.
@@ -106,6 +120,7 @@ Jede Seite hat diese Abschnitte, in dieser Reihenfolge und mit diesen ids (öffe
 - Formeln in `description` erschienen roh im Inhaltsverzeichnis → reiner Text.
 - Formeln in Quiz-Fragen ließen die Laufzeit-Tests scheitern und hatten keinen zugänglichen Namen → reiner Text.
 - Bilder als Komponente waren ohne JavaScript unsichtbar → statische SVGs aus `scripts/bilder.mjs`.
-- Videos als Textlink mit Satz „Der Link öffnet YouTube …“ wiederholten, was die Runtime kann → `video`-Block.
+- Videos und serlo-Links verstießen gegen die gemeinsamen Regeln (keine Dritt-Inhalte, nur Kartenseiten) → entfernt.
+- Hunderterfeld und Prozentbalken in den Übungen trugen den Streifen nicht → Bild `streifen` in allen Prozent-Übungen.
 - Ein wählbares Feld mit sichtbarem Text braucht diesen Text am Anfang seines Namens (axe
   label-content-name-mismatch).

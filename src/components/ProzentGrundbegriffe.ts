@@ -151,7 +151,7 @@ export function generate(seed: number): GrundbegriffeAufgabe {
   const [[zahl1, rolle1], [zahl2, rolle2]] = v.gegeben;
   const wert = { G: grundwert, W: prozentwert, p: prozentsatz };
   const ohneEinheit = (rolle: Rolle) => tabellenWert(wert[rolle], rolle === "p" ? "%" : einheit);
-  const titel = `G = ${bildWert(grundwert, einheit)}, p = ${formatZahl(prozentsatz)} %`;
+  const titel = `G = ${bildWert(grundwert, einheit)}, p = ${formatZahl(prozentsatz)} %`;
   return {
     kontext: kontext.id,
     gesucht,
@@ -265,6 +265,6 @@ export const about = {
   answer:
     "Drei Auswahlen aus Grundwert G, Prozentwert W und Prozentsatz p %, je in einer Liste; dann „Prüfen“ unter der Aufgabe.",
   correct:
-    "Richtig, wenn alle drei Rollen stimmen: die Zahl mit % ist der Prozentsatz, das Ganze (100 %) der Grundwert, der Teil in derselben Einheit der Prozentwert.",
+    "Richtig, wenn alle drei Rollen stimmen: die Zahl mit % ist der Prozentsatz, das Ganze (100 %) der Grundwert, der Teil in derselben Einheit der Prozentwert.",
   mistakes: [MELDUNGEN.vertauscht, MELDUNGEN.falsch],
 };

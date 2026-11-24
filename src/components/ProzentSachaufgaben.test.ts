@@ -17,9 +17,9 @@ test("Aufgabe 1: Dreisatz mit 2600 mAh und 25 %", () => {
 test("Aufgabe 2: Gleichung für den Grundwert", () => {
   const a = generate(2);
   expect(a.typ).toBe("gleichung");
-  expect(check(a, { gleichung: "G = 408 · 100 / 80", ergebnis: "510" })).toBe(true);
-  expect(grund(a, { gleichung: "G = 408 · 80 / 100", ergebnis: "326,4" })).toBe(MELDUNGEN.gleichungFalsch);
-  expect(grund(a, { gleichung: "G = 408 · 100 / 80", ergebnis: "500" })).toBe(MELDUNGEN.ergebnisFalsch);
+  expect(check(a, { gleichung: "G = 408 · 100 : 80", ergebnis: "510" })).toBe(true);
+  expect(grund(a, { gleichung: "G = 408 · 80 : 100", ergebnis: "326,4" })).toBe(MELDUNGEN.gleichungFalsch);
+  expect(grund(a, { gleichung: "G = 408 · 100 : 80", ergebnis: "500" })).toBe(MELDUNGEN.ergebnisFalsch);
 });
 
 test("jede Aufgabe: Lösung richtig, Falle falsch, beide Typen kommen vor", () => {

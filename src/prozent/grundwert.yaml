@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
-title: Grundwert berechnen
-description: "Den Grundwert berechnen mit G = W · 100 : p. Erklärung, Beispiel, Hunderterfeld und Übungsaufgaben."
+title: Drei Grundaufgaben am Prozentstreifen – Grundwert berechnen
+description: "Der Prozentstreifen zeigt Prozentsatz, Prozentwert und Grundwert. Dritte Grundaufgabe: den Grundwert berechnen, mit Dreisatz-Tabelle und Formel."
 competencies: [prozent-grundwert]
 blocks:
   - type: section
@@ -9,26 +9,47 @@ blocks:
     blocks:
       - type: text
         text: >-
-          „Du sparst 30 €, das sind 12 % Rabatt“ – wie teuer war die Sache vorher? Hier ist das Ganze unbekannt, und
-          genau das verwirrt viele. Wenn du den Grundwert sicher zurückrechnen kannst, löst du auch die kniffligen
-          Aufgaben in der Klassenarbeit, bei denen nur der Teil bekannt ist.
+          Du sparst 15 € beim Kauf einer Jacke. Das sind 20 % Rabatt. Wie teuer war die Jacke vorher? Dafür gibt es den
+          **Prozentstreifen**: ein Streifen, auf dem oben die Prozente stehen und unten die Werte.
+      - type: vue-component
+        id: streifen-jacke
+        component: ProzentStreifen
+        props:
+          prozent: 20
+          prozentText: "20 %"
+          grundwert: "? €"
+          wert: "15 €"
+        nojs: |
+          Prozentstreifen: Oben die Skala von 0 % bis 100 %. Der blaue Teil reicht bis 20 % und ist 15 € lang.
+          Der Grundwert am Ende des Streifens unten ist gesucht.
+      - type: text
+        text: >-
+          Der blaue Teil sind 20 %, der **Prozentsatz**. Er ist 15 € lang, das ist der **Prozentwert**. Gesucht ist der
+          **Grundwert**: das Ganze, also der ganze Streifen mit 100 %. Es gibt drei Grundaufgaben, je nachdem, welche der
+          drei Stellen fehlt. Auf dieser Seite fehlt der Grundwert.
   - type: section
     id: regel
     title: Regel
     blocks:
-      - type: formula
-        formula: 'G = \frac{W \cdot 100}{p}'
       - type: text
         text: >-
-          Der **Grundwert** $G$ ist das Ganze. Du kennst den **Prozentwert** $W$ (den Teil) und den **Prozentsatz**
-          $p\,\%$. Über 1 % kommst du zum Ganzen: $W$ geteilt durch $p$ ist 1 %, mal 100 ist das Ganze.
+          Wenn du weißt, dass 15 € zu 20 % gehören, und das Ganze suchst, brauchst du den Grundwert $G$. Du kennst den
+          Prozentwert $W$ und den Prozentsatz $p\,\%$. Dafür gibt es zwei Wege, die dasselbe rechnen. Der **Dreisatz** geht in drei Zeilen: Du startest bei $p\,\%$, gehst
+          auf 1 % und dann auf 100 %.
+      - type: table
+        caption: Dreisatz-Tabelle und Formel nebeneinander, für 15 € als 20 %
+        header: [Dreisatz-Tabelle, Formel]
+        rows:
+          - ["20 % sind 15 €", "$W = 15$ und $p = 20$"]
+          - ["1 % sind 15 € : 20 = 0,75 €", "$G = \\frac{W \\cdot 100}{p}$"]
+          - ["100 % sind 0,75 € · 100 = 75 €", "$G = \\frac{15 \\cdot 100}{20} = 75$"]
       - type: note
-        title: Achtung
+        title: Merkhilfe
         blocks:
           - type: text
             text: >-
-              Der Grundwert ist (bei $p$ unter 100 %) immer größer als der Prozentwert. Kommt etwas Kleineres heraus,
-              hast du die Formel für den Prozentwert benutzt.
+              Erst durch $p$ teilen, dann mal 100. Bei $p$ unter 100 % ist der Grundwert größer als der Prozentwert.
+              Kommt etwas Kleineres heraus, hast du $p\,\%$ vom Prozentwert gerechnet statt das Ganze.
   - type: section
     id: beispiel
     title: Beispiel
@@ -37,43 +58,82 @@ blocks:
         title: Der Preis eines Rollers
         blocks:
           - type: text
-            text: Beim Kauf eines Rollers sparst du 30 €. Das sind 12 % Rabatt. Wie viel hat der Roller vorher gekostet?
+            text: Beim Kauf eines Rollers sparst du 30 €. Das sind 12 % Rabatt. Wie viel hat der Roller vorher gekostet?
+          - type: vue-component
+            id: streifen-roller
+            component: ProzentStreifen
+            props:
+              prozent: 12
+              prozentText: "12 %"
+              grundwert: "250 €"
+              wert: "30 €"
+            nojs: |
+              Prozentstreifen: Oben die Skala von 0 % bis 100 %, unten der Grundwert 250 €. Der blaue Teil reicht bis 12 %
+              und ist 30 € lang.
           - type: table
             caption: Die Größen im Beispiel und die Rechnung
             rowHeaders: true
             rows:
-              - ["Prozentwert $W$", "30 € (der Teil, der bekannt ist)"]
-              - ["Prozentsatz $p$", "12 %"]
+              - ["Prozentwert $W$", "30 € (der bekannte Teil)"]
+              - ["Prozentsatz $p$", "12 %"]
               - ["Rechnung", "$G = \\frac{30 \\cdot 100}{12} = 250$"]
-              - ["Grundwert $G$", "**250 €** war der alte Preis"]
-          - type: text
-            text: "Über 1 %: 30 € : 12 = 2,50 € sind 1 %. Dann 2,50 € · 100 = 250 €."
-  - type: section
-    id: bild
-    title: Bild
-    blocks:
-      - type: figure
-        draw: { kind: hundred-grid, filled: 12 }
-        alt: Ein Hunderterfeld aus 100 Kästchen; 12 Kästchen sind blau.
-        caption: >-
-          Die 12 blauen Kästchen sind der bekannte Teil: 12 % = 30 €, also ist ein Kästchen 2,50 €. Alle 100 Kästchen
-          stehen für den Grundwert: 100 · 2,50 € = 250 €.
-  - type: section
-    id: video
-    title: Video dazu
-    blocks:
-      - type: video
-        youtube: gtEAmp8-K-8
-        title: "Grundwert berechnen - Prozentrechnung mit Formel - Mathematik einfach erklärt | Lehrerschmidt"
-        channel: Lehrerschmidt
-      - type: text
-        text: >-
-          Noch eine Erklärung in anderen Worten: [Prozentrechnung mittels
-          Formeln](https://de.serlo.org/mathe/2193/prozentrechnung-mittels-formeln) bei serlo.org.
+              - ["Grundwert $G$", "**250 €** war der alte Preis"]
   - type: section
     id: uebung
     title: Übung
     blocks:
+      - type: vue-component
+        id: streifen-aufgabe
+        component: ProzentStreifen
+        props:
+          prozent: 40
+          prozentText: "40 %"
+          grundwert: "? €"
+          wert: "30 €"
+        nojs: |
+          Prozentstreifen: Oben die Skala von 0 % bis 100 %. Der blaue Teil reicht bis 40 % und ist 30 € lang.
+          Der Grundwert am Ende des Streifens unten ist ein Fragezeichen.
+      - type: single-choice
+        id: grundwert-streifen
+        text: "Am Streifen steht unten am Ende ein Fragezeichen. Welche Stelle wird gesucht?"
+        options:
+          - text: der Grundwert
+            correct: true
+            info: Das Fragezeichen steht am Ende des ganzen Streifens. Das Ganze ist der Grundwert.
+          - text: der Prozentwert
+            correct: false
+            info: Der Prozentwert steht schon unter dem blauen Teil (30 €). Er ist bekannt.
+          - text: der Prozentsatz
+            correct: false
+            info: Der Prozentsatz steht schon oben (40 %). Er ist bekannt.
+        explanation: Das Fragezeichen steht am Ende des ganzen Streifens. Diese Stelle ist der Grundwert.
+        hint: Schau, wo das Fragezeichen steht, beim blauen Teil oder am Ende des ganzen Streifens.
+      - type: vue-component
+        id: streifen-schuhe
+        component: ProzentStreifen
+        props:
+          prozent: 30
+          prozentText: "30 %"
+          grundwert: "? €"
+          wert: "45 €"
+        nojs: |
+          Prozentstreifen: Oben die Skala von 0 % bis 100 %. Der blaue Teil reicht bis 30 % und ist 45 € lang.
+          Der Grundwert am Ende des Streifens unten ist gesucht.
+      - type: number
+        id: grundwert-schuhe
+        text: "Du sparst bei Schuhen 45 €. Das sind 30 % Rabatt. Wie viel Euro haben die Schuhe vorher gekostet?"
+        answer: 150
+        tolerance: 0
+        unit: "€"
+        mistakes:
+          - answer: 13.5
+            message: "Du hast 30 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 45 € ein Teil sind."
+          - answer: 1.5
+            message: "Das ist erst der Wert von 1 %. Nimm ihn noch mal 100, dann hast du das Ganze."
+          - answer: 105
+            message: "Das ist der Preis nach dem Rabatt. Gefragt ist der Preis vorher."
+        hint: "Rechne erst 1 % aus: 45 € geteilt durch 30. Dann mal 100."
+        explanation: "1 % sind 45 € : 30 = 1,50 €. Das Ganze sind 100 %: 1,50 € · 100 = 150 €."
       - type: vue-component
         id: grundwert-aufgabe
         component: ProzentGrundwert
@@ -92,17 +152,37 @@ blocks:
         given:
           W: { int: [3, 600] }
           p: { oneOf: [2, 4, 5, 8, 12, 12.5, 15, 20, 24, 25, 30, 40, 45, 60, 75, 80] }
-        where: ["decimals(W * 100 / p) <= 2"]
+        where: ["decimals(W * 100 / p) <= 2", "W * 100 / p < 10000"]
         task:
-          text: "{{W}} € sind {{p}} % eines Betrags. Wie groß ist der ganze Betrag?"
+          text: "{{W}} € sind {{p}} % eines Betrags. Wie groß ist der ganze Betrag?"
         answer: { value: "W * 100 / p", compare: { number: { format: money } } }
         mistakes:
           - {
               value: "W * p / 100",
-              message: "Du hast {{p}} % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem {{W}} € ein Teil sind.",
+              message: "Du hast {{p}} % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem {{W}} € ein Teil sind.",
             }
-          - { value: "W / p", message: "Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze." }
-        hint: "Rechne erst 1 % aus: {{W}} € geteilt durch {{p}}. Dann mal 100."
+          - { value: "W / p", message: "Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze." }
+        hint: "Rechne erst 1 % aus: {{W}} € geteilt durch {{p}}. Dann mal 100."
         steps:
           - '$G = \frac{W \cdot 100}{p}$'
-          - '$G = \frac{{{W}} \cdot 100}{{{p}}} = {{answer}}$, also {{answer}} €.'
+          - '$G = \frac{{{W}} \cdot 100}{{{p}}} = {{answer}}$, also {{answer}} €.'
+      - type: generated
+        id: grundwert-kino
+        practice: Eine Aufgabe aus dem Alltag. Das Ganze ist hier die Zahl aller Plätze.
+        given:
+          W: { int: [10, 200] }
+          p: { oneOf: [20, 25, 40, 50, 80] }
+        where: ["decimals(W * 100 / p) == 0"]
+        task:
+          text: "In einem Kino sind {{W}} Plätze besetzt. Das sind {{p}} % aller Plätze. Wie viele Plätze hat das Kino?"
+        answer: { value: "W * 100 / p", compare: { number: { format: integer } } }
+        mistakes:
+          - {
+              value: "W * p / 100",
+              message: "Du hast {{p}} % von den besetzten Plätzen berechnet. Gesucht sind alle Plätze.",
+            }
+          - { value: "W * 100 / p - W", message: "Das sind die freien Plätze. Gefragt ist die Zahl aller Plätze." }
+        hint: "Rechne erst 1 % aus: {{W}} geteilt durch {{p}}. Dann mal 100."
+        steps:
+          - '$G = \frac{W \cdot 100}{p}$'
+          - '$G = \frac{{{W}} \cdot 100}{{{p}}} = {{answer}}$, also {{answer}} Plätze.'

@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
-title: Prozentsatz berechnen
-description: "Den Prozentsatz berechnen mit p = W : G · 100. Erklärung, Beispiel, Prozentbalken und Übungsaufgaben."
+title: Drei Grundaufgaben am Prozentstreifen – Prozentsatz berechnen
+description: "Der Prozentstreifen zeigt Prozentsatz, Prozentwert und Grundwert. Zweite Grundaufgabe: den Prozentsatz berechnen, mit Dreisatz-Tabelle und Formel."
 competencies: [prozent-prozentsatz]
 blocks:
   - type: section
@@ -9,24 +9,48 @@ blocks:
     blocks:
       - type: text
         text: >-
-          „18 von 24 Schülern haben ein Haustier“ – ist das viel? Erst der Prozentsatz macht solche Angaben
-          vergleichbar: 75 % sagen sofort, wie groß der Anteil ist, egal ob die Klasse 24 oder 30 Schüler hat. Im
-          Alltag und in der Klassenarbeit ist das eine der häufigsten Fragen: „Wie viel Prozent sind das?“
+          Ein Rucksack kostet 80 €. Im Angebot sparst du 20 €. Wie viel Prozent Rabatt sind das? Dafür gibt es den
+          **Prozentstreifen**: ein Streifen, auf dem oben die Prozente stehen und unten die Werte.
+      - type: vue-component
+        id: streifen-rucksack
+        component: ProzentStreifen
+        props:
+          prozent: 25
+          prozentText: "? %"
+          grundwert: "80 €"
+          wert: "20 €"
+          verdeckt: true
+        nojs: |
+          Prozentstreifen: Oben die Skala von 0 % bis 100 %, unten der Grundwert 80 €. Der Teil von 20 € ist bekannt.
+          Der Prozentsatz dazu oben ist gesucht.
+      - type: text
+        text: >-
+          Der ganze Streifen ist das Ganze, also der **Grundwert**: 80 € sind 100 %. Die 20 € sind ein Teil davon, der
+          **Prozentwert**. Gesucht ist der **Prozentsatz**: wie viel Prozent dieser Teil ist. Es gibt drei Grundaufgaben,
+          je nachdem, welche der drei Stellen fehlt. Auf dieser Seite fehlt der Prozentsatz.
   - type: section
     id: regel
     title: Regel
     blocks:
-      - type: formula
-        formula: 'p = \frac{W}{G} \cdot 100'
       - type: text
         text: >-
-          Der **Prozentsatz** $p\,\%$ ist der Anteil des **Prozentwerts** $W$ (der Teil) am **Grundwert** $G$ (das
-          Ganze), in Hundertsteln geschrieben.
+          Wenn du wissen willst, welchen Anteil 20 € von 80 € haben, suchst du den Prozentsatz $p\,\%$: Er sagt, welcher Anteil
+          des Grundwerts $G$ der Prozentwert $W$ ist. Dafür gibt es zwei Wege, die dasselbe rechnen. Der **Dreisatz** geht in drei Zeilen von 100 % auf 1 % und dann auf
+          $p\,\%$. Hier fragst du in der letzten Zeile: Wie oft passt 1 % in den Prozentwert?
+      - type: table
+        caption: Dreisatz-Tabelle und Formel nebeneinander, für 20 € von 80 €
+        header: [Dreisatz-Tabelle, Formel]
+        rows:
+          - ["100 % sind 80 €", "$G = 80$ und $W = 20$"]
+          - ["1 % sind 80 € : 100 = 0,80 €", "$p = \\frac{W}{G} \\cdot 100$"]
+          - ["20 € : 0,80 € = 25, also 25 %", "$p = \\frac{20}{80} \\cdot 100 = 25$"]
       - type: note
         title: Merkhilfe
         blocks:
           - type: text
-            text: Teil durch Ganzes – immer durch das Ganze teilen, nie umgekehrt. Dann mal 100.
+            text: >-
+              Teil durch Ganzes, dann mal 100. Das Ganze steht im Bruch unten. Ist $W$ kleiner als $G$, muss $p$ unter
+              100 liegen.
   - type: section
     id: beispiel
     title: Beispiel
@@ -35,50 +59,91 @@ blocks:
         title: Haustiere in der Klasse
         blocks:
           - type: text
-            text: In einer Klasse sind 24 Schüler. 18 davon haben ein Haustier. Wie viel Prozent der Klasse sind das?
+            text: In einer Klasse sind 24 Schüler. 18 davon haben ein Haustier. Wie viel Prozent der Klasse sind das?
+          - type: vue-component
+            id: streifen-haustiere
+            component: ProzentStreifen
+            props:
+              prozent: 75
+              prozentText: "75 %"
+              grundwert: "24 Schüler"
+              wert: "18 Schüler"
+            nojs: |
+              Prozentstreifen: Oben die Skala von 0 % bis 100 %, unten der Grundwert 24 Schüler. Der blaue Teil ist 18
+              Schüler lang und reicht bis 75 %.
           - type: table
             caption: Die Größen im Beispiel und die Rechnung
             rowHeaders: true
             rows:
-              - ["Grundwert $G$", "24 Schüler (die ganze Klasse)"]
-              - ["Prozentwert $W$", "18 Schüler (der Teil)"]
+              - ["Grundwert $G$", "24 Schüler (die ganze Klasse)"]
+              - ["Prozentwert $W$", "18 Schüler (der Teil)"]
               - ["Rechnung", "$p = \\frac{18}{24} \\cdot 100 = 0{,}75 \\cdot 100 = 75$"]
-              - ["Prozentsatz", "**$p\\,\\%$ = 75 %**"]
-          - type: text
-            text: "Probe: 75 % von 24 sind $24 \\cdot 0{,}75 = 18$. Passt."
-  - type: section
-    id: bild
-    title: Bild
-    blocks:
-      - type: figure
-        draw: { kind: bar, part: 18, whole: 24 }
-        alt: Ein Balken für 24 Schüler; 18 davon sind blau, das sind 75 %.
-        caption: >-
-          Der ganze Balken ist der Grundwert: 24 Schüler sind 100 %. Der blaue Teil ist der Prozentwert: 18 Schüler
-          sind 75 %.
-  - type: section
-    id: video
-    title: Video dazu
-    blocks:
-      - type: video
-        youtube: YdBcJa8-81s
-        title: "Prozentsatz berechnen - Prozentrechnung mit Formel - Mathematik einfach erklärt | Lehrerschmidt"
-        channel: Lehrerschmidt
-      - type: text
-        text: >-
-          Noch eine Erklärung in anderen Worten: [Prozentrechnung mittels
-          Formeln](https://de.serlo.org/mathe/2193/prozentrechnung-mittels-formeln) bei serlo.org.
+              - ["Prozentsatz $p$", "**75 %** der Klasse"]
   - type: section
     id: uebung
     title: Übung
     blocks:
+      - type: vue-component
+        id: streifen-aufgabe
+        component: ProzentStreifen
+        props:
+          prozent: 20
+          prozentText: "? %"
+          grundwert: "50 €"
+          wert: "10 €"
+          verdeckt: true
+        nojs: |
+          Prozentstreifen: Oben die Skala von 0 % bis 100 %, unten der Grundwert 50 €. Der Teil von 10 € ist bekannt.
+          Der Prozentsatz dazu oben ist ein Fragezeichen.
+      - type: single-choice
+        id: prozentsatz-streifen
+        text: "Am Streifen steht oben ein Fragezeichen. Welche Stelle wird gesucht?"
+        options:
+          - text: der Prozentsatz
+            correct: true
+            info: Das Fragezeichen steht in der Skala bei den Prozenten. Gesucht ist also der Prozentsatz.
+          - text: der Prozentwert
+            correct: false
+            info: Der Prozentwert steht schon unten (10 €). Er ist bekannt.
+          - text: der Grundwert
+            correct: false
+            info: Der Grundwert steht schon unten am Ende des Streifens (50 €). Er ist bekannt.
+        explanation: Das Fragezeichen steht oben bei den Prozenten. Diese Stelle ist der Prozentsatz.
+        hint: Schau, ob das Fragezeichen oben bei den Prozenten steht oder unten bei den Werten.
+      - type: vue-component
+        id: streifen-quiz
+        component: ProzentStreifen
+        props:
+          prozent: 80
+          prozentText: "? %"
+          grundwert: "50 Fragen"
+          wert: "40 Fragen"
+          verdeckt: true
+        nojs: |
+          Prozentstreifen: Oben die Skala von 0 % bis 100 %, unten der Grundwert 50 Fragen. Der Teil von 40 Fragen ist
+          bekannt. Der Prozentsatz dazu oben ist gesucht.
+      - type: number
+        id: prozentsatz-quiz
+        text: "Ein Quiz hat 50 Fragen. Du hast 40 richtig beantwortet. Wie viel Prozent sind das?"
+        answer: 80
+        tolerance: 0
+        unit: "%"
+        mistakes:
+          - answer: 0.8
+            message: "Das ist der Anteil als Dezimalzahl. Nimm das Ergebnis noch mal 100, dann hast du den Prozentsatz."
+          - answer: 125
+            message: "Du hast das Ganze durch den Teil geteilt. Richtig ist: Teil durch Ganzes."
+          - answer: 20
+            message: "Das sind die Prozent der falschen Antworten. Gefragt sind die richtigen."
+        hint: "Teile den Teil, 40, durch das Ganze, 50. Das Ergebnis nimmst du mal 100."
+        explanation: "Teil durch Ganzes: 40 : 50 = 0,8. Mal 100 sind das 80 %. Der Dreisatz sagt dasselbe: 1 % sind 0,50 Fragen, und 40 : 0,5 = 80."
       - type: vue-component
         id: prozentsatz-aufgabe
         component: ProzentProzentsatz
         examples:
           accepted:
             - { answer: { prozentsatz: "3" }, seed: 1 }
-            - { answer: { prozentsatz: "3 %" }, seed: 1 }
+            - { answer: { prozentsatz: "3 %" }, seed: 1 }
             - { answer: { prozentsatz: "9/300*100" }, seed: 1 }
             - { answer: { prozentsatz: "15" }, seed: 2 }
           rejected:
@@ -102,9 +167,36 @@ blocks:
             }
           - {
               value: "G * 100 / W",
-              message: "Du hast das Ganze durch den Teil geteilt. Richtig ist: Teil durch Ganzes (W / G).",
+              message: "Du hast das Ganze durch den Teil geteilt. Richtig ist: Teil durch Ganzes, also den Teil durch das Ganze.",
             }
         hint: "Teile den Teil {{W}} durch das Ganze {{G}} und nimm das Ergebnis mal 100."
         steps:
           - '$p = \frac{W}{G} \cdot 100$'
-          - '$p = \frac{{{W}}}{{{G}}} \cdot 100 = {{answer}}$, also {{answer}} %.'
+          - '$p = \frac{{{W}}}{{{G}}} \cdot 100 = {{answer}}$, also {{answer}} %.'
+      - type: generated
+        id: prozentsatz-verein
+        practice: Eine Aufgabe aus dem Alltag. Hier musst du erst finden, was Teil und was Ganzes ist.
+        given:
+          G: { oneOf: [40, 50, 80, 125, 200, 250] }
+          W: { int: [2, 100] }
+        where: ["W < G", "W * 2 != G", "decimals(W * 100 / G) <= 1"]
+        task:
+          text: "Ein Sportverein hat {{G}} Mitglieder. {{W}} davon sind jünger als 18 Jahre. Wie viel Prozent der Mitglieder sind das?"
+        answer: { value: "W * 100 / G", compare: { number: { format: percent, decimals: 1 } } }
+        mistakes:
+          - {
+              value: "W / G",
+              message: "Das ist der Anteil als Dezimalzahl. Mal 100 nehmen, dann hast du den Prozentsatz.",
+            }
+          - {
+              value: "G * 100 / W",
+              message: "Du hast das Ganze durch den Teil geteilt. Das Ganze sind alle Mitglieder, es steht im Bruch unten.",
+            }
+          - {
+              value: "(G - W) * 100 / G",
+              message: "Das sind die Prozent der Mitglieder, die nicht jünger als 18 sind. Gefragt sind die jüngeren.",
+            }
+        hint: "Das Ganze sind alle {{G}} Mitglieder. Teile {{W}} durch {{G}} und nimm das Ergebnis mal 100."
+        steps:
+          - '$p = \frac{W}{G} \cdot 100$'
+          - '$p = \frac{{{W}}}{{{G}}} \cdot 100 = {{answer}}$, also {{answer}} % der Mitglieder.'

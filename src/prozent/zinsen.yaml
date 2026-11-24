@@ -1,0 +1,183 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v2.schema.json
+title: Zinsen berechnen
+description: >-
+  Jahreszinsen, Monatszinsen und Tageszinsen für ein Guthaben berechnen, mit der deutschen Zinsmethode: am
+  Prozentstreifen, mit Beispielen und Übungen.
+competencies: [zinsrechnung]
+blocks:
+  - type: section
+    id: warum
+    title: Warum?
+    blocks:
+      - type: text
+        text: >-
+          Du hast 800 € auf einem Sparkonto. Dafür bekommst du in einem Jahr 2 % Zinsen. Wie viele Euro sind das? Der
+          Prozentstreifen zeigt es: Das Guthaben ist das Ganze. Zinsen sind das Geld, das die Bank dir dafür gibt, dass du ihr dein Geld überlässt.
+      - type: vue-component
+        id: streifen-zinsen
+        component: ProzentStreifen
+        props:
+          prozent: 2
+          prozentText: "2 %"
+          grundwert: "800 €"
+          wert: "? €"
+        nojs: |
+          Prozentstreifen: Oben die Skala von 0 % bis 100 %, unten das Guthaben 800 € bei 100 %. Der markierte Teil
+          reicht bis 2 %. Der Wert dazu unten ist gesucht.
+      - type: text
+        text: >-
+          Das Guthaben heißt **Kapital** $K$ und ist 100 %. Der **Zinssatz** $p\,\%$ ist der Prozentsatz. Die
+          **Zinsen** $Z$ sind der Teil, der in einem Jahr dazukommt: die Zunahme des Guthabens.
+  - type: section
+    id: regel
+    title: Regel
+    blocks:
+      - type: text
+        text: "Wenn du wissen willst, wie viel Geld ein Guthaben in einer bestimmten Zeit bringt, berechnest du die Zinsen. Je nachdem, wie lange das Geld angelegt ist, sind es Jahres-, Monats- oder Tageszinsen. **Jahreszinsen:** Die Zinsen sind der Prozentwert vom Kapital."
+      - type: formula
+        formula: 'Z = K \cdot \frac{p}{100}'
+      - type: text
+        text: >-
+          Wenn dein Geld nur einige Monate oder Tage angelegt ist, bekommst du nur einen Teil der Jahreszinsen. Dann nimmst du nur den Teil des Jahres. Die deutsche Zinsmethode rechnet: **1 Jahr hat
+          360 Tage, 1 Monat hat 30 Tage.**
+      - type: formula
+        formula: 'Z = K \cdot \frac{p}{100} \cdot \frac{m}{12}'
+      - type: text
+        text: "Das sind die **Monatszinsen**, $m$ ist die Zahl der Monate. Für Tage gilt:"
+      - type: formula
+        formula: 'Z = K \cdot \frac{p}{100} \cdot \frac{t}{360}'
+      - type: text
+        text: Das sind die **Tageszinsen**, $t$ ist die Zahl der Tage.
+  - type: section
+    id: beispiel
+    title: Beispiel
+    blocks:
+      - type: example
+        title: Zinsen für ein Jahr
+        blocks:
+          - type: text
+            text: Auf 800 € gibt es 2 % Zinsen im Jahr. Wie hoch sind die Zinsen? Wie viel Guthaben ist es nach einem Jahr?
+          - type: vue-component
+            id: streifen-guthaben
+            component: ProzentStreifen
+            props:
+              prozent: 102
+              prozentText: "102 %"
+              grundwert: "800 €"
+              wert: "816 €"
+              faktor: "· 1,02"
+            nojs: |
+              Prozentstreifen: Der Streifen reicht über 100 % hinaus bis 102 %. Unten steht das Kapital 800 € bei 100 %,
+              das Guthaben nach einem Jahr ist 816 €. Ein Pfeil zeigt den Faktor 1,02.
+          - type: table
+            caption: Jahreszinsen und neues Guthaben
+            rowHeaders: true
+            rows:
+              - ["Zinsen", "$Z = 800 \\cdot \\frac{2}{100} = 16$, also **16 €**"]
+              - ["Guthaben danach", "800 € + 16 € = 816 €"]
+              - ["Mit dem Faktor", "$800 \\cdot 1{,}02 = 816$"]
+      - type: example
+        title: Zinsen für Monate und Tage
+        blocks:
+          - type: text
+            text: >-
+              Monate: 1200 € werden 4 Monate lang mit 3 % im Jahr verzinst. Es sind 4 von 12 Monaten.
+          - type: formula
+            formula: 'Z = 1200 \cdot \frac{3}{100} \cdot \frac{4}{12} = 12'
+          - type: text
+            text: >-
+              Tage (deutsche Zinsmethode, 1 Jahr = 360 Tage): 900 € werden 45 Tage lang mit 4 % im Jahr verzinst.
+          - type: formula
+            formula: 'Z = 900 \cdot \frac{4}{100} \cdot \frac{45}{360} = 4{,}50'
+          - type: text
+            text: >-
+              Nach mehreren Jahren kommen auch Zinsen auf die Zinsen dazu. Das rechnest du hier noch nicht.
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: single-choice
+        id: zinsen-erkennen
+        text: "Du hast 600 € Guthaben. Nach einem Jahr sind es 612 €. Wie viel Zinsen hast du bekommen?"
+        options:
+          - text: 12 €
+            correct: true
+            info: Die Zinsen sind die Zunahme des Guthabens in einem Jahr. 612 € − 600 € = 12 €.
+          - text: 600 €
+            correct: false
+            info: 600 € ist das Kapital, also das Guthaben am Anfang. Die Zinsen kommen erst dazu.
+          - text: 612 €
+            correct: false
+            info: 612 € ist das Guthaben nach einem Jahr, mit Zinsen. Die Zinsen allein sind der Unterschied zu 600 €.
+        explanation: Die Zinsen sind die Zunahme des Guthabens in einem Jahr, hier 612 € − 600 € = 12 €.
+      - type: generated
+        id: jahreszinsen-ueben
+        practice: Jahreszinsen berechnen.
+        given:
+          K: { int: [200, 2000], step: 50 }
+          p: { oneOf: [1, 1.5, 2, 2.5, 3, 4, 5] }
+        where: ["decimals(K * p / 100) <= 2"]
+        task:
+          text: "Auf einem Konto liegen {{K}} €. Der Zinssatz ist {{p}} % im Jahr. Wie viel Euro Zinsen gibt es nach einem Jahr?"
+        answer: { value: "K * p / 100", compare: { number: { format: money } } }
+        mistakes:
+          - { value: "K * p", message: "Du hast vergessen, durch 100 zu teilen: {{p}} % sind {{p}} Hundertstel." }
+          - {
+              value: "K + K * p / 100",
+              message: "Das ist das Guthaben nach einem Jahr. Gefragt sind nur die Zinsen, also die Zunahme.",
+            }
+        hint: "Rechne erst 1 % aus: {{K}} € geteilt durch 100. Dann mal {{p}}."
+        steps:
+          - '$Z = K \cdot \frac{p}{100}$'
+          - '$Z = {{K}} \cdot \frac{{{p}}}{100} = {{answer}}$, also {{answer}} € Zinsen.'
+      - type: generated
+        id: monatszinsen-ueben
+        practice: Monatszinsen berechnen.
+        given:
+          K: { int: [300, 3000], step: 100 }
+          p: { oneOf: [2, 3, 4, 5, 6] }
+          m: { oneOf: [2, 3, 4, 6, 8, 9] }
+        where: ["decimals(K * p / 100 * m / 12) <= 2"]
+        task:
+          text: "Ein Guthaben von {{K}} € wird {{m}} Monate lang mit {{p}} % im Jahr verzinst. Wie viel Euro Zinsen sind das?"
+        answer: { value: "K * p / 100 * m / 12", compare: { number: { format: money } } }
+        mistakes:
+          - {
+              value: "K * p / 100",
+              message: "Das sind die Zinsen für ein ganzes Jahr. Du musst noch mit m : 12 malnehmen, denn es sind nur {{m}} von 12 Monaten.",
+            }
+          - { value: "K * p / 100 * m", message: "Du hast vergessen, durch 12 zu teilen. Ein Jahr hat 12 Monate." }
+        hint: "Rechne erst die Zinsen für ein Jahr aus. Nimm davon {{m}} Zwölftel."
+        steps:
+          - '$Z = K \cdot \frac{p}{100} \cdot \frac{m}{12}$'
+          - '$Z = {{K}} \cdot \frac{{{p}}}{100} \cdot \frac{{{m}}}{12} = {{answer}}$, also {{answer}} € Zinsen.'
+      - type: number
+        id: tage-aus-monaten
+        text: "Nach der deutschen Zinsmethode hat jeder Monat 30 Tage. Wie viele Tage sind 4 Monate?"
+        answer: 120
+        tolerance: 0
+        explanation: Ein Monat hat 30 Tage, also sind 4 Monate 4 · 30 = 120 Tage. Ein Jahr hat 12 · 30 = 360 Tage.
+      - type: generated
+        id: tageszinsen-ueben
+        practice: Tageszinsen berechnen.
+        given:
+          K: { int: [400, 4000], step: 100 }
+          p: { oneOf: [2, 4, 5, 6] }
+          t: { oneOf: [30, 45, 60, 90, 120, 180] }
+        where: ["decimals(K * p / 100 * t / 360) <= 2"]
+        task:
+          text: "Nach der deutschen Zinsmethode hat ein Jahr 360 Tage. Ein Guthaben von {{K}} € wird {{t}} Tage lang mit {{p}} % im Jahr verzinst. Wie viel Euro Zinsen sind das?"
+        answer: { value: "K * p / 100 * t / 360", compare: { number: { format: money } } }
+        mistakes:
+          - {
+              value: "K * p / 100 * t",
+              message: "Du hast vergessen, durch 360 zu teilen. Ein Jahr hat nach der deutschen Zinsmethode 360 Tage.",
+            }
+          - {
+              value: "K * p / 100 * t / 30",
+              message: "Du hast durch 30 geteilt. 30 Tage sind ein Monat, ein Jahr hat aber 360 Tage.",
+            }
+        hint: "Rechne erst die Zinsen für ein Jahr aus. Nimm davon {{t}} von 360 Tagen."
+        steps:
+          - '$Z = K \cdot \frac{p}{100} \cdot \frac{t}{360}$'
+          - '$Z = {{K}} \cdot \frac{{{p}}}{100} \cdot \frac{{{t}}}{360} = {{answer}}$, also {{answer}} € Zinsen.'
