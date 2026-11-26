@@ -1,0 +1,78 @@
+{
+  "format": 1,
+  "strand": "mathematik/arithmetik",
+  "pages": [
+    {
+      "path": "prozent/recap/",
+      "title": "Das brauchst du hier",
+      "recap": [
+        "mathematik/natuerliche-zahlen",
+        "mathematik/brueche-begriff",
+        "mathematik/dezimalbrueche"
+      ]
+    },
+    {
+      "path": "prozent/grundbegriffe/",
+      "title": "Grundwert, Prozentwert und Prozentsatz erkennen",
+      "competencies": [
+        "prozent-grundbegriffe"
+      ]
+    },
+    {
+      "path": "prozent/prozentwert/",
+      "title": "Drei Grundaufgaben am Prozentstreifen – Prozentwert berechnen",
+      "competencies": [
+        "prozent-prozentwert"
+      ]
+    },
+    {
+      "path": "prozent/prozentsatz/",
+      "title": "Drei Grundaufgaben am Prozentstreifen – Prozentsatz berechnen",
+      "competencies": [
+        "prozent-prozentsatz"
+      ]
+    },
+    {
+      "path": "prozent/grundwert/",
+      "title": "Drei Grundaufgaben am Prozentstreifen – Grundwert berechnen",
+      "competencies": [
+        "prozent-grundwert"
+      ]
+    },
+    {
+      "path": "prozent/vergleich/",
+      "title": "Zwei Werte am Prozentstreifen vergleichen",
+      "competencies": [
+        "prozent-vergleich"
+      ]
+    },
+    {
+      "path": "prozent/sachaufgaben/",
+      "title": "Sachaufgaben mit Prozentstreifen lösen",
+      "competencies": [
+        "prozent-sachaufgaben"
+      ]
+    },
+    {
+      "path": "prozent/veraenderung/",
+      "title": "Prozentuale Zunahme und Abnahme",
+      "competencies": [
+        "prozent-veraenderung"
+      ]
+    },
+    {
+      "path": "prozent/prozentpunkte/",
+      "title": "Prozentpunkte und mehrfache Änderungen",
+      "competencies": [
+        "prozent-von-prozenten"
+      ]
+    },
+    {
+      "path": "prozent/zinsen/",
+      "title": "Zinsen berechnen",
+      "competencies": [
+        "zinsrechnung"
+      ]
+    }
+  ]
+}
